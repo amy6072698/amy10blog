@@ -6,7 +6,7 @@
   <link href="http://amy6072698.github.io/amy10blog/atom.xml" rel="self"/>
   
   <link href="http://amy6072698.github.io/amy10blog/"/>
-  <updated>2025-04-16T08:46:51.246Z</updated>
+  <updated>2025-04-16T08:47:22.868Z</updated>
   <id>http://amy6072698.github.io/amy10blog/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>first article</title>
-    <link href="http://amy6072698.github.io/amy10blog/2025/04/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-    <id>http://amy6072698.github.io/amy10blog/2025/04/15/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</id>
-    <published>2025-04-15T00:48:16.000Z</published>
-    <updated>2025-04-16T08:46:51.246Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="這是第一篇文章"><a href="#這是第一篇文章" class="headerlink" title="這是第一篇文章"></a>這是第一篇文章</h2><p>你好</p>]]></content>
-    
-    
-    <summary type="html">這是第一篇文章</summary>
-    
-    
-    
-    
-    <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="javaScript" scheme="http://amy6072698.github.io/amy10blog/tags/javaScript/"/>
-    
-  </entry>
   
   <entry>
     <title>Hexo Quick Start</title>
@@ -55,6 +34,27 @@
     <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一篇文章</title>
+    <link href="http://amy6072698.github.io/amy10blog/2025/04/15/first-article/"/>
+    <id>http://amy6072698.github.io/amy10blog/2025/04/15/first-article/</id>
+    <published>2025-04-15T00:48:16.000Z</published>
+    <updated>2025-04-16T08:51:59.433Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="這是第一篇文章"><a href="#這是第一篇文章" class="headerlink" title="這是第一篇文章"></a>這是第一篇文章</h2><p>你好</p>]]></content>
+    
+    
+    <summary type="html">這是第一篇文章</summary>
+    
+    
+    
+    
+    <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="javaScript" scheme="http://amy6072698.github.io/amy10blog/tags/javaScript/"/>
     
   </entry>
   
