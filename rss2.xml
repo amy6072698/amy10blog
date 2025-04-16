@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Amy咂摳部落格</title>
+    <link>http://amy6072698.github.io/amy10blog/</link>
+    
+    <image>
+      <url>http://amy6072698.github.io/amy10blog/icon.png</url>
+      <title>Amy咂摳部落格</title>
+      <link>http://amy6072698.github.io/amy10blog/</link>
+    </image>
+    
+    <atom:link href="http://amy6072698.github.io/amy10blog/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>分享前端開發相關的文章</description>
+    <pubDate>Wed, 16 Apr 2025 08:47:22 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Hexo Quick Start</title>
+      <link>http://amy6072698.github.io/amy10blog/2025/04/15/hello-world/</link>
+      <guid>http://amy6072698.github.io/amy10blog/2025/04/15/hello-world/</guid>
+      <pubDate>Tue, 15 Apr 2025 00:48:16 GMT</pubDate>
+      
+      <description>Hexo Quick Start</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content:encoded>
+      
+      
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
+      
+      
+      <comments>http://amy6072698.github.io/amy10blog/2025/04/15/hello-world/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Hexo 建立部落格</title>
+      <link>http://amy6072698.github.io/amy10blog/2025/04/15/first-article/</link>
+      <guid>http://amy6072698.github.io/amy10blog/2025/04/15/first-article/</guid>
+      <pubDate>Tue, 15 Apr 2025 00:48:16 GMT</pubDate>
+      
+      <description>這是第一篇文章</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="這是第一篇文章"><a href="#這是第一篇文章" class="headerlink" title="這是第一篇文章"></a>這是第一篇文章</h2><p>你好</p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    name: <span class="type">String</span>,</span><br><span class="line">    age: <span class="type">u32</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">new</span>(name: <span class="type">String</span>, age: <span class="type">u32</span>) <span class="punctuation">-&gt;</span> Person &#123;</span><br><span class="line">        Person &#123; name, age &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">show</span>(&amp;<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;Name: &#123;&#125;, Age: &#123;&#125;&quot;</span>, <span class="keyword">self</span>.name, <span class="keyword">self</span>.age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">set_name</span>(&amp;<span class="keyword">mut</span> <span class="keyword">self</span>, new_name: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name = new_name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">set_age</span>(&amp;<span class="keyword">mut</span> <span class="keyword">self</span>, new_age: <span class="type">u32</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.age = new_age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="http://amy6072698.github.io/amy10blog/categories/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/javaScript/">javaScript</category>
+      
+      
+      <comments>http://amy6072698.github.io/amy10blog/2025/04/15/first-article/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>

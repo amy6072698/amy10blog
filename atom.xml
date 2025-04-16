@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Amy Blog</title>
-  
+  <title>Amy咂摳部落格</title>
+  <icon>http://amy6072698.github.io/amy10blog/icon.png</icon>
   <subtitle>歡迎進入網頁的奇幻世界</subtitle>
   <link href="http://amy6072698.github.io/amy10blog/atom.xml" rel="self"/>
   
@@ -38,18 +38,20 @@
   </entry>
   
   <entry>
-    <title>第一篇文章</title>
+    <title>Hexo 建立部落格</title>
     <link href="http://amy6072698.github.io/amy10blog/2025/04/15/first-article/"/>
     <id>http://amy6072698.github.io/amy10blog/2025/04/15/first-article/</id>
     <published>2025-04-15T00:48:16.000Z</published>
-    <updated>2025-04-16T08:51:59.433Z</updated>
+    <updated>2025-04-16T13:58:17.910Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="這是第一篇文章"><a href="#這是第一篇文章" class="headerlink" title="這是第一篇文章"></a>這是第一篇文章</h2><p>你好</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="這是第一篇文章"><a href="#這是第一篇文章" class="headerlink" title="這是第一篇文章"></a>這是第一篇文章</h2><p>你好</p><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    name: <span class="type">String</span>,</span><br><span class="line">    age: <span class="type">u32</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">new</span>(name: <span class="type">String</span>, age: <span class="type">u32</span>) <span class="punctuation">-&gt;</span> Person &#123;</span><br><span class="line">        Person &#123; name, age &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">show</span>(&amp;<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;Name: &#123;&#125;, Age: &#123;&#125;&quot;</span>, <span class="keyword">self</span>.name, <span class="keyword">self</span>.age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">set_name</span>(&amp;<span class="keyword">mut</span> <span class="keyword">self</span>, new_name: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name = new_name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">set_age</span>(&amp;<span class="keyword">mut</span> <span class="keyword">self</span>, new_age: <span class="type">u32</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.age = new_age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
     <summary type="html">這是第一篇文章</summary>
     
     
+    
+    <category term="前端" scheme="http://amy6072698.github.io/amy10blog/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
     <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
