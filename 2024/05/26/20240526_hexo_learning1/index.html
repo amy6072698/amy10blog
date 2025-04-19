@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#535C91" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/amy10blog/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/amy10blog/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/amy10blog/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/amy10blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/amy10blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"amy6072698.github.io","root":"/amy10blog/","images":"/amy10blog/images","scheme":"Gemini","darkmode":true,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-dark","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#E5C3A6","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/amy10blog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/amy10blog/js/config.js" defer></script>
+
+    <meta name="description" content="了解 Hexo 是什麼，安裝前須知和如何安裝 Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="從零開始學 Hexo (1) | Hexo 安裝方法">
+<meta property="og:url" content="http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/index.html">
+<meta property="og:site_name" content="Amy咂摳修練手冊">
+<meta property="og:description" content="了解 Hexo 是什麼，安裝前須知和如何安裝 Hexo">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2024-05-25T18:11:52.000Z">
+<meta property="article:modified_time" content="2025-04-19T09:25:34.825Z">
+<meta property="article:author" content="Amy咂摳">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/","path":"2024/05/26/20240526_hexo_learning1/","title":"從零開始學 Hexo (1) | Hexo 安裝方法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>從零開始學 Hexo (1) | Hexo 安裝方法 | Amy咂摳修練手冊</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/utils.js" defer></script><script src="/amy10blog/js/motion.js" defer></script><script src="/amy10blog/js/sidebar.js" defer></script><script src="/amy10blog/js/next-boot.js" defer></script><script src="/amy10blog/js/bookmark.js" defer></script><script src="/amy10blog/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/amy10blog/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/amy10blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/amy10blog/atom.xml" title="Amy咂摳修練手冊" type="application/atom+xml">
+<link rel="alternate" href="/amy10blog/rss2.xml" title="Amy咂摳修練手冊" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/amy10blog/" class="brand" rel="start">
+        <img class="custom-logo-image" style="margin-top: 0px; margin-bottom: 10px; width: 80px;" src="/amy10blog/images/logo.svg" alt="Amy咂摳修練手冊">
+      <i class="logo-line"></i>
+      <p class="site-title">Amy咂摳修練手冊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">歡迎進入網頁的奇幻世界</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/amy10blog/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/amy10blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/amy10blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/amy10blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/amy10blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-rss"><a href="/amy10blog/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Hexo%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什麼是 Hexo？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E5%89%8D%E5%85%88%E6%AA%A2%E6%9F%A5"><span class="nav-number">2.</span> <span class="nav-text">安裝前先檢查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AA%A2%E6%9F%A5%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%9D-Node-js"><span class="nav-number">2.1.</span> <span class="nav-text">檢查是否安裝 Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AA%A2%E6%9F%A5-npm-%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8"><span class="nav-number">2.2.</span> <span class="nav-text">檢查 npm 是否正常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AA%A2%E6%9F%A5%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%9D-Git"><span class="nav-number">2.3.</span> <span class="nav-text">檢查是否安裝 Git</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-Hexo"><span class="nav-number">3.</span> <span class="nav-text">安裝 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E6%8C%87%E4%BB%A4%E9%80%8F%E9%81%8E-npm-%E5%AE%89%E8%A3%9D-Hexo"><span class="nav-number">3.1.</span> <span class="nav-text">執行以下指令透過 npm 安裝 Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AA%A2%E6%9F%A5-Hexo-%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%9D%E6%88%90%E5%8A%9F-%E8%B7%91%E5%87%BA%E7%89%88%E6%9C%AC%E8%99%9F%E7%A2%BC%E4%BB%A3%E8%A1%A8%E5%AE%89%E8%A3%9D%E6%88%90%E5%8A%9F"><span class="nav-number">3.2.</span> <span class="nav-text">檢查 Hexo 是否安裝成功(跑出版本號碼代表安裝成功)</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy咂摳"
+      src="/amy10blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Amy咂摳</p>
+  <div class="site-description" itemprop="description">分享前端開發相關的文章</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/amy10blog/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/amy10blog/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/amy10blog/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/amy10blog/images/avatar.jpg">
+      <meta itemprop="name" content="Amy咂摳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy咂摳修練手冊">
+      <meta itemprop="description" content="分享前端開發相關的文章">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="從零開始學 Hexo (1) | Hexo 安裝方法 | Amy咂摳修練手冊">
+      <meta itemprop="description" content="了解 Hexo 是什麼，安裝前須知和如何安裝 Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          從零開始學 Hexo (1) | Hexo 安裝方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2024-05-26 02:11:52" itemprop="dateCreated datePublished" datetime="2024-05-26T02:11:52+08:00">2024-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-04-19 17:25:34" itemprop="dateModified" datetime="2025-04-19T17:25:34+08:00">2025-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/amy10blog/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="什麼是-Hexo？"><a href="#什麼是-Hexo？" class="headerlink" title="什麼是 Hexo？"></a>什麼是 Hexo？</h2><p>Hexo 是一個快速、簡單且強大的網誌框架<br>Hexo 使用 Markdown（或其他標記語言）解析您的文章，並在幾秒鐘內，透過漂亮的主題產生靜態部落格網站</p>
+<h2 id="安裝前先檢查"><a href="#安裝前先檢查" class="headerlink" title="安裝前先檢查"></a>安裝前先檢查</h2><p>安裝 Hexo 之前先檢查是否已安裝 Node.js 及 Git，若不確定是否已安裝可在終端機下以下指令：</p>
+<h3 id="檢查是否安裝-Node-js"><a href="#檢查是否安裝-Node-js" class="headerlink" title="檢查是否安裝 Node.js"></a>檢查是否安裝 Node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="檢查-npm-是否正常"><a href="#檢查-npm-是否正常" class="headerlink" title="檢查 npm 是否正常"></a>檢查 npm 是否正常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p>npm 是 Node.js 預設的、用 JavaScript 編寫的軟體套件管理系統，之後會透過 npm 進行 Hexo 的安裝</p>
+<h3 id="檢查是否安裝-Git"><a href="#檢查是否安裝-Git" class="headerlink" title="檢查是否安裝 Git"></a>檢查是否安裝 Git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p>若成功跑出版本號碼代表安裝成功，若還未安裝可至以下網址進行安裝：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en">Node.js</a> (Node.js 版本需不低於 8.10，建議使用 Node.js 10.0 及以上版本)</li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a></li>
+</ul>
+<h2 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h2><p>確認以上軟體安裝完成後就可以透過 npm 來安裝 Hexo 囉~</p>
+<h3 id="執行以下指令透過-npm-安裝-Hexo"><a href="#執行以下指令透過-npm-安裝-Hexo" class="headerlink" title="執行以下指令透過 npm 安裝 Hexo"></a>執行以下指令透過 npm 安裝 Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="檢查-Hexo-是否安裝成功-跑出版本號碼代表安裝成功"><a href="#檢查-Hexo-是否安裝成功-跑出版本號碼代表安裝成功" class="headerlink" title="檢查 Hexo 是否安裝成功(跑出版本號碼代表安裝成功)"></a>檢查 Hexo 是否安裝成功(跑出版本號碼代表安裝成功)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<p>若是透過 PowerShell 安裝，一直無法安裝成功可以參考<a target="_blank" rel="noopener" href="https://akoncc.github.io/2019/11/01/vscode-cant-run-script/">這篇文章</a></p>
+<p>遇到其他問題可參考 <a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/">Hexo 官網</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/amy10blog/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/amy10blog/2024/05/26/20240526_hexo_learning2/" rel="next" title="從零開始學 Hexo (2) | Hexo 環境建置指令">
+                  從零開始學 Hexo (2) | Hexo 環境建置指令 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-hat-wizard"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">轉載文章時請附上作者名 (Amy咂摳) 及原文連結，永遠感謝你</span>
+  </div>
+  <script color="211,202,236" opacity="0.8" zIndex="-1" count="33" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"amy6072698","repo":"amy10blog","client_id":"Ov23lihGMNKD37j8MGqG","client_secret":"bf537fcc7ae373e1434f2096214e7530b6df543a","admin_user":"amy6072698","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"1e33564082e229289a518c77cff9ca14"}</script>
+<script src="/amy10blog/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>
