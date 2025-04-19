@@ -1234,7 +1234,7 @@ pre code {
 }
 .menu-item .badge {
   background: #424769;
-  border-radius: 2px;
+  border-radius: 5px;
   color: #e5c3a6;
   font-weight: bold;
   line-height: 1;
@@ -1313,7 +1313,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff04f1;
+    background: #ff6a49;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1883,7 +1883,7 @@ pre code {
 .posts-collapse .post-content .collection-year .collection-year-count {
   font-size: 0.75em;
   background: #424769;
-  border-radius: 2px;
+  border-radius: 5px;
   color: #e5c3a6;
   font-weight: bold;
   line-height: 1;
@@ -2313,7 +2313,7 @@ pre code {
 .category-all-page .category-list-count {
   font-size: 0.75em;
   background: #424769;
-  border-radius: 2px;
+  border-radius: 5px;
   color: #e5c3a6;
   font-weight: bold;
   line-height: 1;
