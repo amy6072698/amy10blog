@@ -242,7 +242,7 @@ h6 {
   font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
-  margin: 52px 0 -10px;
+  margin: 52px 0 10px 0;
 }
 p {
   margin: 32px 0 32px 0;
@@ -1313,7 +1313,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #39b56f;
+    background: #653d4d;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
