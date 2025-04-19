@@ -1313,7 +1313,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #fa79e2;
+    background: #63417e;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2544,41 +2544,41 @@ ul.breadcrumb li:last-child {
     color: #646da1 !important;
   }
   .gt-container .gt-header-controls-tip {
-    color: #b0aee8;
+    color: #b0aee8 !important;
   }
   .gt-container .gt-header-controls-tip:hover {
-    color: #ddd8ec;
+    color: #ddd8ec !important;
   }
   .gt-container .gt-svg svg {
-    fill: #b0aee8;
+    fill: #b0aee8 !important;
   }
   .gt-container .gt-svg svg:hover {
-    fill: #ddd8ec;
+    fill: #ddd8ec !important;
   }
   .gt-container .gt-link {
-    border-bottom: 1px dotted #b0aee8;
+    border-bottom: 1px dotted #b0aee8 !important;
   }
   .gt-container a {
-    color: #b0aee8;
+    color: #b0aee8 !important;
   }
   .gt-container a:hover {
-    color: #ddd8ec;
+    color: #ddd8ec !important;
   }
   .gt-container .gt-btn {
-    background-color: var(--btn-default-hover-bg);
-    border: 2px solid var(--btn-default-hover-border-color);
-    color: var(--btn-default-hover-color);
+    background-color: var(--btn-default-hover-bg) !important;
+    border: 2px solid var(--btn-default-hover-border-color) !important;
+    color: var(--btn-default-hover-color) !important;
   }
   .gt-container .gt-btn:hover {
-    opacity: 0.8;
+    opacity: 0.8 !important;
   }
   .gt-container .gt-btn-preview {
-    background-color: var(--btn-default-bg);
-    border: 2px solid var(--btn-default-border-color);
-    color: var(--btn-default-color);
+    background-color: var(--btn-default-bg) !important;
+    border: 2px solid var(--btn-default-border-color) !important;
+    color: var(--btn-default-color) !important;
   }
   .gt-container .gt-btn-preview:hover {
-    opacity: 0.8;
+    opacity: 0.8 !important;
   }
 }
 .search-active {
