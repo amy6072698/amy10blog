@@ -1313,7 +1313,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #d6ffff;
+    background: #93eb29;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2538,7 +2538,13 @@ ul.breadcrumb li:last-child {
 }
 @media (prefers-color-scheme: dark) {
   .gt-container .gt-header-textarea {
-    background-color: var(--card-bg-color) !important;
+    background-color: #3c436b !important;
+  }
+  .gt-container .gt-header-textarea::placeholder {
+    color: #646da1;
+  }
+  .gt-container .gt-header-controls-tip {
+    color: #b0aee8;
   }
 }
 .search-active {
