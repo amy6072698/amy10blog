@@ -1313,7 +1313,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #fffa55;
+    background: #fa79e2;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2544,7 +2544,41 @@ ul.breadcrumb li:last-child {
     color: #646da1 !important;
   }
   .gt-container .gt-header-controls-tip {
-    color: #b0aee8 !important;
+    color: #b0aee8;
+  }
+  .gt-container .gt-header-controls-tip:hover {
+    color: #ddd8ec;
+  }
+  .gt-container .gt-svg svg {
+    fill: #b0aee8;
+  }
+  .gt-container .gt-svg svg:hover {
+    fill: #ddd8ec;
+  }
+  .gt-container .gt-link {
+    border-bottom: 1px dotted #b0aee8;
+  }
+  .gt-container a {
+    color: #b0aee8;
+  }
+  .gt-container a:hover {
+    color: #ddd8ec;
+  }
+  .gt-container .gt-btn {
+    background-color: var(--btn-default-hover-bg);
+    border: 2px solid var(--btn-default-hover-border-color);
+    color: var(--btn-default-hover-color);
+  }
+  .gt-container .gt-btn:hover {
+    opacity: 0.8;
+  }
+  .gt-container .gt-btn-preview {
+    background-color: var(--btn-default-bg);
+    border: 2px solid var(--btn-default-border-color);
+    color: var(--btn-default-color);
+  }
+  .gt-container .gt-btn-preview:hover {
+    opacity: 0.8;
   }
 }
 .search-active {
