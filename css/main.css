@@ -1313,7 +1313,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #63417e;
+    background: #d2dae5;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2579,6 +2579,9 @@ ul.breadcrumb li:last-child {
   }
   .gt-container .gt-btn-preview:hover {
     opacity: 0.8 !important;
+  }
+  .gt-container .gt-popup {
+    background: #21253b !important;
   }
 }
 .search-active {
