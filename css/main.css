@@ -345,7 +345,7 @@ td {
 .btn {
   background: var(--btn-default-bg);
   border: 2px solid var(--btn-default-border-color);
-  border-radius: 2px;
+  border-radius: 5px;
   color: var(--btn-default-color);
   display: inline-block;
   font-size: 0.875em;
@@ -1313,7 +1313,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #653d4d;
+    background: #113d03;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
