@@ -1313,7 +1313,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #d2dae5;
+    background: #ff04f1;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2535,6 +2535,7 @@ ul.breadcrumb li:last-child {
 }
 .gt-container .gt-popup .gt-action.is--active::before {
   top: 0.7em;
+  background: #e5c3a6 !important;
 }
 @media (prefers-color-scheme: dark) {
   .gt-container .gt-header-textarea {
@@ -2582,6 +2583,13 @@ ul.breadcrumb li:last-child {
   }
   .gt-container .gt-popup {
     background: #21253b !important;
+    border: 1px solid #3c436b !important;
+  }
+  .gt-container .gt-copyright {
+    border-top: 1px solid #3c436b !important;
+  }
+  .gt-container .gt-version {
+    color: #646da1 !important;
   }
 }
 .search-active {
