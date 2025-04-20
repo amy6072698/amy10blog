@@ -69,31 +69,6 @@
     </item>
     
     <item>
-      <title>從零開始學 Hexo (2) | Hexo 環境建置指令</title>
-      <link>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/</link>
-      <guid>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/</guid>
-      <pubDate>Sat, 25 May 2024 18:11:52 GMT</pubDate>
-      
-      <description>如何帥氣的下指令建立 Hexo 環境😎，在本機查看你建立的 Hexo 部落格吧 ~</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="建立部落格環境"><a href="#建立部落格環境" class="headerlink" title="建立部落格環境"></a>建立部落格環境</h2><p>先在桌面建立一個專案資料夾，開啟終端機下以下指令移動到該資料夾的位置</p><h3 id="用cd指令移動到指定的位置"><a href="#用cd指令移動到指定的位置" class="headerlink" title="用cd指令移動到指定的位置"></a>用cd指令移動到指定的位置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 資料夾路徑</span><br></pre></td></tr></table></figure><p>在 Windows 系統，cd 指令看起來像這樣 <code>cd C:\Users\使用者名稱\Desktop\project</code></p><h4 id="路徑看起來很長有沒有快一點的方式？"><a href="#路徑看起來很長有沒有快一點的方式？" class="headerlink" title="路徑看起來很長有沒有快一點的方式？"></a>路徑看起來很長有沒有快一點的方式？</h4><p>有，先在終端機輸入 <code>cd </code>  ，再將剛剛建立的專案資料夾拖曳到終端機 <code>cd </code>  文字的後面，就可以快速產生專案資料夾的路徑囉！</p><p>利用 cd 指令移動到專案資料夾的位置之後，就可以開始下指令建立 Hexo 部落格了~</p><h3 id="建立-Hexo-部落格的指令"><a href="#建立-Hexo-部落格的指令" class="headerlink" title="建立 Hexo 部落格的指令"></a>建立 Hexo 部落格的指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init 你的網站英文名稱</span><br></pre></td></tr></table></figure><p>執行完之後 Hexo 會用你的網站英文名稱在你的專案資料夾中建立一個資料夾，裡面有所有要建置你部落格網站需要的資料</p><h4 id="如何瀏覽-Hexo-為你建立的網站呢？"><a href="#如何瀏覽-Hexo-為你建立的網站呢？" class="headerlink" title="如何瀏覽 Hexo 為你建立的網站呢？"></a>如何瀏覽 Hexo 為你建立的網站呢？</h4><p>首先，下 cd 指令移動到 Hexo 幫你建立的資料夾，像是這樣 <code>cd C:\Users\使用者名稱\Desktop\project\你的網站英文名稱</code> ，然後執行以下指令開啟 Hexo 伺服器</p><h3 id="開啟-Hexo-伺服器的指令"><a href="#開啟-Hexo-伺服器的指令" class="headerlink" title="開啟 Hexo 伺服器的指令"></a>開啟 Hexo 伺服器的指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure><p>如果嫌棄 <code>hexo server</code> 太長也可以下 <code>hexo s</code> 這個指令來開啟 Hexo 伺服器</p><p>執行之後會看到終端機給你一段網址 (本機)，點開後就能看到目前你用 Hexo 建立的網站的樣子囉！</p>]]></content:encoded>
-      
-      
-      <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
-      
-      
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
-      <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <comments>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>從零開始學 Hexo (1) | Hexo 安裝方法</title>
       <link>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</link>
       <guid>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</guid>
@@ -115,6 +90,31 @@
       
       
       <comments>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>從零開始學 Hexo (2) | Hexo 環境建置指令</title>
+      <link>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/</link>
+      <guid>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/</guid>
+      <pubDate>Sat, 25 May 2024 18:11:52 GMT</pubDate>
+      
+      <description>如何帥氣的下指令建立 Hexo 環境😎，在本機查看你建立的 Hexo 部落格吧 ~</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="建立部落格環境"><a href="#建立部落格環境" class="headerlink" title="建立部落格環境"></a>建立部落格環境</h2><p>先在桌面建立一個專案資料夾，開啟終端機下以下指令移動到該資料夾的位置</p><h3 id="用cd指令移動到指定的位置"><a href="#用cd指令移動到指定的位置" class="headerlink" title="用cd指令移動到指定的位置"></a>用cd指令移動到指定的位置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 資料夾路徑</span><br></pre></td></tr></table></figure><p>在 Windows 系統，cd 指令看起來像這樣 <code>cd C:\Users\使用者名稱\Desktop\project</code></p><h4 id="路徑看起來很長有沒有快一點的方式？"><a href="#路徑看起來很長有沒有快一點的方式？" class="headerlink" title="路徑看起來很長有沒有快一點的方式？"></a>路徑看起來很長有沒有快一點的方式？</h4><p>有，先在終端機輸入 <code>cd </code>  ，再將剛剛建立的專案資料夾拖曳到終端機 <code>cd </code>  文字的後面，就可以快速產生專案資料夾的路徑囉！</p><p>利用 cd 指令移動到專案資料夾的位置之後，就可以開始下指令建立 Hexo 部落格了~</p><h3 id="建立-Hexo-部落格的指令"><a href="#建立-Hexo-部落格的指令" class="headerlink" title="建立 Hexo 部落格的指令"></a>建立 Hexo 部落格的指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init 你的網站英文名稱</span><br></pre></td></tr></table></figure><p>執行完之後 Hexo 會用你的網站英文名稱在你的專案資料夾中建立一個資料夾，裡面有所有要建置你部落格網站需要的資料</p><h4 id="如何瀏覽-Hexo-為你建立的網站呢？"><a href="#如何瀏覽-Hexo-為你建立的網站呢？" class="headerlink" title="如何瀏覽 Hexo 為你建立的網站呢？"></a>如何瀏覽 Hexo 為你建立的網站呢？</h4><p>首先，下 cd 指令移動到 Hexo 幫你建立的資料夾，像是這樣 <code>cd C:\Users\使用者名稱\Desktop\project\你的網站英文名稱</code> ，然後執行以下指令開啟 Hexo 伺服器</p><h3 id="開啟-Hexo-伺服器的指令"><a href="#開啟-Hexo-伺服器的指令" class="headerlink" title="開啟 Hexo 伺服器的指令"></a>開啟 Hexo 伺服器的指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure><p>如果嫌棄 <code>hexo server</code> 太長也可以下 <code>hexo s</code> 這個指令來開啟 Hexo 伺服器</p><p>執行之後會看到終端機給你一段網址 (本機)，點開後就能看到目前你用 Hexo 建立的網站的樣子囉！</p>]]></content:encoded>
+      
+      
+      <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
+      
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      
+      <comments>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/#disqus_thread</comments>
       
     </item>
     
