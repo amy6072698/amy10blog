@@ -1,6 +1,7 @@
 {% macro render(node) %}
 
   {%- set itemURL = node.path %}
+  {%- if itemURL !== "/sitemap.xml" %}
   <li class="menu-item menu-item-{{ node.name | lower | replace(' ', '-') }}">
 
     {%- set menuIcon = '<i class="' + node.icon + ' fa-fw"></i>' if theme.menu_settings.icons and node.icon else '' %}
@@ -24,5 +25,5 @@
     {{- next_url(itemURL, menuIcon + menuText + menuBadge, {rel: 'section'}) -}}
 
   </li>
-
+  {%- endif %}
 {% endmacro %}
