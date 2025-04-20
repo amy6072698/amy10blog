@@ -7,11 +7,18 @@
   }
 }
 
+// custom
 .custom-logo-image {
-  margin-top: 20px;
+  // margin-top: 20px;
+  margin-bottom: 10px;
+  width: 80px;
+  opacity: 1;
+  top: 0px;
 
   +tablet-mobile() {
-    display: none;
+    // display: none;
+    width: 32px;
+    margin: 0 10px 0 0;
   }
 }
 
@@ -23,6 +30,13 @@
 
   &:hover {
     color: var(--brand-hover-color);
+  }
+
+// custom
+  +tablet-mobile() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

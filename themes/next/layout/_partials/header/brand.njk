@@ -16,7 +16,7 @@
 
     <a href="{{ config.root }}" class="brand" rel="start">
       {%- if theme.custom_logo and (theme.scheme === 'Gemini' or theme.scheme === 'Pisces') %}
-        <img class="custom-logo-image" style="margin-top: 0px; margin-bottom: 10px; width: 80px;" src="{{ url_for(theme.custom_logo) }}" alt="{{ title }}">
+        <img class="custom-logo-image" src="{{ url_for(theme.custom_logo) }}" alt="{{ title }}">
       {%- endif %}
       <i class="logo-line"></i>
       <{% if is_home() or is_archive() %}h1{% else %}p{% endif %} class="site-title">{{ title }}</{% if is_home() or is_archive() %}h1{% else %}p{% endif %}>
