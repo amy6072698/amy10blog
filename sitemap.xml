@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://amy6072698.github.io/amy10blog/404.html</loc>
+    
+    <lastmod>2025-04-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://amy6072698.github.io/amy10blog/google2e570d0ff8d29cc9.html</loc>
     
     <lastmod>2025-04-20</lastmod>
@@ -12,6 +21,15 @@
   
   <url>
     <loc>http://amy6072698.github.io/amy10blog/2024/06/09/20240609_reflections_on_learing_hexschool/</loc>
+    
+    <lastmod>2025-04-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</loc>
     
     <lastmod>2025-04-20</lastmod>
     
@@ -38,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</loc>
+    <loc>http://amy6072698.github.io/amy10blog/about/index.html</loc>
     
     <lastmod>2025-04-20</lastmod>
     
@@ -56,25 +74,7 @@
   </url>
   
   <url>
-    <loc>http://amy6072698.github.io/amy10blog/404.html</loc>
-    
-    <lastmod>2025-04-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://amy6072698.github.io/amy10blog/tags/index.html</loc>
-    
-    <lastmod>2025-04-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://amy6072698.github.io/amy10blog/about/index.html</loc>
     
     <lastmod>2025-04-20</lastmod>
     
