@@ -69,31 +69,6 @@
     </item>
     
     <item>
-      <title>從零開始學 Hexo (1) | Hexo 安裝方法</title>
-      <link>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</link>
-      <guid>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</guid>
-      <pubDate>Sat, 25 May 2024 18:11:52 GMT</pubDate>
-      
-      <description>了解 Hexo 是什麼，安裝前須知和如何安裝 Hexo</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="什麼是-Hexo？"><a href="#什麼是-Hexo？" class="headerlink" title="什麼是 Hexo？"></a>什麼是 Hexo？</h2><p>Hexo 是一個快速、簡單且強大的網誌框架<br>Hexo 使用 Markdown（或其他標記語言）解析您的文章，並在幾秒鐘內，透過漂亮的主題產生靜態部落格網站</p><h2 id="安裝前先檢查"><a href="#安裝前先檢查" class="headerlink" title="安裝前先檢查"></a>安裝前先檢查</h2><p>安裝 Hexo 之前先檢查是否已安裝 Node.js 及 Git，若不確定是否已安裝可在終端機下以下指令：</p><h3 id="檢查是否安裝-Node-js"><a href="#檢查是否安裝-Node-js" class="headerlink" title="檢查是否安裝 Node.js"></a>檢查是否安裝 Node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure><h3 id="檢查-npm-是否正常"><a href="#檢查-npm-是否正常" class="headerlink" title="檢查 npm 是否正常"></a>檢查 npm 是否正常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure><p>npm 是 Node.js 預設的、用 JavaScript 編寫的軟體套件管理系統，之後會透過 npm 進行 Hexo 的安裝</p><h3 id="檢查是否安裝-Git"><a href="#檢查是否安裝-Git" class="headerlink" title="檢查是否安裝 Git"></a>檢查是否安裝 Git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure><p>若成功跑出版本號碼代表安裝成功，若還未安裝可至以下網址進行安裝：</p><ul><li><a href="https://nodejs.org/en">Node.js</a> (Node.js 版本需不低於 8.10，建議使用 Node.js 10.0 及以上版本)</li><li><a href="https://git-scm.com/">Git</a></li></ul><h2 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h2><p>確認以上軟體安裝完成後就可以透過 npm 來安裝 Hexo 囉~</p><h3 id="執行以下指令透過-npm-安裝-Hexo"><a href="#執行以下指令透過-npm-安裝-Hexo" class="headerlink" title="執行以下指令透過 npm 安裝 Hexo"></a>執行以下指令透過 npm 安裝 Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h3 id="檢查-Hexo-是否安裝成功-跑出版本號碼代表安裝成功"><a href="#檢查-Hexo-是否安裝成功-跑出版本號碼代表安裝成功" class="headerlink" title="檢查 Hexo 是否安裝成功(跑出版本號碼代表安裝成功)"></a>檢查 Hexo 是否安裝成功(跑出版本號碼代表安裝成功)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure><p>若是透過 PowerShell 安裝，一直無法安裝成功可以參考<a href="https://akoncc.github.io/2019/11/01/vscode-cant-run-script/">這篇文章</a></p><p>遇到其他問題可參考 <a href="https://hexo.io/zh-tw/">Hexo 官網</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
-      
-      
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
-      <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <comments>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>從零開始學 Hexo (2) | Hexo 環境建置指令</title>
       <link>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/</link>
       <guid>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/</guid>
@@ -115,6 +90,31 @@
       
       
       <comments>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>從零開始學 Hexo (1) | Hexo 安裝方法</title>
+      <link>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</link>
+      <guid>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</guid>
+      <pubDate>Sat, 25 May 2024 18:11:52 GMT</pubDate>
+      
+      <description>了解 Hexo 是什麼，安裝前須知和如何安裝 Hexo</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="什麼是-Hexo？"><a href="#什麼是-Hexo？" class="headerlink" title="什麼是 Hexo？"></a>什麼是 Hexo？</h2><p>Hexo 是一個快速、簡單且強大的網誌框架<br>Hexo 使用 Markdown（或其他標記語言）解析您的文章，並在幾秒鐘內，透過漂亮的主題產生靜態部落格網站</p><h2 id="安裝前先檢查"><a href="#安裝前先檢查" class="headerlink" title="安裝前先檢查"></a>安裝前先檢查</h2><p>安裝 Hexo 之前先檢查是否已安裝 Node.js 及 Git，若不確定是否已安裝可在終端機下以下指令：</p><h3 id="檢查是否安裝-Node-js"><a href="#檢查是否安裝-Node-js" class="headerlink" title="檢查是否安裝 Node.js"></a>檢查是否安裝 Node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure><h3 id="檢查-npm-是否正常"><a href="#檢查-npm-是否正常" class="headerlink" title="檢查 npm 是否正常"></a>檢查 npm 是否正常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure><p>npm 是 Node.js 預設的、用 JavaScript 編寫的軟體套件管理系統，之後會透過 npm 進行 Hexo 的安裝</p><h3 id="檢查是否安裝-Git"><a href="#檢查是否安裝-Git" class="headerlink" title="檢查是否安裝 Git"></a>檢查是否安裝 Git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure><p>若成功跑出版本號碼代表安裝成功，若還未安裝可至以下網址進行安裝：</p><ul><li><a href="https://nodejs.org/en">Node.js</a> (Node.js 版本需不低於 8.10，建議使用 Node.js 10.0 及以上版本)</li><li><a href="https://git-scm.com/">Git</a></li></ul><h2 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h2><p>確認以上軟體安裝完成後就可以透過 npm 來安裝 Hexo 囉~</p><h3 id="執行以下指令透過-npm-安裝-Hexo"><a href="#執行以下指令透過-npm-安裝-Hexo" class="headerlink" title="執行以下指令透過 npm 安裝 Hexo"></a>執行以下指令透過 npm 安裝 Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h3 id="檢查-Hexo-是否安裝成功-跑出版本號碼代表安裝成功"><a href="#檢查-Hexo-是否安裝成功-跑出版本號碼代表安裝成功" class="headerlink" title="檢查 Hexo 是否安裝成功(跑出版本號碼代表安裝成功)"></a>檢查 Hexo 是否安裝成功(跑出版本號碼代表安裝成功)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure><p>若是透過 PowerShell 安裝，一直無法安裝成功可以參考<a href="https://akoncc.github.io/2019/11/01/vscode-cant-run-script/">這篇文章</a></p><p>遇到其他問題可參考 <a href="https://hexo.io/zh-tw/">Hexo 官網</a></p>]]></content:encoded>
+      
+      
+      <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
+      
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      
+      <comments>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/#disqus_thread</comments>
       
     </item>
     
