@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</loc>
-    
-    <lastmod>2025-04-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/</loc>
     
     <lastmod>2025-04-20</lastmod>
@@ -47,16 +38,7 @@
   </url>
   
   <url>
-    <loc>http://amy6072698.github.io/amy10blog/tags/index.html</loc>
-    
-    <lastmod>2025-04-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://amy6072698.github.io/amy10blog/about/index.html</loc>
+    <loc>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</loc>
     
     <lastmod>2025-04-20</lastmod>
     
@@ -75,6 +57,24 @@
   
   <url>
     <loc>http://amy6072698.github.io/amy10blog/404.html</loc>
+    
+    <lastmod>2025-04-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://amy6072698.github.io/amy10blog/tags/index.html</loc>
+    
+    <lastmod>2025-04-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://amy6072698.github.io/amy10blog/about/index.html</loc>
     
     <lastmod>2025-04-20</lastmod>
     
