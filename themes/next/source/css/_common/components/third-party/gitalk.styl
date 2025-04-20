@@ -10,59 +10,73 @@ if (hexo-config('gitalk.enable')) {
 
   if (hexo-config('darkmode')) {
     @media (prefers-color-scheme: dark) {
-      .gt-container .gt-header-textarea {
-        background-color: $primary-50 !important;
-        &::placeholder{
+      .gt-container {
+
+        .gt-header-textarea {
+          background-color: $primary-50 !important;
+          &::placeholder{
+            color: $primary-20 !important;
+          }
+        }
+
+        .gt-header-controls-tip {
+          color: $primary-10 !important;
+          &:hover{
+            color: $purple-10 !important;
+          }
+        }
+
+        .gt-svg svg {
+          fill: $primary-10 !important;
+          &:hover{
+            fill: $purple-10 !important;
+          }
+        }
+
+        .gt-link{
+          border-bottom: 1px dotted $primary-10 !important;
+        }
+
+        a{
+          color: $primary-10 !important;
+          &:hover{
+            color: $purple-10 !important;
+          } 
+        }
+
+        .gt-btn{
+          background-color: var(--btn-default-hover-bg) !important;
+          border: 2px solid var(--btn-default-hover-border-color) !important;
+          color: var(--btn-default-hover-color) !important;
+          &:hover{
+            opacity: 0.8 !important;
+          }
+        }
+
+        .gt-btn-preview{
+          background-color: var(--btn-default-bg) !important;
+          border: 2px solid var(--btn-default-border-color) !important;
+          color: var(--btn-default-color) !important;
+          &:hover{
+            opacity: 0.8 !important;
+          }
+        }
+
+        .gt-popup{
+          background: $primary-70 !important;
+          border: 1px solid $primary-50 !important;
+        }
+
+        .gt-copyright{
+          border-top: 1px solid $primary-50 !important;
+        }
+
+        .gt-version{
           color: $primary-20 !important;
         }
+
       }
-      .gt-container .gt-header-controls-tip {
-        color: $primary-10 !important;
-        &:hover{
-          color: $purple-10 !important;
-        }
-      }
-      .gt-container .gt-svg svg {
-        fill: $primary-10 !important;
-        &:hover{
-          fill: $purple-10 !important;
-        }
-      }
-      .gt-container .gt-link{
-        border-bottom: 1px dotted $primary-10 !important;
-      }
-      .gt-container a{
-        color: $primary-10 !important;
-        &:hover{
-          color: $purple-10 !important;
-        } 
-      }
-      .gt-container .gt-btn{
-        background-color: var(--btn-default-hover-bg) !important;
-        border: 2px solid var(--btn-default-hover-border-color) !important;
-        color: var(--btn-default-hover-color) !important;
-        &:hover{
-          opacity: 0.8 !important;
-        }
-      }
-      .gt-container .gt-btn-preview{
-        background-color: var(--btn-default-bg) !important;
-        border: 2px solid var(--btn-default-border-color) !important;
-        color: var(--btn-default-color) !important;
-        &:hover{
-          opacity: 0.8 !important;
-        }
-      }
-      .gt-container .gt-popup{
-        background: $primary-70 !important;
-        border: 1px solid $primary-50 !important;
-      }
-      .gt-container .gt-copyright{
-        border-top: 1px solid $primary-50 !important;
-      }
-      .gt-container .gt-version{
-        color: $primary-20 !important;
-      }
+
     }
   }
 }
