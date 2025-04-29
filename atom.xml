@@ -6,7 +6,7 @@
   <link href="http://amy6072698.github.io/amy10blog/atom.xml" rel="self"/>
   
   <link href="http://amy6072698.github.io/amy10blog/"/>
-  <updated>2025-04-20T10:48:07.751Z</updated>
+  <updated>2025-04-29T15:31:20.059Z</updated>
   <id>http://amy6072698.github.io/amy10blog/</id>
   
   <author>
@@ -15,6 +15,75 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>從零開始學 Hexo (3) | 下 Hexo 指令建立部落格環境吧 ~</title>
+    <link href="http://amy6072698.github.io/amy10blog/2025/04/23/20250423-hexo-learning3/"/>
+    <id>http://amy6072698.github.io/amy10blog/2025/04/23/20250423-hexo-learning3/</id>
+    <published>2025-04-23T06:26:12.000Z</published>
+    <updated>2025-04-29T15:31:20.059Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="建立-Hexo-環境的前置"><a href="#建立-Hexo-環境的前置" class="headerlink" title="建立 Hexo 環境的前置"></a>建立 Hexo 環境的前置</h2><p>經過前篇 <del>激烈的戰鬥</del> 努力的奮鬥，相信大家都安裝好 Hexo 了，那接下來要做的就是建立你的 Hexo 部落格環境啦 ~</p><h3 id="建立專案資料夾"><a href="#建立專案資料夾" class="headerlink" title="建立專案資料夾"></a>建立專案資料夾</h3><p>首先，在桌面(或其他你想建立專案資料夾的地方)建立一個專案資料夾，我這邊就先在桌面建立一個 amyHexo 的資料夾 <del>(沒錯，我桌面背景是紅色的</del> ，資料夾的名字可以自己取不用和我一樣<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726949J7FjsCAB7.png" alt="在桌面建立 amyHexo 的資料夾"></p><h3 id="用cd指令移動到指定的路徑"><a href="#用cd指令移動到指定的路徑" class="headerlink" title="用cd指令移動到指定的路徑"></a>用cd指令移動到指定的路徑</h3><p>再來開啟終端機執行 <code>cd</code> 指令移動到專案資料夾如下，你的資料夾要看你建立在哪個路徑再將你的路徑填入以下 <code>你的專案資料夾路徑</code> 位置裡 (注意：cd 後面有一個空白字元再接路徑)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 你的專案資料夾路徑</span><br></pre></td></tr></table></figure><p>以我建立的 amyHexo 的資料夾為例，就要執行 <code>cd c:\Users\User\Desktop\amyHexo</code> 這個指令，每個人的 User 名字可能不一樣那就看你自己叫什麼囉 ~</p><h3 id="快速填入指定資料夾路徑的方法"><a href="#快速填入指定資料夾路徑的方法" class="headerlink" title="快速填入指定資料夾路徑的方法"></a>快速填入指定資料夾路徑的方法</h3><p>如果你懶得輸入這麼長的路徑，有一個方法可以試試看，先在終端機輸入 <code>cd</code> 和一個空白字元，再把你想前往的專案資料夾用滑鼠按住左鍵拖曳到終端機視窗內<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726944tnpIC3tmI.png" alt="把想前往的資料夾拖曳到終端機"></p><p>然後放開滑鼠左鍵， <code>cd</code> 空白後面就會自動填入你拖曳進來的資料夾路徑囉 ~<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694ewCUEzUq4x.png" alt="放開就會自動填入該資料夾位置"></p><hr><h2 id="下-Hexo-指令建立環境"><a href="#下-Hexo-指令建立環境" class="headerlink" title="下 Hexo 指令建立環境"></a>下 Hexo 指令建立環境</h2><p>再來就進入重頭戲用 Hexo 指令來建立你的部落格環境囉 ~</p><p>前面講到 <code>cd</code> 移動到你的專案資料夾中，確定有移動到正確路徑下之後，執行以下指令，其中 <code>你的網站英文名稱</code> 可以自己取名：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init 你的網站英文名稱</span><br></pre></td></tr></table></figure><p>以我的部落格網站英文名稱 amy10blog 為例，下完 <code>hexo init amy10blog</code> 指令後，終端機成功跑完回應就成功囉 ~<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694Z78eK5oMQd.png" alt="終端機執行 hexo init "></p><p>執行完以上指令後， Hexo 就會在專案資料夾中建立一個新資料夾，這個新資料夾會用剛剛指令輸入的 <code>你的網站英文名稱</code> 命名，以我的為例新資料夾就會叫 <code>amy10blog</code>：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694KdrmLtwayg.png" alt="新資料夾名稱"></p><p>而新資料夾裡面是所有 Hexo 部落格環境會需要用到的東西，給瞄你一眼：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694rIxaAoeMRt.png" alt="資料夾內 Hexo 部落格環境會需要用到的東西"></p><hr><h2 id="如何瀏覽-Hexo-為你建立的部落格網站呢？"><a href="#如何瀏覽-Hexo-為你建立的部落格網站呢？" class="headerlink" title="如何瀏覽 Hexo 為你建立的部落格網站呢？"></a>如何瀏覽 Hexo 為你建立的部落格網站呢？</h2><p>說了這麼多，要怎麼看我現在的部落格網站長什麼樣子呢？一樣要用 Hexo 的指令，接著往下看</p><p>使用 Hexo 的指令在本地查看你的部落格網站之前，要記得先移動到 Hexo 剛剛在專案資料夾中幫你建的新資料夾路徑下，以我的為例，就是要移到 <code>amy10blog</code> 資料夾：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726944BzbPrOwIl.png" alt="先移動到 Hexo 剛剛在專案資料夾中幫你建的新資料夾路徑下"></p><p>接著，再執行以下指令，開啟 Hexo 伺服器</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure><p>如果嫌棄 <code>hexo server</code> 太長，下 <code>hexo s</code> 這個指令一樣可以開啟 Hexo 伺服器<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694y0YKDcJD69.png" alt="hexo server 開啟 Hexo 伺服器指令"></p><p>執行完之後它會回給你一段本地端的網址，點開網址就可以看見目前部落格的樣子囉 ~ 通常初始的部落格網站大家都會長這樣：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694RC45P8QUN0.png" alt=" Hexo 部落格網站初始樣子"></p><p>後續會再教大家客製化的方法，不過會先把 Hexo 的基本指令講解完再討論這塊，也是有許多研究後的結果可以分享，那我們就下篇文章見囉 ~</p>]]></content>
+    
+    
+    <summary type="html">如何帥氣的下指令建立 Hexo 環境😎，在本機查看你建立的 Hexo 部落格吧 ~</summary>
+    
+    
+    
+    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/categories/Hexo/"/>
+    
+    
+    <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>從零開始學 Hexo (2) | Hexo 安裝方法</title>
+    <link href="http://amy6072698.github.io/amy10blog/2025/04/22/20250422-hexo-learning2/"/>
+    <id>http://amy6072698.github.io/amy10blog/2025/04/22/20250422-hexo-learning2/</id>
+    <published>2025-04-22T03:16:29.000Z</published>
+    <updated>2025-04-29T15:25:32.858Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="想了解-Hexo-從官網開始"><a href="#想了解-Hexo-從官網開始" class="headerlink" title="想了解 Hexo 從官網開始"></a>想了解 Hexo 從官網開始</h2><p>想知道怎麼安裝 Hexo，第一站就是 <a href="https://hexo.io/zh-tw/">Hexo 的官網</a> ，進入官網後點上方導覽列的「文件」:<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694EThBdppvdH.png" alt="進入 Hexo 官網後點上方導覽列的文件"></p><p>然後你就可以看到 Hexo 很貼心的把安裝方式放在文件的第一頁囉~</p><p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694pKvZW6QO9e.png" alt=" Hexo 的安裝方式在文件第一頁"></p><p>往下滑你可以看到更多關於 Hexo 安裝需要的東西：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694sCbdH74cis.png" alt=" Hexo 安裝需求"></p><p>首先安裝需求的部分會需要先安裝 Node.js 和 Git，先從 Node.js 的安裝開始</p><hr><h2 id="安裝-Node-js"><a href="#安裝-Node-js" class="headerlink" title="安裝 Node.js"></a>安裝 Node.js</h2><p>如果你曾經看過以前的文章講解如何安裝 Node.js，那你就會看見以下這張圖，它有兩種下載按鈕，一個是 LTS 版本、一個是 Current 版本<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726942qi9mlKzLY.png" alt="舊版 Node.js 官網下載安裝按鈕"></p><p>這兩種版本差異簡單講就是 LTS (Long-term support) 長期支援版是當前穩定的版本，Current 則是最新版本，一般如果不是為了最新功能不會去下載 Current 版，所以這邊就下載 LTS 版本就可以囉~</p><p>不過現在<a href="https://nodejs.org/zh-tw">官網</a>已經改成只有 LTS 一個按鈕了，所以上面說明就當作是小補充吧，把那唯一的下載按鈕揍下去就對了<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694Lkc9MCfbK2.png" alt="新版 Node.js 官網下載安裝按鈕"></p><p>下載完成之後你的下載資料夾會出現 Node.js 的安裝檔，點兩下開啟檔案然後按 Next 按鈕、勾選同意，然後一路按 Next 按鈕最後再按下 Install 按鈕就可以完成安裝了</p><p>如果你按安裝過程中沒有指定位置，安裝完之後的 Node.js 一般會在本機的 Program Files 資料夾中：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694to0E2nkZ3Z.png" alt="安裝完之後的 Node.js 一般會在本機的 Program Files 資料夾中"></p><hr><h2 id="安裝-Git"><a href="#安裝-Git" class="headerlink" title="安裝 Git"></a>安裝 Git</h2><p>要安裝 Git 就先進入它的<a href="https://git-scm.com/">官網</a>，進入後往下滑會看見一台小電腦在畫面上，它會判斷你是 Windows 還是 Mac 系統，按下下載按鈕：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694adon1sG4bp.png" alt=" Git 官網下載安裝按鈕"></p><p>然後官網會跳轉下載頁面，並自動下載，若沒有自動觸發，可點擊下圖 Click here to download 連結手動下載：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694y749Bk58j7.png" alt=" Git 官網 Click here to download 連結手動下載"></p><p>下載完成之後你的下載資料夾會出現 Git 的安裝檔，一樣點兩下開啟檔案，再來就是按肯定的按鈕 <del>(說 Yes 就對了</del> ，然後按下安裝，這樣就完成安裝囉~</p><hr><h2 id="安裝-Hexo-前先檢查"><a href="#安裝-Hexo-前先檢查" class="headerlink" title="安裝 Hexo 前先檢查"></a>安裝 Hexo 前先檢查</h2><p>再來就要開啟終端機檢查有沒有成功安裝好 Node.js 和 Git 了，開啟終端機後輸入以下指令如果系統都有回應你剛剛安裝的版本號碼就表示你正確完成安裝囉~</p><h3 id="檢查是否安裝-Node-js"><a href="#檢查是否安裝-Node-js" class="headerlink" title="檢查是否安裝 Node.js"></a>檢查是否安裝 Node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure><h3 id="檢查-npm-是否正常"><a href="#檢查-npm-是否正常" class="headerlink" title="檢查 npm 是否正常"></a>檢查 npm 是否正常</h3><p>npm 是 Node.js 預設的軟體套件管理系統，會隨著 Node.js 安裝時一起安裝，因為之後會透過 npm 進行 Hexo 的安裝，所以一定要確保 npm 有正常安裝</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure><h3 id="檢查是否安裝-Git"><a href="#檢查是否安裝-Git" class="headerlink" title="檢查是否安裝 Git"></a>檢查是否安裝 Git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure><hr><h2 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h2><p>終於進入安裝 Hexo 的階段啦~~~ 確認以上軟體安裝完成後，接下來依照<a href="https://hexo.io/zh-tw/docs/#%E5%AE%89%E8%A3%9D-Hexo">官網的安裝指示</a>，執行以下指令就可以透過 npm 來安裝 Hexo 囉~</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h3 id="檢查-Hexo-是否安裝成功"><a href="#檢查-Hexo-是否安裝成功" class="headerlink" title="檢查 Hexo 是否安裝成功"></a>檢查 Hexo 是否安裝成功</h3><p>接下來別忘記檢查 Hexo 是否安裝成功，執行以下指令，如果有跑出版本號碼就恭喜你成功安裝 Hexo 囉🎉</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure><hr><h2 id="你可能會遇到-PowerShell-執行原則問題"><a href="#你可能會遇到-PowerShell-執行原則問題" class="headerlink" title="你可能會遇到 PowerShell 執行原則問題"></a>你可能會遇到 PowerShell 執行原則問題</h2><p>如果你是使用 Windows 系統的 PowerShell 為執行指令的終端機，或你是開 VSCode 內的終端機(VSCode 預設使用的終端機是 PowerShell)，那在安裝時你可能會遇到 PowerShell 的執行原則問題 <del>(提前說以免有人再掉到坑裡，維護安全人人有責</del></p><h3 id="情況說明"><a href="#情況說明" class="headerlink" title="情況說明"></a>情況說明</h3><p>當你執行指令打算美美的完成 Hexo 安裝時，發現它回了一串錯誤給你，有可能長得像這樣：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo : 因為這個系統上已停用指令碼執行，所以無法載入 ...</span><br></pre></td></tr></table></figure><p>講一堆就是不給你安裝的意思，那有可能是 PowerShell 的執行原則產生的問題， Windows 預設的 powershell 執行原則為 <code>Restricted</code></p><p> <strong>PowerShell 有四種執行原則：</strong></p><ol><li>Restricted：所有 <code>PowerShell Script</code>(.ps1) 皆無法執行 (Windows系統預設)</li><li>AllSigned：所有 <code>PowerShell Script</code> 都要經過受信任的發行者簽屬過後才可執行</li><li>RemoteSigned：針對從異地下載下來的 <code>PowerShell Script</code> 需要經過受信任的發行者簽屬過後才可執行，本機的 <code>PowerShell Script</code> 可直接執行</li><li>Unrestricted：無限制，所有 <code>PowerShell Script</code> 皆可執行</li></ol><h3 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h3><p>想解決前面出現的錯誤其實只要改變執行原則的設定即可，但在改變之前要先執行以下指令確認 PowerShell 現在是哪個執行原則：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-executionpolicy</span><br></pre></td></tr></table></figure><p>如果它回 <code>Restricted</code>，再往下執行以下指令，執行後會有視窗詢問，按下確定後就能將執行原則改為 <code>Remotesigned</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set-executionpolicy remotesigned</span><br></pre></td></tr></table></figure><p>但如果不幸還是跳出錯誤，長得像這樣：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy : 拒絕存取登錄機碼...</span><br></pre></td></tr></table></figure><p>那就再往下執行以下指令，就能成功執行了：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</span><br></pre></td></tr></table></figure><p>希望大家還是不要踩到坑比較好，如果不幸遇到的話希望這個問題補充可以幫助到你，以上內容參考自<a href="https://akoncc.github.io/2019/11/01/vscode-cant-run-script/">這篇文章</a>，想了解更詳細內容可以去看看</p><p>那就先祝大家都順利安裝 Hexo 成功囉~ 我們下篇文章見🪄</p>]]></content>
+    
+    
+    <summary type="html">了解 Hexo 安裝前需求與如何安裝 Hexo</summary>
+    
+    
+    
+    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/categories/Hexo/"/>
+    
+    
+    <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>從零開始學 Hexo (1) |  Hexo 是什麼？為什麼開始學 Hexo？</title>
+    <link href="http://amy6072698.github.io/amy10blog/2025/04/21/20250421-hexo-learning1/"/>
+    <id>http://amy6072698.github.io/amy10blog/2025/04/21/20250421-hexo-learning1/</id>
+    <published>2025-04-21T02:12:31.000Z</published>
+    <updated>2025-04-29T15:16:41.568Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="開始學-Hexo-的動機"><a href="#開始學-Hexo-的動機" class="headerlink" title="開始學 Hexo 的動機"></a>開始學 Hexo 的動機</h2><p>進入 Hexo 的簡單介紹之前，先說說我自己開始學 Hexo 的動機，因為我希望能建立一個自己的部落格網站，不只是當作平時學習前端知識的筆記收藏區，也希望透過這些文章分享能幫助到正在學習的新手，而 <del>本人比較懶</del> Hexo 因為能夠輕鬆完成一個部落格網站的架構，也有許多中文教學幫助初學者入門，建置屬於自己的專屬部落格網站，所以就下定決心要開始學習用 Hexo 完成屬於自己的部落格網站啦~</p><hr><h2 id="什麼是-Hexo？"><a href="#什麼是-Hexo？" class="headerlink" title="什麼是 Hexo？"></a>什麼是 Hexo？</h2><p>介紹什麼是 Hexo 之前，先想想如果要寫部落格文章，可能會用哪些方式去撰寫自己的文章？<br> <strong>1. 使用現有的部落格平台撰寫文章</strong> ，如：痞客邦、iT邦幫忙、Medium…<br> <strong>2. 自己架設部落格網站存放自己的文章</strong><br>接下來就談談這兩種方式的一些優缺比較吧~</p><h3 id="使用現有的部落格平台優缺"><a href="#使用現有的部落格平台優缺" class="headerlink" title="使用現有的部落格平台優缺"></a>使用現有的部落格平台優缺</h3><p>使用現有的部落格平台優點是簡單粗暴不太需要思考， <strong>只要專注在撰寫的文章內容即可</strong> ，因為是使用現有平台所以 <strong>平台本身會有一定的流量</strong> ，不太需要過度擔心自己的文章無法被搜尋到等複雜的 SEO 問題</p><p>但這樣的便利伴隨一定的缺點，那就是如果 <strong>平台收掉你辛苦寫的文章可能會遺失</strong> ，而且有些平台可能有個人主頁但版型都很一致性可變動部分不多、 <strong>無法讓你充分客製化想要的網頁樣式</strong></p><h3 id="架設部落格網站工具比較"><a href="#架設部落格網站工具比較" class="headerlink" title="架設部落格網站工具比較"></a>架設部落格網站工具比較</h3><p>看完上面使用現有部落格平台的缺點後，如果想避免有些人就會開始考慮架設自己的部落格網站，這時候就會需要一些方便快速的架站工具，如：WordPress、Hexo…，當然可能還有其他架站工具</p><p>但這邊先以我曾經使用過的 WordPress、Hexo 這兩個來說明，這兩個都是架站的工具，一樣都有多種網站主題可以選擇，讓想架設網站的人能夠快速架站，但兩者在架站上還是有差異的</p><ul><li><strong>WordPress：</strong> 是 <strong>動態網頁架站工具</strong> ，動態網頁通常會需要搭配一個資料庫，需要另外 <strong>支出動態伺服器的費用</strong> ；客製化網站方面：有提供視覺化的編輯器外掛，不懂程式碼其實也能勉強客製出一個網站</li><li><strong>Hexo：</strong> 是 <strong>靜態網頁架站工具</strong> ，可以想成是部落格網站架設工具，如果 <strong>搭配 GitHub 空間可以實現幾乎零成本的網站架設</strong> ；客製化網站方面：需要學習一些程式碼、會用終端機下指令比較容易客製出網站</li></ul><p>本人在進入神奇的程式碼世界前有學過一些 WordPress 可以大概說明兩種工具在客製化上面的使用差別， WordPress 雖然有視覺化的編輯器，但如果想進一步客製網站結構跟樣式還是必須要學習一些程式碼的，這也是為什麼我改行學程式碼了🤣</p><hr><h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>看過以上比較，你會發現使用 Hexo 架站雖然能省一些荷包成本，但相對的它就會需要更多的腦力成本，沒錯~ 要學習程式碼跟指令才能客製出自己的專屬部落格，不過別擔心之後我會帶大家一起學習 Hexo 的基本指令及其他延伸知識</p><hr><h2 id="心情小語"><a href="#心情小語" class="headerlink" title="心情小語"></a>心情小語</h2><p>其實 Hexo 在去年大概 4、5 月就已經初步學習過了，除了我自己進修上課的學習資源外，還有<a href="https://israynotarray.com/categories/hexo/">六角大前輩 Ray 的 Hexo 系列文章</a>，讓我決定在重新翻新架設<a href="https://amy6072698.github.io/amy10blog/">我的部落格</a>後，來分享自己在架設過程中發現並處理的問題，也會提到一些基本操作，再請大家多多支持~</p>]]></content>
+    
+    
+    <summary type="html">開始學 Hexo 的動機以及常見部落格經營方式比較</summary>
+    
+    
+    
+    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/categories/Hexo/"/>
+    
+    
+    <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>如果不試一輩子都不知道自己能走這麼遠｜不知不覺寫了 1 年程式，前端工程師修煉之路</title>
@@ -59,52 +128,6 @@
     <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="心得分享" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>從零開始學 Hexo (2) | Hexo 環境建置指令</title>
-    <link href="http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/"/>
-    <id>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning2/</id>
-    <published>2024-05-25T18:11:52.000Z</published>
-    <updated>2025-04-20T06:04:22.043Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="建立部落格環境"><a href="#建立部落格環境" class="headerlink" title="建立部落格環境"></a>建立部落格環境</h2><p>先在桌面建立一個專案資料夾，開啟終端機下以下指令移動到該資料夾的位置</p><h3 id="用cd指令移動到指定的位置"><a href="#用cd指令移動到指定的位置" class="headerlink" title="用cd指令移動到指定的位置"></a>用cd指令移動到指定的位置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 資料夾路徑</span><br></pre></td></tr></table></figure><p>在 Windows 系統，cd 指令看起來像這樣 <code>cd C:\Users\使用者名稱\Desktop\project</code></p><h4 id="路徑看起來很長有沒有快一點的方式？"><a href="#路徑看起來很長有沒有快一點的方式？" class="headerlink" title="路徑看起來很長有沒有快一點的方式？"></a>路徑看起來很長有沒有快一點的方式？</h4><p>有，先在終端機輸入 <code>cd </code>  ，再將剛剛建立的專案資料夾拖曳到終端機 <code>cd </code>  文字的後面，就可以快速產生專案資料夾的路徑囉！</p><p>利用 cd 指令移動到專案資料夾的位置之後，就可以開始下指令建立 Hexo 部落格了~</p><h3 id="建立-Hexo-部落格的指令"><a href="#建立-Hexo-部落格的指令" class="headerlink" title="建立 Hexo 部落格的指令"></a>建立 Hexo 部落格的指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init 你的網站英文名稱</span><br></pre></td></tr></table></figure><p>執行完之後 Hexo 會用你的網站英文名稱在你的專案資料夾中建立一個資料夾，裡面有所有要建置你部落格網站需要的資料</p><h4 id="如何瀏覽-Hexo-為你建立的網站呢？"><a href="#如何瀏覽-Hexo-為你建立的網站呢？" class="headerlink" title="如何瀏覽 Hexo 為你建立的網站呢？"></a>如何瀏覽 Hexo 為你建立的網站呢？</h4><p>首先，下 cd 指令移動到 Hexo 幫你建立的資料夾，像是這樣 <code>cd C:\Users\使用者名稱\Desktop\project\你的網站英文名稱</code> ，然後執行以下指令開啟 Hexo 伺服器</p><h3 id="開啟-Hexo-伺服器的指令"><a href="#開啟-Hexo-伺服器的指令" class="headerlink" title="開啟 Hexo 伺服器的指令"></a>開啟 Hexo 伺服器的指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure><p>如果嫌棄 <code>hexo server</code> 太長也可以下 <code>hexo s</code> 這個指令來開啟 Hexo 伺服器</p><p>執行之後會看到終端機給你一段網址 (本機)，點開後就能看到目前你用 Hexo 建立的網站的樣子囉！</p>]]></content>
-    
-    
-    <summary type="html">如何帥氣的下指令建立 Hexo 環境😎，在本機查看你建立的 Hexo 部落格吧 ~</summary>
-    
-    
-    
-    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/categories/Hexo/"/>
-    
-    
-    <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>從零開始學 Hexo (1) | Hexo 安裝方法</title>
-    <link href="http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/"/>
-    <id>http://amy6072698.github.io/amy10blog/2024/05/26/20240526_hexo_learning1/</id>
-    <published>2024-05-25T18:11:52.000Z</published>
-    <updated>2025-04-20T06:04:22.043Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="什麼是-Hexo？"><a href="#什麼是-Hexo？" class="headerlink" title="什麼是 Hexo？"></a>什麼是 Hexo？</h2><p>Hexo 是一個快速、簡單且強大的網誌框架<br>Hexo 使用 Markdown（或其他標記語言）解析您的文章，並在幾秒鐘內，透過漂亮的主題產生靜態部落格網站</p><h2 id="安裝前先檢查"><a href="#安裝前先檢查" class="headerlink" title="安裝前先檢查"></a>安裝前先檢查</h2><p>安裝 Hexo 之前先檢查是否已安裝 Node.js 及 Git，若不確定是否已安裝可在終端機下以下指令：</p><h3 id="檢查是否安裝-Node-js"><a href="#檢查是否安裝-Node-js" class="headerlink" title="檢查是否安裝 Node.js"></a>檢查是否安裝 Node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure><h3 id="檢查-npm-是否正常"><a href="#檢查-npm-是否正常" class="headerlink" title="檢查 npm 是否正常"></a>檢查 npm 是否正常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure><p>npm 是 Node.js 預設的、用 JavaScript 編寫的軟體套件管理系統，之後會透過 npm 進行 Hexo 的安裝</p><h3 id="檢查是否安裝-Git"><a href="#檢查是否安裝-Git" class="headerlink" title="檢查是否安裝 Git"></a>檢查是否安裝 Git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure><p>若成功跑出版本號碼代表安裝成功，若還未安裝可至以下網址進行安裝：</p><ul><li><a href="https://nodejs.org/en">Node.js</a> (Node.js 版本需不低於 8.10，建議使用 Node.js 10.0 及以上版本)</li><li><a href="https://git-scm.com/">Git</a></li></ul><h2 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h2><p>確認以上軟體安裝完成後就可以透過 npm 來安裝 Hexo 囉~</p><h3 id="執行以下指令透過-npm-安裝-Hexo"><a href="#執行以下指令透過-npm-安裝-Hexo" class="headerlink" title="執行以下指令透過 npm 安裝 Hexo"></a>執行以下指令透過 npm 安裝 Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h3 id="檢查-Hexo-是否安裝成功-跑出版本號碼代表安裝成功"><a href="#檢查-Hexo-是否安裝成功-跑出版本號碼代表安裝成功" class="headerlink" title="檢查 Hexo 是否安裝成功(跑出版本號碼代表安裝成功)"></a>檢查 Hexo 是否安裝成功(跑出版本號碼代表安裝成功)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure><p>若是透過 PowerShell 安裝，一直無法安裝成功可以參考<a href="https://akoncc.github.io/2019/11/01/vscode-cant-run-script/">這篇文章</a></p><p>遇到其他問題可參考 <a href="https://hexo.io/zh-tw/">Hexo 官網</a></p>]]></content>
-    
-    
-    <summary type="html">了解 Hexo 是什麼，安裝前須知和如何安裝 Hexo</summary>
-    
-    
-    
-    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/categories/Hexo/"/>
-    
-    
-    <category term="前端" scheme="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="Hexo" scheme="http://amy6072698.github.io/amy10blog/tags/Hexo/"/>
     
   </entry>
   
