@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#535C91" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/amy10blog/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/amy10blog/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/amy10blog/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/amy10blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/amy10blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"amy6072698.github.io","root":"/amy10blog/","images":"/amy10blog/images","scheme":"Gemini","darkmode":true,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-dark","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#E5C3A6","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/amy10blog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/amy10blog/js/config.js" defer></script>
+
+    <meta name="description" content="介紹陳述式與表達式的差異">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 修練 (2) | 陳述式與表達式">
+<meta property="og:url" content="http://amy6072698.github.io/amy10blog/2025/05/15/20250515-js-learning2/index.html">
+<meta property="og:site_name" content="Amy咂摳修練手冊">
+<meta property="og:description" content="介紹陳述式與表達式的差異">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726945X4wBALuaY.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ZKuwl6LBq4.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DMNSLJ9Yn8.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694vMcUipV9Ih.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694A76HRFz2av.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694pc54DnLUnI.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Oka1pbliOB.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694eOlxHlhL7P.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694WGJJ56uGXs.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694RX8ZErFckf.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694pJFvUcID8X.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694EJbzF2WXbJ.png">
+<meta property="article:published_time" content="2025-05-15T15:30:47.000Z">
+<meta property="article:modified_time" content="2025-05-19T15:53:57.941Z">
+<meta property="article:author" content="Amy咂摳">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726945X4wBALuaY.png">
+
+
+<link rel="canonical" href="http://amy6072698.github.io/amy10blog/2025/05/15/20250515-js-learning2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://amy6072698.github.io/amy10blog/2025/05/15/20250515-js-learning2/","path":"2025/05/15/20250515-js-learning2/","title":"JavaScript 修練 (2) | 陳述式與表達式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript 修練 (2) | 陳述式與表達式 | Amy咂摳修練手冊</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/utils.js" defer></script><script src="/amy10blog/js/motion.js" defer></script><script src="/amy10blog/js/sidebar.js" defer></script><script src="/amy10blog/js/next-boot.js" defer></script><script src="/amy10blog/js/bookmark.js" defer></script><script src="/amy10blog/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/amy10blog/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/amy10blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/amy10blog/atom.xml" title="Amy咂摳修練手冊" type="application/atom+xml">
+<link rel="alternate" href="/amy10blog/rss2.xml" title="Amy咂摳修練手冊" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/amy10blog/" class="brand" rel="start">
+        <img class="custom-logo-image" src="/amy10blog/images/logo.svg" alt="Amy咂摳修練手冊">
+      <i class="logo-line"></i>
+      <p class="site-title">Amy咂摳修練手冊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">歡迎進入網頁的奇幻世界</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/amy10blog/" rel="section"><i class="fa fa-place-of-worship fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/amy10blog/about/" rel="section"><i class="fa fa-book-open-reader fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/amy10blog/tags/" rel="section"><i class="fa fa-wand-sparkles fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/amy10blog/categories/" rel="section"><i class="fa fa-scroll fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/amy10blog/archives/" rel="section"><i class="fa fa-box-open fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-rss"><a href="/amy10blog/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-%E7%9A%84%E6%96%87%E6%B3%95%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 的文法概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%B3%E8%BF%B0%E5%BC%8F%E8%88%87%E8%A1%A8%E9%81%94%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">陳述式與表達式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%B3%E8%BF%B0%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">陳述式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E9%81%94%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">表達式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%AA%E4%BA%9B%E6%98%AF%E5%B8%B8%E8%A6%8B%E7%9A%84%E9%99%B3%E8%BF%B0%E5%BC%8F%EF%BC%9F"><span class="nav-number">2.3.</span> <span class="nav-text">哪些是常見的陳述式？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E8%AA%AA%E6%98%8E"><span class="nav-number">2.3.1.</span> <span class="nav-text">範例說明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined-%E7%94%A2%E7%94%9F%E7%9A%84%E8%AA%A4%E6%9C%83"><span class="nav-number">2.3.2.</span> <span class="nav-text">undefined 產生的誤會</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%AA%E4%BA%9B%E6%98%AF%E5%B8%B8%E8%A6%8B%E7%9A%84%E8%A1%A8%E9%81%94%E5%BC%8F%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">哪些是常見的表達式？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B%E8%AA%AA%E6%98%8E-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">範例說明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E9%81%94%E5%BC%8F%E9%81%8B%E7%94%A8%E6%83%85%E5%A2%83"><span class="nav-number">2.5.</span> <span class="nav-text">表達式運用情境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E9%99%B3%E8%BF%B0%E5%BC%8F%E8%88%87%E5%87%BD%E5%BC%8F%E8%A1%A8%E9%81%94%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">函式陳述式與函式表達式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E9%99%B3%E8%BF%B0%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">函式陳述式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E8%A1%A8%E9%81%94%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">函式表達式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E5%90%8D%E5%87%BD%E5%BC%8F%E8%88%87%E5%8C%BF%E5%90%8D%E5%87%BD%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">具名函式與匿名函式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy咂摳"
+      src="/amy10blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Amy咂摳</p>
+  <div class="site-description" itemprop="description">分享前端開發相關的文章</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/amy10blog/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/amy10blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/amy10blog/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://discordapp.com/users/1172554977592475708" title="Discord → http:&#x2F;&#x2F;discordapp.com&#x2F;users&#x2F;1172554977592475708" rel="noopener me" target="_blank"><i class="fab fa-discord fa-fw"></i>Discord</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ithelp.ithome.com.tw/users/20172694/articles" title="iT邦幫忙 → https:&#x2F;&#x2F;ithelp.ithome.com.tw&#x2F;users&#x2F;20172694&#x2F;articles" rel="noopener me" target="_blank"><i class="fa fa-comment fa-fw"></i>iT邦幫忙</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://amy6072698.github.io/amy10blog/2025/05/15/20250515-js-learning2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/amy10blog/images/avatar.jpg">
+      <meta itemprop="name" content="Amy咂摳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy咂摳修練手冊">
+      <meta itemprop="description" content="分享前端開發相關的文章">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript 修練 (2) | 陳述式與表達式 | Amy咂摳修練手冊">
+      <meta itemprop="description" content="介紹陳述式與表達式的差異">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript 修練 (2) | 陳述式與表達式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-05-15 23:30:47" itemprop="dateCreated datePublished" datetime="2025-05-15T23:30:47+08:00">2025-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-05-19 23:53:57" itemprop="dateModified" datetime="2025-05-19T23:53:57+08:00">2025-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/amy10blog/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="JavaScript-的文法概念"><a href="#JavaScript-的文法概念" class="headerlink" title="JavaScript 的文法概念"></a>JavaScript 的文法概念</h2><p>程式語言就像對電腦說的語言，和其他語言一樣也會有自己的文法概念，這些文法形成的語句，會影響電腦對程式碼執行的方式</p>
+<p>本篇文章將介紹陳述式與表達式的差異，而下篇文章也會接續提到關於運算子執行的先後順序，這些都與 JavaScript 的文法相關，而開發中這種文法概念所產生的問題，往往不容易被察覺，所以如果能先了解一些觀念在除錯上也會比較容易發現問題所在，甚至避開可能發生的問題</p>
+<h2 id="陳述式與表達式"><a href="#陳述式與表達式" class="headerlink" title="陳述式與表達式"></a>陳述式與表達式</h2><p>陳述式與表達式在學習過程中常常被忽略，但其實很常在各種技術文件中出現的專有名詞</p>
+<p>陳述式與表達式在中文翻譯都有其他不同的名稱，但看英文原文就會知道說的是同一個東西，所以開始往下介紹之前，先來定義一下接下來文章的中文用詞：</p>
+<ul>
+<li><p><strong>Statement</strong> ：中文翻譯有敘述句、陳述式，接下來文章都統一叫「陳述式」</p>
+</li>
+<li><p><strong>Expression</strong> ：中文翻譯有運算式、表示式、表達式，接下來文章都統一叫「表達式」</p>
+</li>
+</ul>
+<p>定義好用詞後，接下來先比較這兩者各自的特點，再來說明常看到的陳述式和表達式有哪些吧 ~</p>
+<h3 id="陳述式"><a href="#陳述式" class="headerlink" title="陳述式"></a>陳述式</h3><p>陳述式特點如下：</p>
+<ul>
+<li>會執行一些程式碼，但是 <strong>不會回傳結果</strong></li>
+<li>可能是幾個單詞或一個片段，但不會是單一個字母</li>
+<li>其中可能混合表達式</li>
+</ul>
+<h3 id="表達式"><a href="#表達式" class="headerlink" title="表達式"></a>表達式</h3><p>表達式特點如下：</p>
+<ul>
+<li>最大特點是 <strong>會回傳結果</strong></li>
+<li>單一個字也可以是表達式</li>
+</ul>
+<hr>
+<h3 id="哪些是常見的陳述式？"><a href="#哪些是常見的陳述式？" class="headerlink" title="哪些是常見的陳述式？"></a>哪些是常見的陳述式？</h3><ul>
+<li>宣告 ( var、let、const、function )</li>
+<li>流程控制 ( block、if…else )</li>
+<li>迴圈 ( for、for…in )</li>
+<li>其他 ( import、export )</li>
+</ul>
+<h4 id="範例說明"><a href="#範例說明" class="headerlink" title="範例說明"></a>範例說明</h4><p>再來看看幾個範例，實際觀察陳述式在 Chrome 的開發者工具 Console 中會顯示的內容</p>
+<p><code>var a;</code> 這個程式片段宣告了一個變數 a，是一個簡單的陳述式，而在 Console 中<code>&lt;・</code> 符號後面內容代表 Console 回傳的結果，這邊看到這段程式碼結果會是 undefined，代表這段程式碼沒有取得值、不會回傳值</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726945X4wBALuaY.png" alt=" var a 陳述式在 Console 中的結果"></p>
+<p>前面提到陳述式可能混合表達式，接下來就來看看混合的範例</p>
+<p>綠框延續上一個單純是陳述式的範例 <code>var a;</code>，黃框處透過運算子 <code>+</code> 計算 <code>2 + 2;</code>，會回傳計算結果 <code>4</code> 所以是表達式，橘框處則是混合綠框與黃框的陳述式，所以 Console 的回傳結果是 undefined</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ZKuwl6LBq4.png" alt="陳述式混合表達式的結果"></p>
+<h4 id="undefined-產生的誤會"><a href="#undefined-產生的誤會" class="headerlink" title="undefined 產生的誤會"></a>undefined 產生的誤會</h4><p>前面有提到「表達式最大特點是會回傳結果」，這樣陳述式在 Console 回傳的結果是 undefined 就容易因此產生誤會，因為會出現兩種情況：</p>
+<ul>
+<li><strong>不會回傳值</strong> ：因為不會回傳值，所以 Console 回傳的結果是 undefined</li>
+<li><strong>會回傳值但沒有提供回傳值</strong> ：此時就算會回傳值，Console 回傳的結果也是 undefined</li>
+</ul>
+<p>只看以上說明可能有些抽象，讓我們看看以下範例吧<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DMNSLJ9Yn8.png" alt="說明回傳結果 undefined 的兩種狀況"></p>
+<p>圖中綠框處 fn1 和 fn2 都是用函是陳述式宣告的函式，所以陳述式在 Console 回傳的結果是 undefined，而呼叫函式會回傳值所以是表達式，而 fn1 函式在綠框片段中有提供回傳值，所以在黃框處呼叫 fn1 函式後，Console 回傳的結果是 <code>&#39;我是 fn1 函式&#39;</code></p>
+<p>容易產生誤會的片段在橘框，明明呼叫函式是表達式，怎麼 Console 回傳的結果是 undefined？</p>
+<p>往前看綠框片段中的 fn2 並沒有提供回傳值，所以在橘框處呼叫函式時有回傳值，但是因為沒有提供回傳值，所以 Console 才會回傳 undefined</p>
+<hr>
+<h3 id="哪些是常見的表達式？"><a href="#哪些是常見的表達式？" class="headerlink" title="哪些是常見的表達式？"></a>哪些是常見的表達式？</h3><ul>
+<li>純值 ( 一個數字 1 也可以稱為「表達式」)</li>
+<li>變數</li>
+<li>運算子</li>
+<li>執行函式</li>
+<li>正規表達式</li>
+<li>函式表達式</li>
+<li>if 小括號內的條件 (condition) 是表達式</li>
+</ul>
+<h4 id="範例說明-1"><a href="#範例說明-1" class="headerlink" title="範例說明"></a>範例說明</h4><p>接下來看幾個程式碼範例，然後利用 Chrome 的開發者工具 Console 查看結果</p>
+<p>在 Console 輸入 1，會回傳 1，<code>&lt;・</code> 符號後面的 1 代表 Console 回傳的結果</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694vMcUipV9Ih.png" alt="純值在 Console 會回傳結果"></p>
+<p>再來看看運算子 <code>===</code> 在 Console 中的結果，<code>1 === 1</code> 會回傳 <code>true</code> 的結果</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694A76HRFz2av.png" alt="運算子計算結果也是表達式"></p>
+<p>以上兩個範例都會回傳結果，因此純值和運算子計算的結果都屬於表達式</p>
+<p>接下來看看陳述式與表達式混合的範例，以下程式碼中，紅框區塊函式陳述式是陳述式，下面藍框區塊呼叫函式之後回傳了 <code>&#39;我是函式&#39;</code> 的結果，所以呼叫、執行函式為表達式</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694pc54DnLUnI.png" alt="陳述式與表達式混合"></p>
+<ul>
+<li><strong>簡單比喻一下陳述式與表達式</strong>：陳述式就像只是在講一件要對方做的事，對方只要去做就好不用回應，表達式則像是在問對方問題，希望對方能夠給你回應</li>
+</ul>
+<h3 id="表達式運用情境"><a href="#表達式運用情境" class="headerlink" title="表達式運用情境"></a>表達式運用情境</h3><p>了解陳述式與表達是如何判斷對於閱讀技術文件會有很大的幫助，以前面提到的 if 小括號內的條件 (condition) 是表達式為例</p>
+<p>假設需要知道 if…else 如何使用，在 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">MDN 文件</a>會看見關於 if…else 說明引用如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition)</span><br><span class="line">  statement1</span><br><span class="line"></span><br><span class="line"><span class="comment">// With an else clause</span></span><br><span class="line"><span class="keyword">if</span> (condition)</span><br><span class="line">  statement1</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  statement2</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>condition：An expression that is considered to be either truthy or falsy</p>
+</blockquote>
+<p>這邊可以說明有提到小括號內的 condition 是一個表達式，而它的結果會是真值或假值，那就可以放心的把任何表達式加入 condition 內，像這樣：</p>
+<p>紅框內呼叫 fn 函式，回傳值為 true，所以會執行 if 大括號 <code>&#123;&#125;</code> 中的程式碼印出 <code>&#39;恭喜通關！&#39;</code></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Oka1pbliOB.png" alt=" condition 是表達式"></p>
+<p>這時候就會想實驗看看，把陳述式放入 condition，會發生什麼事 ~~(跟你說要放表達式竟然不聽話)</p>
+<p>結果就是會跳出 SyntaxError 的錯誤訊息，把陳述式放入 condition 會造成運作上的錯誤，還是乖乖聽話吧 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694eOlxHlhL7P.png" alt="把陳述式放入 condition 的錯誤訊息"></p>
+<p>除了 if 的 condition 之外，還有一些框架使用上會需要了解表達式的概念，像是 React 的 JSX 就有提到大括號 <code>&#123;&#125;</code> 中可以放入 JavaScript 的表達式來運作</p>
+<hr>
+<h2 id="函式陳述式與函式表達式"><a href="#函式陳述式與函式表達式" class="headerlink" title="函式陳述式與函式表達式"></a>函式陳述式與函式表達式</h2><p>前篇有提到這兩者一樣是宣告函式，但是不同語句的差異，遇到提升時卻有不同的運作方式，這篇剛好介紹到了陳述式與表達式 <del>真巧呀</del>，那就再分別對這兩種宣告函式的語句做一些介紹吧 ~</p>
+<h3 id="函式陳述式"><a href="#函式陳述式" class="headerlink" title="函式陳述式"></a>函式陳述式</h3><p>首先 function 和 var 一樣是關鍵字，可以用來宣告一個函式，而以下範例的宣告方式就屬於陳述式語句</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>陳述式不會回傳值，所以 Console 只會回傳 undefined 的結果</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694WGJJ56uGXs.png" alt="函式陳述式不會回傳值"></p>
+<p>而相同寫法只要在前後加上小括號，就會從陳述式轉變為表達式</p>
+<p>這邊可以看到前後加上小括號後，Console 會回傳這個函式本身的結構，此時的函式可稱為「函式表達式」</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694RX8ZErFckf.png" alt="陳述式轉變為表達式的回傳結果"></p>
+<h3 id="函式表達式"><a href="#函式表達式" class="headerlink" title="函式表達式"></a>函式表達式</h3><p>前面提到把函式本身作為表達式使用，回傳的值會是函式的本身，那麼如果我們將這個值 ( 函式本身 ) 賦予到一個變數上，那它就會成為大家所說的「函式表達式」</p>
+<p>將函式表達式回傳的函式賦予給等號 <code>=</code> 左邊的變數</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>延伸討論剛剛提到的 if 小括號內的 condition 必須是表達式，那如果把函式陳述式語句直接放入小括號中 ( 如下 )，程式碼是否還可以運作呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">function</span> <span class="title function_">a</span>(<span class="params">p</span>) &#123;&#125;)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ㄟ嘿！我可以動！&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這邊雖然小括號中的語句看起來是函式陳述式，但是實際上是作為表達式使用，就像前面陳述式前後加小括號轉為表達式一樣，所以程式碼式能正常運作的，而表達式回傳的函式本身會報判斷為真值，所以 <code>console.log</code> 也可以執行喔 ~ <del>看它可以動多開心</del></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694pJFvUcID8X.png" alt="函式陳述式放入 if 小括號內可以正常運作"></p>
+<h3 id="具名函式與匿名函式"><a href="#具名函式與匿名函式" class="headerlink" title="具名函式與匿名函式"></a>具名函式與匿名函式</h3><p>既然都講到以上兩種函式的宣告語句差異了，那就來接著往下講講函式命名問題吧 ~ </p>
+<p>顧名思義，具名函式是有名字的函式，而匿名函式則沒有名字，函式有沒有名字在函式陳述式和函式表達式兩種語句上也有差異</p>
+<ul>
+<li><strong>函式陳述式</strong> ：宣告的函式一定要有名字</li>
+<li><strong>函式表達式</strong> ：宣告的函式有沒有名字都可以</li>
+</ul>
+<p>接下來看範例比較一下兩者</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函式陳述式</span></span><br><span class="line"><span class="comment">// function 後方有名字 fn1，這稱為具名函式</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函式表達式</span></span><br><span class="line"><span class="comment">// function 後方沒有名字，因此稱為匿名函式</span></span><br><span class="line"><span class="keyword">var</span> fn2 = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>函式表達式其實也可以在 function 後面加上函式的具名名稱</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function 後方的 callMe 是函式的名稱</span></span><br><span class="line"><span class="keyword">var</span> fn2 = <span class="keyword">function</span> <span class="title function_">callMe</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是以上範例的 callMe 這個名稱無法在外部被取得，只能透過變數 fn2 回傳值的方式，或是在 fn2 函式內才能取得</p>
+<p>圖中可以看見紅框處執行 fn2 函式後式可以取得 callMe 這個名稱的，黃框處直接輸入變數名稱 fn2，也可以取得 callMe 這個名稱，但是綠框處試圖在外部取得 callMe，卻跳出 ReferenceError 錯誤，無法取得 callMe 這個名稱<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694EJbzF2WXbJ.png" alt="callMe 名稱無法被外部取得"></p>
+<p>雖然具名的函式表達式名稱，可以在函式內被呼叫，但實戰上不太會有呼叫此函式的需求，所以不太會這樣做</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>以上是一些關於陳述式與表達式的差異介紹，如果想在更深入了解陳述式及表達式的分類也可以參考以下相關的 MDN 文件：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements">陳述式與宣告 - Statements and declarations</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators">運算式與運算子 - Expressions and operators</a></li>
+</ul>
+<p>下篇會再接續本篇，往後介紹運算子執行先後順序的相關內容，那我們就下篇文章件囉 ~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/amy6072698/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
+              <a href="/amy10blog/tags/JavaScript/" rel="tag"><i class="fa fa-wand-sparkles"></i> JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/05/14/20250514-js-learning1/" rel="prev" title="JavaScript 修練 (1) | 變數的宣告、作用域與提升">
+                  <i class="fa fa-angle-left"></i> JavaScript 修練 (1) | 變數的宣告、作用域與提升
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-hat-wizard"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">轉載文章時請附上作者名 (Amy咂摳) 及原文連結，永遠感謝你</span>
+  </div>
+  <script color="211,202,236" opacity="0.8" zIndex="-1" count="33" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"amy6072698","repo":"amy10blog","client_id":"Ov23lihGMNKD37j8MGqG","client_secret":"bf537fcc7ae373e1434f2096214e7530b6df543a","admin_user":"amy6072698","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"f1df0555a51b2e2ce207c508394520c4"}</script>
+<script src="/amy10blog/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

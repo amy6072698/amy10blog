@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250429/20172694y0YKDcJD69.png">
 <meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250429/20172694RC45P8QUN0.png">
 <meta property="article:published_time" content="2025-04-23T06:26:12.000Z">
-<meta property="article:modified_time" content="2025-04-30T05:21:46.883Z">
+<meta property="article:modified_time" content="2025-05-19T12:41:37.403Z">
 <meta property="article:author" content="Amy咂摳">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="前端">
@@ -195,18 +195,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/amy10blog/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/amy10blog/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/amy10blog/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -279,7 +279,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2025-04-30 13:21:46" itemprop="dateModified" datetime="2025-04-30T13:21:46+08:00">2025-04-30</time>
+      <time title="修改時間：2025-05-19 20:41:37" itemprop="dateModified" datetime="2025-05-19T20:41:37+08:00">2025-05-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -302,29 +302,38 @@
     
     
     <div class="post-body" itemprop="articleBody"><h2 id="建立-Hexo-環境的前置"><a href="#建立-Hexo-環境的前置" class="headerlink" title="建立 Hexo 環境的前置"></a>建立 Hexo 環境的前置</h2><p>經過前篇 <del>激烈的戰鬥</del> 努力的奮鬥，相信大家都安裝好 Hexo 了，那接下來要做的就是建立你的 Hexo 部落格環境啦 ~</p>
-<h3 id="建立專案資料夾"><a href="#建立專案資料夾" class="headerlink" title="建立專案資料夾"></a>建立專案資料夾</h3><p>首先，在桌面(或其他你想建立專案資料夾的地方)建立一個專案資料夾，我這邊就先在桌面建立一個 amyHexo 的資料夾 <del>(沒錯，我桌面背景是紅色的</del> ，資料夾的名字可以自己取不用和我一樣<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726949J7FjsCAB7.png" alt="在桌面建立 amyHexo 的資料夾"></p>
+<h3 id="建立專案資料夾"><a href="#建立專案資料夾" class="headerlink" title="建立專案資料夾"></a>建立專案資料夾</h3><p>首先，在桌面(或其他你想建立專案資料夾的地方)建立一個專案資料夾，我這邊就先在桌面建立一個 amyHexo 的資料夾 <del>(沒錯，我桌面背景是紅色的</del> ，資料夾的名字可以自己取不用和我一樣</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726949J7FjsCAB7.png" alt="在桌面建立 amyHexo 的資料夾"></p>
 <h3 id="用cd指令移動到指定的路徑"><a href="#用cd指令移動到指定的路徑" class="headerlink" title="用cd指令移動到指定的路徑"></a>用cd指令移動到指定的路徑</h3><p>再來開啟終端機執行 <code>cd</code> 指令移動到專案資料夾如下，你的資料夾要看你建立在哪個路徑再將你的路徑填入以下 <code>你的專案資料夾路徑</code> 位置裡 (注意：cd 後面有一個空白字元再接路徑)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 你的專案資料夾路徑</span><br></pre></td></tr></table></figure>
 
 <p>以我建立的 amyHexo 的資料夾為例，就要執行 <code>cd c:\Users\User\Desktop\amyHexo</code> 這個指令，每個人的 User 名字可能不一樣那就看你自己叫什麼囉 ~</p>
-<h3 id="快速填入指定資料夾路徑的方法"><a href="#快速填入指定資料夾路徑的方法" class="headerlink" title="快速填入指定資料夾路徑的方法"></a>快速填入指定資料夾路徑的方法</h3><p>如果你懶得輸入這麼長的路徑，有一個方法可以試試看，先在終端機輸入 <code>cd</code> 和一個空白字元，再把你想前往的專案資料夾用滑鼠按住左鍵拖曳到終端機視窗內<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726944tnpIC3tmI.png" alt="把想前往的資料夾拖曳到終端機"></p>
-<p>然後放開滑鼠左鍵， <code>cd</code> 空白後面就會自動填入你拖曳進來的資料夾路徑囉 ~<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694ewCUEzUq4x.png" alt="放開就會自動填入該資料夾位置"></p>
+<h3 id="快速填入指定資料夾路徑的方法"><a href="#快速填入指定資料夾路徑的方法" class="headerlink" title="快速填入指定資料夾路徑的方法"></a>快速填入指定資料夾路徑的方法</h3><p>如果你懶得輸入這麼長的路徑，有一個方法可以試試看，先在終端機輸入 <code>cd</code> 和一個空白字元，再把你想前往的專案資料夾用滑鼠按住左鍵拖曳到終端機視窗內</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726944tnpIC3tmI.png" alt="把想前往的資料夾拖曳到終端機"></p>
+<p>然後放開滑鼠左鍵， <code>cd</code> 空白後面就會自動填入你拖曳進來的資料夾路徑囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694ewCUEzUq4x.png" alt="放開就會自動填入該資料夾位置"></p>
 <hr>
 <h2 id="下-Hexo-指令建立環境"><a href="#下-Hexo-指令建立環境" class="headerlink" title="下 Hexo 指令建立環境"></a>下 Hexo 指令建立環境</h2><p>再來就進入重頭戲用 Hexo 指令來建立你的部落格環境囉 ~</p>
 <p>前面講到 <code>cd</code> 移動到你的專案資料夾中，確定有移動到正確路徑下之後，執行以下指令，其中 <code>你的網站英文名稱</code> 可以自己取名：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init 你的網站英文名稱</span><br></pre></td></tr></table></figure>
 
-<p>以我的部落格網站英文名稱 amy10blog 為例，下完 <code>hexo init amy10blog</code> 指令後，終端機成功跑完回應就成功囉 ~<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694Z78eK5oMQd.png" alt="終端機執行 hexo init "></p>
-<p>執行完以上指令後， Hexo 就會在專案資料夾中建立一個新資料夾，這個新資料夾會用剛剛指令輸入的 <code>你的網站英文名稱</code> 命名，以我的為例新資料夾就會叫 <code>amy10blog</code>：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694KdrmLtwayg.png" alt="新資料夾名稱"></p>
-<p>而新資料夾裡面是所有 Hexo 部落格環境會需要用到的東西，給瞄你一眼：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694rIxaAoeMRt.png" alt="資料夾內 Hexo 部落格環境會需要用到的東西"></p>
+<p>以我的部落格網站英文名稱 amy10blog 為例，下完 <code>hexo init amy10blog</code> 指令後，終端機成功跑完回應就成功囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694Z78eK5oMQd.png" alt="終端機執行 hexo init "></p>
+<p>執行完以上指令後， Hexo 就會在專案資料夾中建立一個新資料夾，這個新資料夾會用剛剛指令輸入的 <code>你的網站英文名稱</code> 命名，以我的為例新資料夾就會叫 <code>amy10blog</code>：</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694KdrmLtwayg.png" alt="新資料夾名稱"></p>
+<p>而新資料夾裡面是所有 Hexo 部落格環境會需要用到的東西，給瞄你一眼：</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694rIxaAoeMRt.png" alt="資料夾內 Hexo 部落格環境會需要用到的東西"></p>
 <hr>
 <h2 id="如何瀏覽-Hexo-為你建立的部落格網站呢？"><a href="#如何瀏覽-Hexo-為你建立的部落格網站呢？" class="headerlink" title="如何瀏覽 Hexo 為你建立的部落格網站呢？"></a>如何瀏覽 Hexo 為你建立的部落格網站呢？</h2><p>說了這麼多，要怎麼看我現在的部落格網站長什麼樣子呢？一樣要用 Hexo 的指令，接著往下看</p>
-<p>使用 Hexo 的指令在本地查看你的部落格網站之前，要記得先移動到 Hexo 剛剛在專案資料夾中幫你建的新資料夾路徑下，以我的為例，就是要移到 <code>amy10blog</code> 資料夾：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726944BzbPrOwIl.png" alt="先移動到 Hexo 剛剛在專案資料夾中幫你建的新資料夾路徑下"></p>
+<p>使用 Hexo 的指令在本地查看你的部落格網站之前，要記得先移動到 Hexo 剛剛在專案資料夾中幫你建的新資料夾路徑下，以我的為例，就是要移到 <code>amy10blog</code> 資料夾：</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/201726944BzbPrOwIl.png" alt="先移動到 Hexo 剛剛在專案資料夾中幫你建的新資料夾路徑下"></p>
 <p>接著，再執行以下指令，開啟 Hexo 伺服器</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 
-<p>如果嫌棄 <code>hexo server</code> 太長，下 <code>hexo s</code> 這個指令一樣可以開啟 Hexo 伺服器，如果要執行其他指令，想關閉伺服器，可以依照終端機的提示按下 ctrl + c 鍵即可關閉<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694y0YKDcJD69.png" alt="hexo server 開啟 Hexo 伺服器指令"></p>
-<p>執行完之後它會回給你一段本地端的網址，點開網址就可以看見目前部落格的樣子囉 ~ 通常初始的部落格網站大家都會長這樣：<br><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694RC45P8QUN0.png" alt=" Hexo 部落格網站初始樣子"></p>
+<p>如果嫌棄 <code>hexo server</code> 太長，下 <code>hexo s</code> 這個指令一樣可以開啟 Hexo 伺服器，如果要執行其他指令，想關閉伺服器，可以依照終端機的提示按下 ctrl + c 鍵即可關閉</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694y0YKDcJD69.png" alt="hexo server 開啟 Hexo 伺服器指令"></p>
+<p>執行完之後它會回給你一段本地端的網址，點開網址就可以看見目前部落格的樣子囉 ~ 通常初始的部落格網站大家都會長這樣：</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250429/20172694RC45P8QUN0.png" alt=" Hexo 部落格網站初始樣子"></p>
 <p>後續會再教大家客製化的方法，不過會先把 Hexo 的基本指令講解完再討論這塊，也是有許多研究後的結果可以分享，那我們就下篇文章見囉 ~</p>
 
     </div>
@@ -353,6 +362,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/amy10blog/2025/04/24/20250424-hexo-learning4/" rel="next" title="從零開始學 Hexo (4) | 新增 Hexo 文章與常用 Markdown 語法">
+                  從零開始學 Hexo (4) | 新增 Hexo 文章與常用 Markdown 語法 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>

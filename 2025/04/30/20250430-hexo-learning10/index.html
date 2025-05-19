@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#535C91" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/amy10blog/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/amy10blog/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/amy10blog/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/amy10blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/amy10blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"amy6072698.github.io","root":"/amy10blog/","images":"/amy10blog/images","scheme":"Gemini","darkmode":true,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-dark","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#E5C3A6","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/amy10blog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/amy10blog/js/config.js" defer></script>
+
+    <meta name="description" content="介紹 NexT 主題的 config 檔的客製化設定，及如何尋找程式碼的技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="從零開始學 Hexo (10) | NexT 主題篇 - 客製化主題樣式">
+<meta property="og:url" content="http://amy6072698.github.io/amy10blog/2025/04/30/20250430-hexo-learning10/index.html">
+<meta property="og:site_name" content="Amy咂摳修練手冊">
+<meta property="og:description" content="介紹 NexT 主題的 config 檔的客製化設定，及如何尋找程式碼的技巧">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/2017269468IVyPHD69.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Kuwzsu9cHz.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694TGYFy4I9NZ.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694kMm3KEffk7.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694fYqpJ5aZsP.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694GHW3ZsiNdY.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694UlCdyrnQec.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726945UfPoggvXt.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694MP9RjFUcY7.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Ofese6QUqy.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694GrpHDOgt7B.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694UFsWBnxv81.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694OLK7ey0pX8.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694t7S9xQ6rGO.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YAwzbE9hs3.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694huIia5q6If.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694n030vsX3rY.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694v1mtpwVmvE.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694yvKnQ2kotk.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YLjgbL8GDM.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ljwFueAmrR.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YVbMJ8O9uH.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694TZPjFJM94x.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694CXGxKRDDMB.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694cNaLWylnz4.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694MZi4Dk4VTx.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694mdfGeMipYT.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DLC6t0n0Wk.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694vvj81hPcYu.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726945gQ4XMewmX.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Jt7iHU61eR.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694HI5xQpqRuy.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694uw0BBuYw5v.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694H2ksQASP4X.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694sCV3F2nFno.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726946O6GMIcSBE.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694OjN6CKSZoX.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ZX0qDYajEc.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/2017269428UT0JD0PO.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694D88MQ93zB6.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694P4dzf8Pwmt.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694OXTJAKvXau.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694kJ7nRaJLaZ.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694V8D87bfhih.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726949nxtnpQljM.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Zii5TvXf8n.png">
+<meta property="article:published_time" content="2025-04-30T14:16:27.000Z">
+<meta property="article:modified_time" content="2025-05-19T15:55:40.657Z">
+<meta property="article:author" content="Amy咂摳">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/2017269468IVyPHD69.png">
+
+
+<link rel="canonical" href="http://amy6072698.github.io/amy10blog/2025/04/30/20250430-hexo-learning10/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://amy6072698.github.io/amy10blog/2025/04/30/20250430-hexo-learning10/","path":"2025/04/30/20250430-hexo-learning10/","title":"從零開始學 Hexo (10) | NexT 主題篇 - 客製化主題樣式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>從零開始學 Hexo (10) | NexT 主題篇 - 客製化主題樣式 | Amy咂摳修練手冊</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/utils.js" defer></script><script src="/amy10blog/js/motion.js" defer></script><script src="/amy10blog/js/sidebar.js" defer></script><script src="/amy10blog/js/next-boot.js" defer></script><script src="/amy10blog/js/bookmark.js" defer></script><script src="/amy10blog/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/amy10blog/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/amy10blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/amy10blog/atom.xml" title="Amy咂摳修練手冊" type="application/atom+xml">
+<link rel="alternate" href="/amy10blog/rss2.xml" title="Amy咂摳修練手冊" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/amy10blog/" class="brand" rel="start">
+        <img class="custom-logo-image" src="/amy10blog/images/logo.svg" alt="Amy咂摳修練手冊">
+      <i class="logo-line"></i>
+      <p class="site-title">Amy咂摳修練手冊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">歡迎進入網頁的奇幻世界</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/amy10blog/" rel="section"><i class="fa fa-place-of-worship fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/amy10blog/about/" rel="section"><i class="fa fa-book-open-reader fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/amy10blog/tags/" rel="section"><i class="fa fa-wand-sparkles fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/amy10blog/categories/" rel="section"><i class="fa fa-scroll fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/amy10blog/archives/" rel="section"><i class="fa fa-box-open fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-rss"><a href="/amy10blog/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT-%E4%B8%BB%E9%A1%8C%E5%AE%98%E6%96%B9%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">NexT 主題官方文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT-%E4%B8%BB%E9%A1%8C%E7%9A%84-config-%E6%AA%94"><span class="nav-number">2.</span> <span class="nav-text">NexT 主題的 config 檔</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%8B%E5%95%9F%E9%81%B8%E5%96%AE%E9%A0%85%E7%9B%AE"><span class="nav-number">2.1.</span> <span class="nav-text">開啟選單項目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#menue"><span class="nav-number">2.1.1.</span> <span class="nav-text">menue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#menu-settings"><span class="nav-number">2.1.2.</span> <span class="nav-text">menu_settings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A3%9C%E5%85%85%EF%BC%9A%E6%96%87%E7%AB%A0%E9%96%8B%E9%A0%AD%E8%A8%AD%E5%AE%9A-categories-%E8%B7%9F-description"><span class="nav-number">2.1.3.</span> <span class="nav-text">補充：文章開頭設定 categories 跟 description</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%BF%E6%95%B4%E4%B8%8D%E5%90%8C%E6%A8%A1%E6%9D%BF%E6%A8%A3%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">調整不同模板樣式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%BF%E6%95%B4%E6%98%8E%E6%9A%97%E4%B8%BB%E9%A1%8C%E8%89%B2%E7%B3%BB"><span class="nav-number">2.3.</span> <span class="nav-text">調整明暗主題色系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#favicon%E3%80%81logo%E3%80%81%E4%BD%9C%E8%80%85%E9%A0%AD%E5%83%8F%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.4.</span> <span class="nav-text">favicon、logo、作者頭像設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#favicon"><span class="nav-number">2.4.1.</span> <span class="nav-text">favicon</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#logo"><span class="nav-number">2.4.2.</span> <span class="nav-text">logo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E8%80%85%E9%A0%AD%E5%83%8F"><span class="nav-number">2.4.3.</span> <span class="nav-text">作者頭像</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BE%E7%BE%A4%E9%80%A3%E7%B5%90%E6%8C%89%E9%88%95"><span class="nav-number">2.5.</span> <span class="nav-text">社群連結按鈕</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy-right"><span class="nav-number">2.6.</span> <span class="nav-text">copy right</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AA%BF%E6%95%B4%E6%96%87%E7%AB%A0%E9%96%8B%E9%A0%AD%E7%9A%84%E9%A1%AF%E7%A4%BA%E6%96%87%E5%AD%97"><span class="nav-number">2.7.</span> <span class="nav-text">如何調整文章開頭的顯示文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E8%A3%BD%E5%8C%96%E6%AA%94%E6%A1%88%E8%B7%AF%E5%BE%91"><span class="nav-number">2.8.</span> <span class="nav-text">客製化檔案路徑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E6%AA%94%E6%A1%88%E4%B8%AD%E7%9A%84%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.9.</span> <span class="nav-text">更多檔案中的設定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E8%A3%BD%E5%8C%96%E4%BF%AE%E6%94%B9%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">3.</span> <span class="nav-text">客製化修改程式碼</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#njk-%E6%AA%94%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">njk 檔是什麼？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E8%A6%81%E5%AE%A2%E8%A3%BD%E7%9A%84-HTML-%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%89%87%E6%AE%B5"><span class="nav-number">3.2.</span> <span class="nav-text">如何找到要客製的 HTML 程式碼片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E8%A6%81%E5%AE%A2%E8%A3%BD%E7%9A%84-CSS-%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%89%87%E6%AE%B5"><span class="nav-number">3.3.</span> <span class="nav-text">如何找到要客製的 CSS 程式碼片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%9C%E5%85%85%EF%BC%9Alanguages-%E8%B3%87%E6%96%99%E5%A4%BE%E4%BB%8B%E7%B4%B9"><span class="nav-number">3.4.</span> <span class="nav-text">補充：languages 資料夾介紹</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy咂摳"
+      src="/amy10blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Amy咂摳</p>
+  <div class="site-description" itemprop="description">分享前端開發相關的文章</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/amy10blog/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/amy10blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/amy10blog/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://discordapp.com/users/1172554977592475708" title="Discord → http:&#x2F;&#x2F;discordapp.com&#x2F;users&#x2F;1172554977592475708" rel="noopener me" target="_blank"><i class="fab fa-discord fa-fw"></i>Discord</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ithelp.ithome.com.tw/users/20172694/articles" title="iT邦幫忙 → https:&#x2F;&#x2F;ithelp.ithome.com.tw&#x2F;users&#x2F;20172694&#x2F;articles" rel="noopener me" target="_blank"><i class="fa fa-comment fa-fw"></i>iT邦幫忙</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://amy6072698.github.io/amy10blog/2025/04/30/20250430-hexo-learning10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/amy10blog/images/avatar.jpg">
+      <meta itemprop="name" content="Amy咂摳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy咂摳修練手冊">
+      <meta itemprop="description" content="分享前端開發相關的文章">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="從零開始學 Hexo (10) | NexT 主題篇 - 客製化主題樣式 | Amy咂摳修練手冊">
+      <meta itemprop="description" content="介紹 NexT 主題的 config 檔的客製化設定，及如何尋找程式碼的技巧">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          從零開始學 Hexo (10) | NexT 主題篇 - 客製化主題樣式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-04-30 22:16:27" itemprop="dateCreated datePublished" datetime="2025-04-30T22:16:27+08:00">2025-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-05-19 23:55:40" itemprop="dateModified" datetime="2025-05-19T23:55:40+08:00">2025-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/amy10blog/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="NexT-主題官方文件"><a href="#NexT-主題官方文件" class="headerlink" title="NexT 主題官方文件"></a>NexT 主題官方文件</h2><p>在客製化過程中，我蠻常參考 <a target="_blank" rel="noopener" href="https://theme-next.js.org/">NexT 主題官網</a>的，然後會有一些想調整的地方，其實 NexT 主題的 config 檔都有地方可以設定</p>
+<p>所以在往更深的程式碼調整客製介紹之前，我想先針對 NexT 主題的 config 檔中，可以調整的內容做一些簡單介紹</p>
+<h2 id="NexT-主題的-config-檔"><a href="#NexT-主題的-config-檔" class="headerlink" title="NexT 主題的 config 檔"></a>NexT 主題的 config 檔</h2><p>接下來會介紹一些在 NexT 主題的 config 檔中，可以用來調整網站樣式的設定，為了避免重複說到檔案名字，先說明一下，以下提到的設定都是在 NexT 主題的 config 檔中修改的內容</p>
+<h3 id="開啟選單項目"><a href="#開啟選單項目" class="headerlink" title="開啟選單項目"></a>開啟選單項目</h3><p>NexT 主題的選單是需要自己設定開啟的，這邊的選單就很像是網站上方的導覽列，要調整選單要顯示什麼內容，就需要調整以下的 Menue Settings 區塊了<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/2017269468IVyPHD69.png" alt="Menue Settings 區塊"></p>
+<h4 id="menue"><a href="#menue" class="headerlink" title="menue"></a>menue</h4><p>首先，上方的 menue 可以控制選單要開啟哪些項目，以及調整項目對應的路由跟 icon</p>
+<p>要開啟哪個項目，就刪除該項目開頭的井字號 <code>#</code> 解除註解，反之就加上井字號 <code>#</code> 註解掉，假設我想開啟前五個項目，就把前五項解除註解就可以了</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<p>設定好儲存，再開啟伺服器，就可以看到網站多出了剛剛開啟的選單項目囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Kuwzsu9cHz.png" alt="選單項目出現"></p>
+<p>再來假設我想把選單首頁的 icon 改成愛心，要如何調整設定呢？</p>
+<p>這邊的 icon 是使用 <a target="_blank" rel="noopener" href="https://fontawesome.com/search">Font Awesome</a> 這個網站的 icon，所以我們就進到這個網站搜尋 heart，找到我想要的愛心 icon 點擊它</p>
+<p>然後就會跳出這個 icon 的套用資訊，把圖中紅框處的代碼複製下來<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694TGYFy4I9NZ.png" alt="愛心 icon 套用資訊"></p>
+<p>貼到首頁那項 <code>||</code> 後方，取代原本的 icon 代碼</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa-solid</span> <span class="string">fa-heart</span></span><br></pre></td></tr></table></figure>
+
+<p>小補充：<code>fa-solid fa-heart</code> 前面的 <code>fa-solid</code> 可以簡寫成 <code>fa</code>，所以也可以改成以下這樣</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-heart</span></span><br></pre></td></tr></table></figure>
+
+<p>重整網站就可以看到首頁的 icon 改成愛心囉 ~<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694kMm3KEffk7.png" alt="首頁項目 icon 改為愛心"></p>
+<ul>
+<li><p><strong>注意</strong> ：記得執行 Hexo 指令新增頁面，才能連結到該頁面喔 ~ 如：要連結到標籤頁面，要先執行 <code>hexo new page tags</code> 新增頁面，點擊選單的標籤才能看到標籤頁面 ( archives 不用新增頁面，預設已經有連結的頁面了 )</p>
+</li>
+<li><p><strong>補充</strong> ：在 NexT 主題的標籤跟分類頁面開頭，分別加入 <code>type: tags</code> 和 <code>type: categories</code> 可以開啟該頁面預設的內容 ( 如下圖 )<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694fYqpJ5aZsP.png" alt="標籤頁面開頭 type 設定"><br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694GHW3ZsiNdY.png" alt="分類頁面開頭 type 設定"></p>
+</li>
+</ul>
+<h4 id="menu-settings"><a href="#menu-settings" class="headerlink" title="menu_settings"></a>menu_settings</h4><p>再來介紹 menu_settings 下的設定，icons 可以調整選單項目 icon 的開關，badges 可以調整選單項目數量標記的開關</p>
+<p>接下來調整 icons 改成 false，badges 改成 true，實際看看選單項目會有什麼變化</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu_settings:</span></span><br><span class="line">  <span class="attr">icons:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">badges:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>設定好再重整網站，會發現選單項目的 icon 都不見了，但是標籤、分類、歸檔這三項多出了數量標記，代表這三項總共有多少數量<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694UlCdyrnQec.png" alt="設定後的選單項目"></p>
+<p>這邊歸檔的數量是指網站的文章總共有幾篇，標籤跟分類對應的是文章 md 檔開頭的 tags 跟 categories ( 忘記請參考下方補充 )，所以標籤跟分類後面的數量，分別代表的是網站中所有文章不重複的 tags 有幾個、categories 有幾個</p>
+<h4 id="補充：文章開頭設定-categories-跟-description"><a href="#補充：文章開頭設定-categories-跟-description" class="headerlink" title="補充：文章開頭設定 categories 跟 description"></a>補充：文章開頭設定 categories 跟 description</h4><ul>
+<li><strong>categories</strong></li>
+</ul>
+<p>文章 md 檔開頭的 tags 跟 categories 可以這樣設定，因為 landscape 主題沒用到，所以之前沒有示範過 categories 的設定，這邊補上</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726945UfPoggvXt.png" alt="文章 categories 的設定"></p>
+<p>有文章有設定 categories 之後，再回去看網站就會看見分類項目的數量變成 1 了</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694MP9RjFUcY7.png" alt="分類項目數量改變"></p>
+<ul>
+<li><strong>description</strong></li>
+</ul>
+<p>前面有說到如何讓首頁的文章只顯示部分內文，只要在文章中想截斷的地方加入 <code>&lt;!--more--&gt;</code>，首頁就會只顯示部份內文，然後多出一個 read more 按鈕，讓瀏覽者點擊查看全文</p>
+<p>在 NexT 主題還有提供另一個產生 read more 按鈕的方法，跟 <code>&lt;!--more--&gt;</code> 不同的地方是，這個方法可以讓你自訂要顯示的內容是什麼，那就是在文章開頭設定 description</p>
+<p>首先在一篇文章的 md 檔開頭加入 description，然後寫入想在首頁文章卡片顯示的文字內容</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Ofese6QUqy.png" alt="文章開頭 description 設定"></p>
+<p>完成後重整網站，查看首頁就會看見文章卡片顯示的是，剛剛 description 設定的內容</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694GrpHDOgt7B.png" alt="首頁文章卡片顯示 description 的內容"></p>
+<hr>
+<h3 id="調整不同模板樣式"><a href="#調整不同模板樣式" class="headerlink" title="調整不同模板樣式"></a>調整不同模板樣式</h3><p>NexT 主題本身有提供 4 種不同模板樣式，示範網站如下：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/muse/">Muse</a></li>
+<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/mist/">Mist</a></li>
+<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/pisces/">Pisces</a></li>
+<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/">Gemini</a></li>
+</ul>
+<p>這邊示範網站提供的是暗色的主題樣式，在還沒調整設定之前預設會是亮色的主題樣式，兩者主要只是以黑或白為主色的差別而已<br>在調整色系前，先來看看如何調整不同模板樣式吧 ~ 順便給大家看看 4 種不同亮色的主題長什麼樣</p>
+<p>調整模板樣式的方式很簡單，找到 scheme 改成你想要的模板樣式名稱就可以囉 ~</p>
+<p>假設我要改成 Gemini 這個樣式，只要把原本的樣式註解掉，再解除想要樣式的註解，就會套用這個樣式的主題了<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694UFsWBnxv81.png" alt="修改主題的 scheme 設定"></p>
+<p>亮色的 4 種不同模板樣式網站畫面：</p>
+<ul>
+<li><p>Muse<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694OLK7ey0pX8.png" alt="亮色的 Muse 樣式"></p>
+</li>
+<li><p>Mist<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694t7S9xQ6rGO.png" alt="亮色的 Mist 樣式"></p>
+</li>
+<li><p>Pisces<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YAwzbE9hs3.png" alt="亮色的 Pisces 樣式"></p>
+</li>
+<li><p>Gemini<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694huIia5q6If.png" alt="亮色的 Gemini 樣式"></p>
+</li>
+</ul>
+<hr>
+<h3 id="調整明暗主題色系"><a href="#調整明暗主題色系" class="headerlink" title="調整明暗主題色系"></a>調整明暗主題色系</h3><p>除此之外，NexT 主題還可以選擇明暗色系的主題樣式，這對於喜歡暗色系網站的我來說就是福音，白色對我來說太明亮了 <del>太耀眼了，看太久會被消滅</del></p>
+<p>調整方式也很簡單，只要在 NexT 主題的 config 檔中，把 darkmode 改成 true，就可以開啟 <del>暗黑模式</del> 暗色系的主題樣式囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694n030vsX3rY.png" alt="darkmode 改成 true"></p>
+<p>然後重整網站，搭啦 ~ 網站就變成暗色系的主題樣式了🪄</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694v1mtpwVmvE.png" alt="網站變成暗色系樣式"></p>
+<hr>
+<h3 id="favicon、logo、作者頭像設定"><a href="#favicon、logo、作者頭像設定" class="headerlink" title="favicon、logo、作者頭像設定"></a>favicon、logo、作者頭像設定</h3><p>如果你自己有設計網站的 logo，或是自己的頭像，NexT 主題也可以幫你把這些圖片客製到你的網站上</p>
+<p>先說 logo 的部分，找到以下片段，這邊可以調整網站的 favicon 和 logo，這兩個部分的相關設定</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694yvKnQ2kotk.png" alt="設定 favicon、logo 的片段"></p>
+<h4 id="favicon"><a href="#favicon" class="headerlink" title="favicon"></a>favicon</h4><p>favicon 就是網站頁籤紅框處的這個圖片，通常會放 logo，這部分就要用 favicon</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YLjgbL8GDM.png" alt="網站 favicon 的位置"></p>
+<p>上面提到的網站頁籤圖片就要靠 <code>favicon</code> 下的設定來調整，你會看見 small 跟 medium … 各個項目，每個設定都有一串圖片路徑，它們來自一個 images 的資料夾</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">/images/favicon-16x16-next.png</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">/images/favicon-32x32-next.png</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/apple-touch-icon-next.png</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment">#android_manifest: /manifest.json</span></span><br></pre></td></tr></table></figure>
+
+<p>images 資料夾在 <code>themes/next/source</code> 路徑下，打開來你就會看到主題預設給你的 logo 跟頭像圖片</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ljwFueAmrR.png" alt="images 資料夾內容"></p>
+<p>接下來就是依照預設圖片的尺寸，去設計 favicon 的圖檔，然後把 <code>favicon</code> 下的圖片路徑改成新的圖片路徑即可，假如 small 要改成套用 images 資料夾中 <code>favicon-small.png</code> 這個檔案的話，路徑就要改成以下這樣</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">small:</span> <span class="string">/images/favicon-small.png</span></span><br></pre></td></tr></table></figure>
+
+<p>我自己是把 <code>favicon</code> 下的沒註解掉的項目，都改成自己的 logo 了，但你可以看自己的需求做調整就好</p>
+<h4 id="logo"><a href="#logo" class="headerlink" title="logo"></a>logo</h4><p>接下來調整網站的 logo 圖片，找到以下片段，備註有說 Mist 樣式不支援客製化 logo 的設定，所以選擇 Mist 樣式的朋友，如果有這項需求可以考慮換成其他樣式<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YVbMJ8O9uH.png" alt="設定 logo 的片段"></p>
+<p>跟上面的 favicon 一樣，可以把設計的 logo 圖檔放到 images 資料夾中，然後再調整圖片路徑，假設我要改成 images 中 <code>logo.png</code> 這個圖檔，那路徑就要改成以下這樣</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_logo:</span> <span class="string">/images/logo.png</span></span><br></pre></td></tr></table></figure>
+
+<p>設定好之後回到網站重整，就可以看見網站上多出了 logo 的圖片<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694TZPjFJM94x.png" alt="網站多出了 logo 的圖片"></p>
+<p>不同樣式 logo 位置可能會不同，這邊就不一一示範，留給大家去嘗試囉 ~</p>
+<h4 id="作者頭像"><a href="#作者頭像" class="headerlink" title="作者頭像"></a>作者頭像</h4><p>如果你有自己想放的頭像，NexT 主題也有提供一個地方讓你放頭像的圖片路徑</p>
+<p>找到以下的 <code>avatar</code> 片段，然後跟前面設定方式一樣，在 images 資料夾放入你想放的頭像圖檔，然後修改 url 的圖片路徑設定</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694CXGxKRDDMB.png" alt="avatar 片段內容"></p>
+<p>假設要放的圖檔名稱是 <code>myphoto.png</code>，url 這項的路徑就要改成以下這樣</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="comment">#/images/myphoto.png</span></span><br></pre></td></tr></table></figure>
+
+<p>設定後回到首頁就可以看見側欄出現了剛剛設定的頭像</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694cNaLWylnz4.png" alt="側欄出現頭像"></p>
+<p>再來這個片段還有 2 個設定：<code>rounded</code> 跟 <code>rotated</code></p>
+<p>把 <code>rounded</code> 設定為 <code>true</code> 可以將頭像裁切成圓形，呈現畫面如下</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694MZi4Dk4VTx.png" alt="側欄頭像變圓形"></p>
+<p>而 <code>rotated</code> 設定為 <code>true</code> 可以讓頭像新增一個 hover 的動畫效果，當瀏覽者把滑鼠移到頭像上時，頭像會像唱片一樣旋轉，這個效果就留給大家嘗試看看喜不喜歡囉 ~</p>
+<hr>
+<h3 id="社群連結按鈕"><a href="#社群連結按鈕" class="headerlink" title="社群連結按鈕"></a>社群連結按鈕</h3><p>既然說到了作者頭像如何設定，那就接著講如何設定你的社群連結按鈕吧 ~</p>
+<p>找到以下片段，<code>social</code> 下預設註解就有一些常用的社群連結及 icon 圖案設定，也可以另外新增其他的社群媒體連結及 icon 圖案</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694mdfGeMipYT.png" alt="social 片段"></p>
+<p>這邊的 icon 修改方式跟 menu 選單項目設定的方式一樣，找到想要的 icon 代碼加入即可</p>
+<p>假設我想新增 Discord 的社群按鈕，我找到 Font Awesome 中 icon 代碼是 <code>fa-brands fa-discord</code>，那就可以新增 Discord 設定到 <code>social</code> 下，這邊 icon 代碼 <code>fa-brands</code> 可以簡寫成 <code>fab</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">Discord:</span> <span class="string">https://discord.com/你的Discord</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-discord</span></span><br></pre></td></tr></table></figure>
+
+<p>設定後重整網站，就可以看見首頁側欄最下面出現剛剛設定的 Discord 社群按鈕囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DLC6t0n0Wk.png" alt="側欄最下面出現 Discord 社群按鈕"></p>
+<p>再往下可以看見還有 <code>social_icons</code>，這個片段可以調整社群按鈕的 icon 設定</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social_icons:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">icons_only:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">transition:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>每項設定介紹如下：</p>
+<ul>
+<li><code>enable</code>：可以設定社群按鈕是否要顯示 icon</li>
+<li><code>icons_only</code>：可以設定社群按鈕是否要只顯示 icon、不顯示文字</li>
+<li><code>transition</code>：可以設定是否顯示 icon 的 transition 效果</li>
+</ul>
+<p>transition 效果我自己其實看不太出差異，但官方文件說有這個效果，說不定有人感覺有差，那這個片段就留給大家嘗試自己喜歡的設定囉 ~</p>
+<hr>
+<h3 id="copy-right"><a href="#copy-right" class="headerlink" title="copy right"></a>copy right</h3><p>再來我相信一定會有人想改 copy right 預設的內容吧？我自己是很想改成其他可愛的 icon，這樣每次看到都會療癒一下，接下來就來介紹以下 copy right 預設內容如何調整吧 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694vvj81hPcYu.png" alt="網站預設 copy right"></p>
+<p>先找到以下片段<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726945gQ4XMewmX.png" alt="footer 片段內容"></p>
+<p><code>footer</code> 下會有 <code>icon</code>、<code>copyright</code>、<code>powered</code> 三個設定，這三個設定可以用來調整網站 footer 區塊的 copy right 內容</p>
+<ul>
+<li><code>icon</code>：有 <code>name</code>、<code>animated</code>、<code>color</code> 這三項，可以設定下圖黃框處的 icon<ul>
+<li><code>name</code>：用來設定 Font Awesome 的 icon 圖案代碼</li>
+<li><code>animated</code>：用來設定是否開啟讓 icon 跳動的動畫</li>
+<li><code>color</code>：用來設定 icon 的顏色</li>
+</ul>
+</li>
+<li><code>copyright</code>：可以寫入在下圖紅框處要顯示的文字，未設定會預設為全站 config 檔設定的 author 名稱，設定為 <code>false</code> 可不顯示整段 copy right 文字 ( 不包含強力驅動文字 )</li>
+<li><code>powered</code>：可以設定是否要顯示下圖綠框處的強力驅動文字</li>
+</ul>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Jt7iHU61eR.png" alt="footer 片段對應網站的位置"></p>
+<p>copy right 的文字通常會寫類似：「轉載文章時請附上作者名及原文連結」的內容，然後我自己是會關閉強力驅動的文字，改一個喜歡的 icon 圖案、換顏色再加動畫 <del>會跳動的 icon 比較可愛</del></p>
+<p>示範一下設定內容</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">icon:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fa</span> <span class="string">fa-user-astronaut</span></span><br><span class="line">  <span class="attr">animated:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">&quot;#0080FF&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">copyright:</span> <span class="string">轉載文章時請附上作者名及原文連結</span></span><br><span class="line"></span><br><span class="line"><span class="attr">powered:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>設定後重整網站，footer 就會變更成新設定的內容囉 ~<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694HI5xQpqRuy.png" alt="copy right 區塊網站內容"></p>
+<p>這邊大家可以實際操作設定自己的 copy right 內容，看看自己比較喜歡哪種設定</p>
+<h3 id="如何調整文章開頭的顯示文字"><a href="#如何調整文章開頭的顯示文字" class="headerlink" title="如何調整文章開頭的顯示文字"></a>如何調整文章開頭的顯示文字</h3><p>再來我想應該會有人，想調整下圖紅框處文章開頭的這串文字吧？如果用預設再加上有分類項目的話，感覺確實資訊很多很雜</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694uw0BBuYw5v.png" alt="網站文字開頭資訊"></p>
+<p>首先先找到以下片段<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694H2ksQASP4X.png" alt="post_meta 片段內容"></p>
+<p><code>post_meta</code> 這個片段可以用來調整文章開頭的區塊要顯示哪些內容</p>
+<ul>
+<li><p><code>item_text</code>：用來設定是否要顯示項目前方的「發表於」、「更新於」、「分類於」文字 ( 如下圖黃框處 )<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694sCV3F2nFno.png" alt="item_text 在網站的顯示位置"></p>
+</li>
+<li><p><code>created_at</code>：用來設定是否要顯示文章的發表日期 ( 如下圖綠框處 )<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726946O6GMIcSBE.png" alt="created_at 在網站的顯示位置"></p>
+</li>
+<li><p><code>update_at</code>：用來設定文章更新時間 ( 如下圖藍框處 ) 的顯示方式<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694OjN6CKSZoX.png" alt="update_at 在網站的顯示位置"></p>
+<ul>
+<li><code>enable</code>：用來設定是否要顯示文章的更新日期</li>
+<li><code>another_day</code>：用來設定當發表日期和更新日期相同時，是否要顯示文章的更新時間，<code>true</code> 會不顯示更新時間、<code>false</code> 則會顯示更新時間</li>
+</ul>
+</li>
+<li><p><code>categories</code>：用來設定是否要顯示文章的分類項目 ( 如下圖橘框處 )<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ZX0qDYajEc.png" alt="categories 在網站的顯示位置"></p>
+</li>
+</ul>
+<p>這邊就讓大家試試看要顯示哪些內容在文章標題下方囉 ~</p>
+<hr>
+<h3 id="客製化檔案路徑"><a href="#客製化檔案路徑" class="headerlink" title="客製化檔案路徑"></a>客製化檔案路徑</h3><p>如果你有自己寫的程式碼想要加入網站中的某些區塊，NexT 主題有提供一個區塊 <code>custom_file_path</code>，讓使用者可以設定客製的檔案路徑</p>
+<p><code>custom_file_path</code> 區域上方的註解有說明，可以新增客製化檔案到 <code>source/_data</code> 路徑下，也可以用以下預設內容來新增不同網站部分的客製化檔案<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/2017269428UT0JD0PO.png" alt="custom_file_path 片段位置"></p>
+<p>這部分如果有需要可以多多運用，裡面還可以自己設定網站的樣式變數、也可以新增自己的 <code>styles.styl</code> 檔讓網站套用你寫的樣式檔，另外還可以針對網站結構也做客製，這邊看到可以新增不同部分的 njk 檔</p>
+<hr>
+<h3 id="更多檔案中的設定"><a href="#更多檔案中的設定" class="headerlink" title="更多檔案中的設定"></a>更多檔案中的設定</h3><p>其實 NexT 主題 config 檔中的設定還蠻多的，這裡介紹的只是一部份我想分享的設定，也推薦大家客製化遇到問題可以先探索一下這個檔案，如果有遇到想了解的設定也可以參考官方文件，多多探索可以幫助你更快掌握如何客製化</p>
+<h2 id="客製化修改程式碼"><a href="#客製化修改程式碼" class="headerlink" title="客製化修改程式碼"></a>客製化修改程式碼</h2><p>雖然有一些網站部分內容的客製化，可以透過上面提到的 NexT 主題 config 檔來設定達成，但是可能會有些東西你很想客製化，卻無法透過以上方法來調整設定</p>
+<p>這時候就需要直接修改主題檔案的程式碼了，而在 NexT 主題修改的方式其實很類似之前客製化 landscape 主題的做法，只是檔案名稱和位置可能會不同，所以需要另外研究跟適應</p>
+<p>但如果要直接修改原本檔案的程式碼，一樣會建議修改時用註解標記新增了哪些程式碼區段，或是把原本的設定值註解保留，以防後續需要更新主題版本時，無法對照修改了哪些程式碼</p>
+<p>雖然通常不是想用新功能或是網站有出什麼問題，是不會主動去更新主題版本的，所以上面的建議就是一個以防萬一的準備</p>
+<p>接下來就針對需要修改 NexT 主題本身檔案的程式碼時，如何找到該程式碼的檔案位置來做介紹</p>
+<hr>
+<h3 id="njk-檔是什麼？"><a href="#njk-檔是什麼？" class="headerlink" title="njk 檔是什麼？"></a>njk 檔是什麼？</h3><p>還記得之前 landscape 主題客製化，有介紹到一個統整所有頁面結構的檔案叫 <code>layout.ejs</code>，在 NexT 主題也有這樣的檔案，一樣在 layout 資料夾，但是它的檔名是 <code>_layout.njk</code></p>
+<p>如果你點開在 <code>themes/next/layout</code> 路徑下的 <code>_layout.njk</code> 檔，你會發現這個 njk 檔的內容和之前介紹的 EJS 樣版語言很類似</p>
+<p>沒錯，它也是一種樣板語言，叫 Nunjucks ( 以下簡稱 njk )，它跟 EJS 一樣可以加入 JavaScript 到 HTML 片段中，也可以引入其他檔案的內容</p>
+<p>只是語法上有些不同，EJS 是用 <code>&lt;%- %&gt;</code> 符號包住程式碼，njk 則是用 <code>&#123;%  %&#125;</code> 包住程式碼，如果想更深入了解這個語言的寫法可以參考 <a target="_blank" rel="noopener" href="https://nunjucks.bootcss.com/templating.html">Nunjucks 的官網文件</a></p>
+<hr>
+<h3 id="如何找到要客製的-HTML-程式碼片段"><a href="#如何找到要客製的-HTML-程式碼片段" class="headerlink" title="如何找到要客製的 HTML 程式碼片段"></a>如何找到要客製的 HTML 程式碼片段</h3><p>這邊會再簡單介紹在 NexT 主題，如何尋找被引入 <code>_layout.njk</code> 的檔案所在位置</p>
+<p>以網站 HTML 的 head 區塊為例，假設我想找到第 4 行被引入的檔案在哪，下圖程式碼可以看見 <code>_partials/head/head.njk</code> 這樣的內容</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694D88MQ93zB6.png" alt="_layout.njk 的 head 區塊"></p>
+<p>所以可以知道第 4 行被引入的檔案，在 <code>_partials</code> 內的 <code>head</code> 資料夾，檔名是 <code>head.njk</code>，打開這個檔案就可以看見引入的內容是什麼了</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694P4dzf8Pwmt.png" alt="head.njk 檔內容"></p>
+<p>接下來為了驗證，我們回到網站打開發者工具，查看 Elements 中網站的 <code>&lt;head&gt;</code> 起始標籤後第一行，是否和 <code>head.njk</code> 裡的第一行：<code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code> 一樣</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694OXTJAKvXau.png" alt="開發者工具 head 程式碼內容"></p>
+<p>看完上面的介紹，是不是覺得和 landscape 主題客製化的做法很像？之後如果需要客製化某個網站部分，也可以依照上面方式查找驗證，然後嘗試修改再觀察網站畫面的變化</p>
+<hr>
+<h3 id="如何找到要客製的-CSS-程式碼片段"><a href="#如何找到要客製的-CSS-程式碼片段" class="headerlink" title="如何找到要客製的 CSS 程式碼片段"></a>如何找到要客製的 CSS 程式碼片段</h3><p>在 NexT 主題中也有類似 landscape 主題的 <code>style.styl</code> 檔，它就是在 <code>themes/next/source/css</code> 路徑下的 <code>main.styl</code> 檔 ( 如下 )</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694kJ7nRaJLaZ.png" alt="main.styl 檔的內容"></p>
+<p>這個檔案可以看到被引入的 styl 檔在哪裡，以 <code>@import &#39;_variables/base&#39;;</code> 來說，引入的檔案是 <code>_variables</code> 資料夾內的 <code>base.styl</code> 檔</p>
+<p>前面有介紹 NexT 主題有 4 種不同的模板樣式，不同模板樣式會有不同的樣式變數，所以當點開 <code>_variables</code> 資料夾，你還會看到其他 4 個以樣式模板名稱命名的 styl 檔案</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694V8D87bfhih.png" alt="_variables 資料夾內的檔案"></p>
+<p>再對照 <code>main.styl</code> 檔，模板樣式變數的引入位置，是在 <code>base.styl</code> 檔之後 ( 下圖紅框處 ) ，那麼就可以知道後面引入的檔案內容，會覆蓋前面引入的設定內容</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726949nxtnpQljM.png" alt="模板樣式變數的引入位置"></p>
+<p>也就是說假設你調整了 base 檔的變數設定，卻沒反應可以到你使用的模板樣式變數檔看看，是否有一樣名稱的變數把 base 檔的設定覆蓋了</p>
+<p>了解如何尋找被引入的檔案在哪之後，如果有想客製化修改的樣式，修改步驟就會和 landscape 主題在客製化時的方式很類似</p>
+<p>只要利用開發者工具找到要修改的 CSS 程式碼大約在哪，在回到 <code>main.styl</code> 檔尋找該程式碼可能在哪個檔案中，就可以修改看看、觀察網站樣式是否有變動，如果有的話就恭喜你找到它囉🎉</p>
+<p>補充：styl 檔除了 CSS 之外也可以寫 SCSS 喔 ~ 有 SCSS 就能更有效率的寫網站樣式的程式碼了</p>
+<hr>
+<h3 id="補充：languages-資料夾介紹"><a href="#補充：languages-資料夾介紹" class="headerlink" title="補充：languages 資料夾介紹"></a>補充：languages 資料夾介紹</h3><p>在 next 資料夾中有一個 languages 的資料夾，點開裡面會有各種語言的翻譯文字，繁體中文在 <code>zh-TW.yml</code> 檔內，所以如果有文字翻譯想調整，可以來看看是否有在這個檔案中</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Zii5TvXf8n.png" alt="zh-TW.yml 檔案內容"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>這篇文章前面主要簡單介紹 NexT 主題的 config 檔在客製化上面有哪些設定，後面才提到如果有直接修改原本檔案的需求時，要怎麼找到想找的程式碼在哪</p>
+<p>我本人比較懶，所以 NexT 主題的 config 檔直接設定一些內容，真的很棒 ~ 如果你正在努力客製 NexT 主題 Hexo 網站，希望這篇文章能幫助你製作出你理想的 Hexo 網站</p>
+<p>那我們就下篇文章見囉 ~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/amy6072698/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/amy10blog/tags/Hexo/" rel="tag"><i class="fa fa-wand-sparkles"></i> Hexo</a>
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/04/29/20250429-hexo-learning9/" rel="prev" title="從零開始學 Hexo (9) | Hexo 主題選擇及更換網站主題">
+                  <i class="fa fa-angle-left"></i> 從零開始學 Hexo (9) | Hexo 主題選擇及更換網站主題
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/05/14/20250514-js-learning1/" rel="next" title="JavaScript 修練 (1) | 變數的宣告、作用域與提升">
+                  JavaScript 修練 (1) | 變數的宣告、作用域與提升 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-hat-wizard"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">轉載文章時請附上作者名 (Amy咂摳) 及原文連結，永遠感謝你</span>
+  </div>
+  <script color="211,202,236" opacity="0.8" zIndex="-1" count="33" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"amy6072698","repo":"amy10blog","client_id":"Ov23lihGMNKD37j8MGqG","client_secret":"bf537fcc7ae373e1434f2096214e7530b6df543a","admin_user":"amy6072698","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"6eeccc8cda3b16ce4959e87089219099"}</script>
+<script src="/amy10blog/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

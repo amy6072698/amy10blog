@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#535C91" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/amy10blog/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/amy10blog/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/amy10blog/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/amy10blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/amy10blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"amy6072698.github.io","root":"/amy10blog/","images":"/amy10blog/images","scheme":"Gemini","darkmode":true,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-dark","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#E5C3A6","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/amy10blog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/amy10blog/js/config.js" defer></script>
+
+    <meta name="description" content="介紹如何用 Hexo 指令新增文章，以及常用的 Markdown 語法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="從零開始學 Hexo (4) | 新增 Hexo 文章與常用 Markdown 語法">
+<meta property="og:url" content="http://amy6072698.github.io/amy10blog/2025/04/24/20250424-hexo-learning4/index.html">
+<meta property="og:site_name" content="Amy咂摳修練手冊">
+<meta property="og:description" content="介紹如何用 Hexo 指令新增文章，以及常用的 Markdown 語法">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250430/20172694hiHkpsRy4v.png">
+<meta property="og:image" content="https://images.unsplash.com/photo-1589883661923-6476cb0ae9f2?q=80&w=200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250430/20172694M3caSyIfpC.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250430/20172694ZdCE75Xs7R.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250430/20172694WQTIPu00vm.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250430/201726949Kg9aBr4r7.png">
+<meta property="article:published_time" content="2025-04-24T10:20:08.000Z">
+<meta property="article:modified_time" content="2025-05-19T12:46:10.670Z">
+<meta property="article:author" content="Amy咂摳">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20250430/20172694hiHkpsRy4v.png">
+
+
+<link rel="canonical" href="http://amy6072698.github.io/amy10blog/2025/04/24/20250424-hexo-learning4/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://amy6072698.github.io/amy10blog/2025/04/24/20250424-hexo-learning4/","path":"2025/04/24/20250424-hexo-learning4/","title":"從零開始學 Hexo (4) | 新增 Hexo 文章與常用 Markdown 語法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>從零開始學 Hexo (4) | 新增 Hexo 文章與常用 Markdown 語法 | Amy咂摳修練手冊</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/utils.js" defer></script><script src="/amy10blog/js/motion.js" defer></script><script src="/amy10blog/js/sidebar.js" defer></script><script src="/amy10blog/js/next-boot.js" defer></script><script src="/amy10blog/js/bookmark.js" defer></script><script src="/amy10blog/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/amy10blog/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/amy10blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/amy10blog/atom.xml" title="Amy咂摳修練手冊" type="application/atom+xml">
+<link rel="alternate" href="/amy10blog/rss2.xml" title="Amy咂摳修練手冊" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/amy10blog/" class="brand" rel="start">
+        <img class="custom-logo-image" src="/amy10blog/images/logo.svg" alt="Amy咂摳修練手冊">
+      <i class="logo-line"></i>
+      <p class="site-title">Amy咂摳修練手冊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">歡迎進入網頁的奇幻世界</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/amy10blog/" rel="section"><i class="fa fa-place-of-worship fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/amy10blog/about/" rel="section"><i class="fa fa-book-open-reader fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/amy10blog/tags/" rel="section"><i class="fa fa-wand-sparkles fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/amy10blog/categories/" rel="section"><i class="fa fa-scroll fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/amy10blog/archives/" rel="section"><i class="fa fa-box-open fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-rss"><a href="/amy10blog/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E8%AA%AA%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">前置說明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E4%BD%A0%E7%9A%84-Hexo-%E9%83%A8%E8%90%BD%E6%A0%BC%E6%96%87%E7%AB%A0"><span class="nav-number">2.</span> <span class="nav-text">如何建立你的 Hexo 部落格文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E9%BA%BC%E7%94%A8-Markdown-%E8%AA%9E%E6%B3%95%E6%92%B0%E5%AF%AB%E6%96%87%E7%AB%A0%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">怎麼用 Markdown 語法撰寫文章？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C"><span class="nav-number">3.1.</span> <span class="nav-text">標題</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C1"><span class="nav-number"></span> <span class="nav-text">標題1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C2"><span class="nav-number">1.</span> <span class="nav-text">標題2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C3"><span class="nav-number">1.1.</span> <span class="nav-text">標題3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C4"><span class="nav-number">1.1.1.</span> <span class="nav-text">標題4</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C5"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">標題5</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C6"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">標題6</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%97%E9%AB%94"><span class="nav-number">1.2.</span> <span class="nav-text">粗體</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%9C%E9%AB%94"><span class="nav-number">1.3.</span> <span class="nav-text">斜體</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%AA%E9%99%A4%E7%B7%9A"><span class="nav-number">1.4.</span> <span class="nav-text">刪除線</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E9%9A%94%E7%B7%9A"><span class="nav-number">1.5.</span> <span class="nav-text">分隔線</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E9%80%A3%E7%B5%90"><span class="nav-number">1.6.</span> <span class="nav-text">插入連結</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%9C%96%E7%89%87"><span class="nav-number">1.7.</span> <span class="nav-text">插入圖片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E5%96%AE"><span class="nav-number">1.8.</span> <span class="nav-text">清單</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.9.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">1.10.</span> <span class="nav-text">程式碼</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A9%A6%E8%91%97%E5%81%9A%E5%81%9A%E7%9C%8B"><span class="nav-number">2.</span> <span class="nav-text">試著做做看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">3.</span> <span class="nav-text">結語</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy咂摳"
+      src="/amy10blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Amy咂摳</p>
+  <div class="site-description" itemprop="description">分享前端開發相關的文章</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/amy10blog/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/amy10blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/amy10blog/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://discordapp.com/users/1172554977592475708" title="Discord → http:&#x2F;&#x2F;discordapp.com&#x2F;users&#x2F;1172554977592475708" rel="noopener me" target="_blank"><i class="fab fa-discord fa-fw"></i>Discord</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ithelp.ithome.com.tw/users/20172694/articles" title="iT邦幫忙 → https:&#x2F;&#x2F;ithelp.ithome.com.tw&#x2F;users&#x2F;20172694&#x2F;articles" rel="noopener me" target="_blank"><i class="fa fa-comment fa-fw"></i>iT邦幫忙</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://amy6072698.github.io/amy10blog/2025/04/24/20250424-hexo-learning4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/amy10blog/images/avatar.jpg">
+      <meta itemprop="name" content="Amy咂摳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy咂摳修練手冊">
+      <meta itemprop="description" content="分享前端開發相關的文章">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="從零開始學 Hexo (4) | 新增 Hexo 文章與常用 Markdown 語法 | Amy咂摳修練手冊">
+      <meta itemprop="description" content="介紹如何用 Hexo 指令新增文章，以及常用的 Markdown 語法">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          從零開始學 Hexo (4) | 新增 Hexo 文章與常用 Markdown 語法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-04-24 18:20:08" itemprop="dateCreated datePublished" datetime="2025-04-24T18:20:08+08:00">2025-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-05-19 20:46:10" itemprop="dateModified" datetime="2025-05-19T20:46:10+08:00">2025-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/amy10blog/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前置說明"><a href="#前置說明" class="headerlink" title="前置說明"></a>前置說明</h2><p>自己是習慣使用 VSCode 來編輯程式碼，所以之後的程式碼都會以 VSCode 畫面做示範，如果你也想使用 VSCode ，可以到 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VSCode 官網</a> 進行下載安裝，安裝細節大家可以參考 <a target="_blank" rel="noopener" href="https://medium.com/@sajhon_chen4/vs-code%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-3ccb1570e5cf">社長(Sajhon)這篇文章</a> 的教學</p>
+<h2 id="如何建立你的-Hexo-部落格文章"><a href="#如何建立你的-Hexo-部落格文章" class="headerlink" title="如何建立你的 Hexo 部落格文章"></a>如何建立你的 Hexo 部落格文章</h2><p>經過前篇介紹執行 <code>hexo server</code> 指令可以開啟 Hexo 伺服器，在本地看到目前部落格的樣子後，你一定迫不及待想要開始寫自己的文章了，接下來就來介紹新增文章的 Hexo 指令吧 ~</p>
+<p>先用 VSCode 開啟你的 Hexo 部落格資料夾 ( Hexo 幫你建的那個資料夾) ，以我在前篇的示範為例就是 <code>amy10blog</code> 資料夾</p>
+<p>再來在視窗上方檢視旁邊有三個點按下去，選終端機 &gt; 新增終端機，就可以在 VSCode 中開啟終端機了，此時終端機會直接在目前開啟資料夾的路徑上，也就是你的 Hexo 部落格資料夾路徑上</p>
+<p>確定終端機在你的 Hexo 部落格資料夾路徑上後，再執行以下指令，<code>你的文章名稱</code> 可以自己取名 (注意：名稱要用單引號 <code>&#39;&#39;</code> 包住)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&#x27;你的文章名稱&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>下完指令後，在 <code>source</code> 資料夾裡面的 <code>_post</code> 資料夾中，Hexo 會新增一個 <code>.md</code> 檔，以 <code>你的文章名稱</code> 命名，假設文章名稱叫 <code>hexo_learning1</code> 執行結果如下：</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250430/20172694hiHkpsRy4v.png" alt="hexo new &#39;hexo_learning1&#39; 執行結果"></p>
+<p>小補充： VSCode 開啟終端機快捷鍵是 ctrl + shift + 反引號鍵 (就是 tab 上面有小蚯蚓 <code>~</code> 的那個鍵)</p>
+<hr>
+<h2 id="怎麼用-Markdown-語法撰寫文章？"><a href="#怎麼用-Markdown-語法撰寫文章？" class="headerlink" title="怎麼用 Markdown 語法撰寫文章？"></a>怎麼用 Markdown 語法撰寫文章？</h2><p>如果你有仔細研究 <a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/">Hexo 官網的文件</a>，你應該會發現在文件第一頁，官方就有解釋：</p>
+<blockquote>
+<p>Hexo 是一個快速、簡單且強大的網誌框架。  <strong>Hexo 使用 Markdown（或其他標記語言）解析您的文章</strong> ，並在幾秒鐘內，透過漂亮的主題產生靜態檔案。</p>
+</blockquote>
+<p>沒錯，建立完文章後你還需要學習一些 Markdown 語法，才能寫出有不同文字樣式效果的文章，接下來就介紹一些我自己比較常使用的 Markdown 語法給大家參考囉 ~</p>
+<hr>
+<h3 id="標題"><a href="#標題" class="headerlink" title="標題"></a>標題</h3><p>在文字開頭加上井字號 <code>#</code> ，以下是程式碼示範，標題 1 ~ 6 對應 HTML 檔案中的  <code>&lt;h1&gt;</code> ~ <code>&lt;h6&gt;</code> 標籤樣式</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 標題1</span></span><br><span class="line"><span class="section">## 標題2</span></span><br><span class="line"><span class="section">### 標題3</span></span><br><span class="line"><span class="section">#### 標題4</span></span><br><span class="line"><span class="section">##### 標題5</span></span><br><span class="line"><span class="section">###### 標題6</span></span><br></pre></td></tr></table></figure>
+
+<p>示範：</p>
+<h1 id="標題1"><a href="#標題1" class="headerlink" title="標題1"></a>標題1</h1><h2 id="標題2"><a href="#標題2" class="headerlink" title="標題2"></a>標題2</h2><h3 id="標題3"><a href="#標題3" class="headerlink" title="標題3"></a>標題3</h3><h4 id="標題4"><a href="#標題4" class="headerlink" title="標題4"></a>標題4</h4><h5 id="標題5"><a href="#標題5" class="headerlink" title="標題5"></a>標題5</h5><h6 id="標題6"><a href="#標題6" class="headerlink" title="標題6"></a>標題6</h6><h3 id="粗體"><a href="#粗體" class="headerlink" title="粗體"></a>粗體</h3><p>將文字用 2 個星號 <code>**</code> 包住，對應 <code>&lt;strong&gt;</code> 標籤樣式</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是 <span class="strong">**粗體**</span> 文字</span><br></pre></td></tr></table></figure>
+
+<p>示範：<br>我是 <strong>粗體</strong> 文字</p>
+<h3 id="斜體"><a href="#斜體" class="headerlink" title="斜體"></a>斜體</h3><p>將文字用 1 個星號 <code>*</code> 包住，對應 <code>&lt;em&gt;</code> 標籤樣式</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是 <span class="emphasis">*斜體*</span> 文字</span><br></pre></td></tr></table></figure>
+
+<p>示範：<br>我是 <em>斜體</em> 文字</p>
+<h3 id="刪除線"><a href="#刪除線" class="headerlink" title="刪除線"></a>刪除線</h3><p>將文字用 2 個小蚯蚓 <code>~~</code> 包住，對應 <code>&lt;s&gt;</code> 標籤樣式</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是 ~~刪除線~~ 嘿嘿</span><br></pre></td></tr></table></figure>
+
+<p>示範：<br>我是 <del>刪除線</del> 嘿嘿</p>
+<h3 id="分隔線"><a href="#分隔線" class="headerlink" title="分隔線"></a>分隔線</h3><p>在行與行之間加上 3 個減號 <code>---</code> 或星號 <code>***</code>，對應 <code>&lt;hr&gt;</code> 標籤樣式，建議以減號代替米字號，閱讀上較為方便</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">我在減號分隔線之上哈哈哈</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我在減號分隔線之下嗚嗚嗚</span><br><span class="line"></span><br><span class="line">我在星號分隔線之上哈哈哈</span><br><span class="line"></span><br><span class="line"><span class="strong">*** </span></span><br><span class="line"><span class="strong"></span></span><br><span class="line"><span class="strong">我在星號分隔線之下嗚嗚嗚</span></span><br></pre></td></tr></table></figure>
+
+<p>示範：<br>我在減號分隔線之上哈哈哈</p>
+<hr>
+<p>我在減號分隔線之下嗚嗚嗚</p>
+<p>我在星號分隔線之上哈哈哈</p>
+<hr>
+<p>我在星號分隔線之下嗚嗚嗚</p>
+<h3 id="插入連結"><a href="#插入連結" class="headerlink" title="插入連結"></a>插入連結</h3><p>一種由中括號 <code>[]</code> 和小括號 <code>()</code> 組成，中括號內寫入連結文字的內容、小括號內寫入連結網址；另一種是直接用大於小於符號 <code>&lt;&gt;</code> 包住連結網址，兩種方式都對應 <code>&lt;a&gt;</code> 標籤樣式</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">點我前往異空間</span>](<span class="link">https://amy6072698.github.io/amy10blog/123</span>)</span><br><span class="line"><span class="language-xml">&lt;https://www.google.com/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>示範：<br><a href="https://amy6072698.github.io/amy10blog/123">點我前往異空間</a><br><a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com/</a></p>
+<h3 id="插入圖片"><a href="#插入圖片" class="headerlink" title="插入圖片"></a>插入圖片</h3><p>和連結寫法大致相同，但需要在中括號 <code>[]</code> 前面加入一個驚嘆號 <code>!</code> ，中括號內寫入圖片說明文字，小括號內寫入圖片連結，對應 <code>&lt;img&gt;</code> 標籤</p>
+<p><a target="_blank" rel="noopener" href="https://unsplash.com/ja/%E5%86%99%E7%9C%9F/%E8%8C%B6%E8%89%B2%E3%81%AE%E6%9C%A8%E8%A3%BD%E3%81%AE%E5%BA%8A%E3%81%AB%E6%A8%AA%E3%81%9F%E3%82%8F%E3%82%8B%E7%99%BD%E3%81%A8%E8%8C%B6%E8%89%B2%E3%81%AE%E7%8C%AB-46TvM-BVrRI">以下圖片來源</a></p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">賣萌的貓咪圖</span>](<span class="link">https://images.unsplash.com/photo-1589883661923-6476cb0ae9f2?q=80&amp;w=200&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D</span>)</span><br></pre></td></tr></table></figure>
+
+<p>示範：</p>
+<p><img src="https://images.unsplash.com/photo-1589883661923-6476cb0ae9f2?q=80&w=200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==" alt="賣萌的貓咪圖"></p>
+<h3 id="清單"><a href="#清單" class="headerlink" title="清單"></a>清單</h3><p>清單分為有序清單與無序清單，兩種寫法不同</p>
+<p> <strong>有序清單</strong> ：寫法是阿拉伯數字加點 <code>.</code> 加空白之後，再接項目文字，對應 <code>&lt;ol&gt;</code> &gt; <code>&lt;li&gt;</code> 標籤樣式</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 項目一</span><br><span class="line"><span class="bullet">2.</span> 項目二</span><br></pre></td></tr></table></figure>
+
+<p>示範：</p>
+<ol>
+<li>項目一</li>
+<li>項目二</li>
+</ol>
+<p> <strong>無序清單</strong> ：寫法有三種，用星號 <code>*</code> 或加號 <code>+</code> 或減號 <code>-</code> 其中一種符號，加空白之後再接項目文字，對應 <code>&lt;ul&gt;</code> &gt; <code>&lt;li&gt;</code> 標籤樣式，雖然三種符號都可以，但建議同篇文章的無序清單，統一用一種符號撰寫方便閱讀</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*</span> 星號項目一</span><br><span class="line"><span class="bullet">*</span> 星號項目二</span><br><span class="line"><span class="bullet">+</span> 加號項目一</span><br><span class="line"><span class="bullet">+</span> 加號項目二</span><br><span class="line"><span class="bullet">-</span> 減號項目一</span><br><span class="line"><span class="bullet">-</span> 減號項目二</span><br></pre></td></tr></table></figure>
+
+<p>示範：</p>
+<ul>
+<li>星號項目一</li>
+<li>星號項目二</li>
+</ul>
+<ul>
+<li>加號項目一</li>
+<li>加號項目二</li>
+</ul>
+<ul>
+<li>減號項目一</li>
+<li>減號項目二</li>
+</ul>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>在引用文字的開頭加上大於符號 <code>&gt;</code> ，就會產生 <code>&lt;blockquote&gt;</code> 標籤的樣式，但不要因為想要這種樣式的文字就貿然使用，因為這個標籤代表引用的意思請謹慎使用</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 我是從別處引用的文字，你好呀！</span></span><br></pre></td></tr></table></figure>
+
+<p>示範：</p>
+<blockquote>
+<p>我是從別處引用的文字，你好呀！</p>
+</blockquote>
+<h3 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h3><p>要在文章內加入程式碼，有兩種方式一種是程式碼片段、一種是程式碼區塊</p>
+<p> <strong>程式碼片段</strong> ：將程式碼用 1 個反引號 (跟小蚯蚓 <code>~</code> 同一個鍵) 包住</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程式碼的左邊 <span class="code">`let a = 1;`</span> 程式碼的右邊</span><br></pre></td></tr></table></figure>
+
+<p>示範：<br>程式碼的左邊 <code>let a = 1;</code> 程式碼的右邊</p>
+<p> <strong>程式碼區塊</strong> ：在程式碼上一行加上 3 個反引號加程式碼語言縮寫，下一行則只加上 3 個反引號結尾，這樣會在程式碼塊內產生不同程式碼語言的高亮樣式，通常會透過 <a target="_blank" rel="noopener" href="https://highlightjs.org/">highlight.js 套件</a>產生高亮樣式</p>
+<p>Markdown 寫法：</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250430/20172694M3caSyIfpC.png" alt="Markdown 程式碼區塊寫法"></p>
+<p>以下以 HTML 、 CSS 、 JS 示範：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是標題<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>： red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="試著做做看"><a href="#試著做做看" class="headerlink" title="試著做做看"></a>試著做做看</h2><p>看完以上 Markdown 語法寫法，可以試著在你新增的文章 .md 檔中寫入內容，完成後記得儲存 (這很重要) ，再用 <code>hexo server</code> 開啟 Hexo 伺服器看看你的文章內容是否正確顯示喔 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250430/20172694ZdCE75Xs7R.png" alt=" Markdown 語法程式碼"></p>
+<p>一開始點開連結會在首頁，你剛新增的文章名稱會出現在首頁 Recent Posts 的區塊</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250430/20172694WQTIPu00vm.png" alt=" Hexo 首頁 Recent Posts 的區塊"></p>
+<p>點一下你剛剛新增的文章名稱，就會看到你新增的文章內容囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250430/201726949Kg9aBr4r7.png" alt="新增的文章內容"></p>
+<hr>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>其實文章中介紹的 Markdown 語法並非全部，還有很多細節可以了解，如果想了解更多可以參考 <a target="_blank" rel="noopener" href="https://israynotarray.com/other/20191111/1875438261/">Ray 的 Markdown 基礎與入門教學手冊</a> ，這篇只有就我自己比較常使用的語法作介紹，希望經過這篇文章大家可以寫出美美的 Hexo 部落格文章，那我們下篇文章見 ~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/amy6072698/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/amy10blog/tags/Hexo/" rel="tag"><i class="fa fa-wand-sparkles"></i> Hexo</a>
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/04/23/20250423-hexo-learning3/" rel="prev" title="從零開始學 Hexo (3) | 下 Hexo 指令建立部落格環境吧 ~">
+                  <i class="fa fa-angle-left"></i> 從零開始學 Hexo (3) | 下 Hexo 指令建立部落格環境吧 ~
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/04/25/20250425-hexo-learning5/" rel="next" title="從零開始學 Hexo (5) | Hexo 文章細節調整與如何新增頁面">
+                  從零開始學 Hexo (5) | Hexo 文章細節調整與如何新增頁面 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-hat-wizard"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">轉載文章時請附上作者名 (Amy咂摳) 及原文連結，永遠感謝你</span>
+  </div>
+  <script color="211,202,236" opacity="0.8" zIndex="-1" count="33" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"amy6072698","repo":"amy10blog","client_id":"Ov23lihGMNKD37j8MGqG","client_secret":"bf537fcc7ae373e1434f2096214e7530b6df543a","admin_user":"amy6072698","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"e059360da6754057c3c0f922c11ae6dd"}</script>
+<script src="/amy10blog/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

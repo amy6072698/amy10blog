@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#535C91" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/amy10blog/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/amy10blog/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/amy10blog/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/amy10blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/amy10blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"amy6072698.github.io","root":"/amy10blog/","images":"/amy10blog/images","scheme":"Gemini","darkmode":true,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-dark","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#E5C3A6","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/amy10blog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/amy10blog/js/config.js" defer></script>
+
+    <meta name="description" content="介紹如何將自己的 Hexo 部落格網站部署到 GitHub Pages">
+<meta property="og:type" content="article">
+<meta property="og:title" content="從零開始學 Hexo (7) | 部署你的落格網站與常見 Hexo 指令">
+<meta property="og:url" content="http://amy6072698.github.io/amy10blog/2025/04/27/20250427-hexo-learning7/index.html">
+<meta property="og:site_name" content="Amy咂摳修練手冊">
+<meta property="og:description" content="介紹如何將自己的 Hexo 部落格網站部署到 GitHub Pages">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694xdZhyBnX72.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726946kGiHmSY4C.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Be3GJcerGO.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694aif6smUhN5.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694sgoa8Daeq5.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694yIptVAl5vi.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694CHx2ik1Qc2.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694y2mlNpeqAZ.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694odgHCcrUM1.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ezQkyiE83a.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694D1kDzrkuK7.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694G2e3kizOOb.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Ks8PnDTsDP.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694g6tmS3msZC.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726945eqhPSD2zX.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726945MZuwAZHdr.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694hUBnwMb0tH.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694eywtSg9EJh.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726949LOHOiU9MD.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694fv24Mpv2xe.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694vAPPC9dejM.png">
+<meta property="article:published_time" content="2025-04-27T13:13:55.000Z">
+<meta property="article:modified_time" content="2025-05-19T15:57:55.562Z">
+<meta property="article:author" content="Amy咂摳">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694xdZhyBnX72.png">
+
+
+<link rel="canonical" href="http://amy6072698.github.io/amy10blog/2025/04/27/20250427-hexo-learning7/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://amy6072698.github.io/amy10blog/2025/04/27/20250427-hexo-learning7/","path":"2025/04/27/20250427-hexo-learning7/","title":"從零開始學 Hexo (7) | 部署你的落格網站與常見 Hexo 指令"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>從零開始學 Hexo (7) | 部署你的落格網站與常見 Hexo 指令 | Amy咂摳修練手冊</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/utils.js" defer></script><script src="/amy10blog/js/motion.js" defer></script><script src="/amy10blog/js/sidebar.js" defer></script><script src="/amy10blog/js/next-boot.js" defer></script><script src="/amy10blog/js/bookmark.js" defer></script><script src="/amy10blog/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/amy10blog/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/amy10blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/amy10blog/atom.xml" title="Amy咂摳修練手冊" type="application/atom+xml">
+<link rel="alternate" href="/amy10blog/rss2.xml" title="Amy咂摳修練手冊" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/amy10blog/" class="brand" rel="start">
+        <img class="custom-logo-image" src="/amy10blog/images/logo.svg" alt="Amy咂摳修練手冊">
+      <i class="logo-line"></i>
+      <p class="site-title">Amy咂摳修練手冊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">歡迎進入網頁的奇幻世界</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/amy10blog/" rel="section"><i class="fa fa-place-of-worship fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/amy10blog/about/" rel="section"><i class="fa fa-book-open-reader fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/amy10blog/tags/" rel="section"><i class="fa fa-wand-sparkles fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/amy10blog/categories/" rel="section"><i class="fa fa-scroll fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/amy10blog/archives/" rel="section"><i class="fa fa-box-open fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-rss"><a href="/amy10blog/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">前置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A2%BA%E8%AA%8D%E6%98%AF%E5%90%A6%E5%B7%B2%E5%AE%89%E8%A3%9D-git"><span class="nav-number">1.1.</span> <span class="nav-text">確認是否已安裝 git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E5%86%8A%E4%BD%A0%E7%9A%84-GitHub"><span class="nav-number">1.2.</span> <span class="nav-text">註冊你的 GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%93-VSCode-%E7%B6%81%E5%AE%9A%E4%BD%A0%E7%9A%84-GitHub-%E5%B8%B3%E8%99%9F"><span class="nav-number">1.3.</span> <span class="nav-text">讓 VSCode 綁定你的 GitHub 帳號</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E-GitHub-%E7%A9%BA%E9%96%93"><span class="nav-number">2.</span> <span class="nav-text">新增 GitHub 空間</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84%E9%83%A8%E8%90%BD%E6%A0%BC%E5%88%B0-GitHub-Page"><span class="nav-number">3.</span> <span class="nav-text">部署你的部落格到 GitHub Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A6%8B-Hexo-%E6%8C%87%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">常見 Hexo 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">5.</span> <span class="nav-text">結語</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy咂摳"
+      src="/amy10blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Amy咂摳</p>
+  <div class="site-description" itemprop="description">分享前端開發相關的文章</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/amy10blog/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/amy10blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/amy10blog/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://discordapp.com/users/1172554977592475708" title="Discord → http:&#x2F;&#x2F;discordapp.com&#x2F;users&#x2F;1172554977592475708" rel="noopener me" target="_blank"><i class="fab fa-discord fa-fw"></i>Discord</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ithelp.ithome.com.tw/users/20172694/articles" title="iT邦幫忙 → https:&#x2F;&#x2F;ithelp.ithome.com.tw&#x2F;users&#x2F;20172694&#x2F;articles" rel="noopener me" target="_blank"><i class="fa fa-comment fa-fw"></i>iT邦幫忙</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://amy6072698.github.io/amy10blog/2025/04/27/20250427-hexo-learning7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/amy10blog/images/avatar.jpg">
+      <meta itemprop="name" content="Amy咂摳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy咂摳修練手冊">
+      <meta itemprop="description" content="分享前端開發相關的文章">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="從零開始學 Hexo (7) | 部署你的落格網站與常見 Hexo 指令 | Amy咂摳修練手冊">
+      <meta itemprop="description" content="介紹如何將自己的 Hexo 部落格網站部署到 GitHub Pages">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          從零開始學 Hexo (7) | 部署你的落格網站與常見 Hexo 指令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-04-27 21:13:55" itemprop="dateCreated datePublished" datetime="2025-04-27T21:13:55+08:00">2025-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-05-19 23:57:55" itemprop="dateModified" datetime="2025-05-19T23:57:55+08:00">2025-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/amy10blog/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><h3 id="確認是否已安裝-git"><a href="#確認是否已安裝-git" class="headerlink" title="確認是否已安裝 git"></a>確認是否已安裝 git</h3><p>在開始往下介紹如何用部署你的 Hexo 部落格之前，我們要先確認是否有正確安裝 git，如果你是跟著前幾篇文章實作的朋友，基本上是不用擔心沒有安裝的，因為安裝 Hexo 前，官網的文件就有說明要先安裝 git</p>
+<p>如果你還是想確認可以執行以下指令，有回傳版本號表示你已經安裝好 git 了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p>還未完成安裝的話可以到參考<a href="https://amy6072698.github.io/amy10blog/2025/04/22/20250422-hexo-learning2/">這系列文章的第二篇</a>，先完成安裝</p>
+<hr>
+<h3 id="註冊你的-GitHub"><a href="#註冊你的-GitHub" class="headerlink" title="註冊你的 GitHub"></a>註冊你的 GitHub</h3><p>確定安裝好 git 之後，先前往 <a target="_blank" rel="noopener" href="https://github.com/">GitHub 官網</a> 註冊你的 GitHub 帳號</p>
+<p>進入官網點擊右上角的 Sign up 按鈕<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694xdZhyBnX72.png" alt=" GitHub 官網註冊按鈕"></p>
+<p>接下來就是註冊帳號會有的流程，讓你填寫一些基本資料、回答一些問題 ( 主要是 GitHub 要調查你申請帳號的用途 )，然後請你選擇方案，如果不需要付費才有的功能選擇免費就好</p>
+<hr>
+<h3 id="讓-VSCode-綁定你的-GitHub-帳號"><a href="#讓-VSCode-綁定你的-GitHub-帳號" class="headerlink" title="讓 VSCode 綁定你的 GitHub 帳號"></a>讓 VSCode 綁定你的 GitHub 帳號</h3><p>如果你跟我一樣使用 VSCode，要記得綁定你的 GitHub 帳號往下介紹前先做個小補充：<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hant">讓 VSCode 介面中文化套件</a></p>
+<p>可以在 VSCode 左邊找到以下圖示，然後在側欄搜尋框搜尋 chinese，找到中文化套件點擊它之後右邊會出現這個套件的相關介紹，點擊「安裝」按鈕，然後關掉 VSCode 在重開就可以看見中文化的 VSCode 介面囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726946kGiHmSY4C.png" alt=" VSCode 延伸模組圖示"></p>
+<p>安裝完套件之後相信大家就能看見中文化的介面了，接下來往下介紹如何讓 VSCode 綁定 GitHub 帳號</p>
+<p>打開 VSCode 點擊左下的人像 icon，再選擇「啟用雲端變更…」( 英文介面應該叫：Turn on Cloud Changes… )<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Be3GJcerGO.png" alt="點擊左下人像 icon，選啟用雲端變更"></p>
+<p>然後最上方搜尋框會跳出兩個項目，選擇「利用 GitHub 登入」<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694aif6smUhN5.png" alt="上方搜尋框選擇利用 GitHub 登入"></p>
+<p>再來就會跳出一個 GitHub 的視窗，要你確認綁定的帳號，確定好後點擊「Continue」<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694sgoa8Daeq5.png" alt="確認綁定帳號點擊 Continue"></p>
+<p>然後就會出現請你授權給 VSCode 的視窗，點擊「Authorize Visual-Studio-Code」<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694yIptVAl5vi.png" alt="授權給 VSCode 的視窗"></p>
+<p>最後會出現確認視窗，點擊「開啟 Visual Studio Code」<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694CHx2ik1Qc2.png" alt="開啟 Visual Studio Code 的確認視窗"></p>
+<p>打開 VSCode 點擊左下的人像 icon，就可以看見圖中白色長方處會出現你的 GitHub 帳號，如果中間遇到錯誤可以關閉 VSCode 再重啟<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694y2mlNpeqAZ.png" alt="點擊左下人像 icon，可以看見你的 GitHub 帳號"></p>
+<p>如果以上步驟都順利完成就恭喜你完成綁定囉🎉</p>
+<h2 id="新增-GitHub-空間"><a href="#新增-GitHub-空間" class="headerlink" title="新增 GitHub 空間"></a>新增 GitHub 空間</h2><p>完成前置的一番奮鬥，接下來就可以用你的 GitHub 帳號新增 GitHub 空間，也就是 GitHub 儲存庫 ( GitHub repository，以下簡稱 GitHub repo )，把你的 Hexo 部落格推上去囉 ~</p>
+<p>登入你的 GitHub 帳號後會出現你的 Dashboard，點擊右上方你的頭像會跳出以下選單，選擇「Your repositories」<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694odgHCcrUM1.png" alt=" Your repositories 選項位置"></p>
+<p>進入 Your repositories，這裡會有所有你創建的 GitHub repo，點擊右上方的「New」按鈕<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ezQkyiE83a.png" alt=" New 按鈕位置"></p>
+<p>然後就可以在 Repository name 填入你的 GitHub repo 名稱<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694D1kDzrkuK7.png" alt=" Repository name 位置"></p>
+<p>完成後就點擊下方的「Create repository」按鈕，就可以進入你剛剛建立的 GitHub repo 頁面了，左上 GitHub Logo 旁邊的白色長方處會顯示你的 GitHub 帳號，在往右就是你剛剛命名的 GitHub repo 名稱<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694G2e3kizOOb.png" alt=" GitHub repo 頁面"></p>
+<p>學會如何新增 GitHub repo 之後，我們就繼續往下前進</p>
+<h2 id="部署你的部落格到-GitHub-Page"><a href="#部署你的部落格到-GitHub-Page" class="headerlink" title="部署你的部落格到 GitHub Page"></a>部署你的部落格到 GitHub Page</h2><p>首先，先到 Hexo 的官方文件，上面有寫到關於「在 GitHub Pages 上部署 Hexo」的內容，讓我們看到<a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/github-pages#One-command-deployment">「一鍵部署」( One-command deployment )</a>這一節的內容</p>
+<p>接下來就依照說明一步步完成部署吧 ~</p>
+<p>首先進入 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>，往下滑查看 README 的說明，可以看到 Installation 提供了以下安裝指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>複製安裝指令貼到終端機 ( 記得確認是否在 Hexo 部落格資料夾的路徑上 )，然後執行<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Ks8PnDTsDP.png" alt="執行安裝 hexo-deployer-git 的指令"></p>
+<p>安裝好之後，要在「全站的 config 檔」中加入以下內容</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/&lt;username&gt;/&lt;project&gt;</span></span><br><span class="line">  <span class="comment"># example, https://github.com/hexojs/hexojs.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
+
+<p>點開全站的 config 檔後，找到 <code>deploy</code> 的區塊替換成以上內容，這時候眼尖的你一定會發現 repo 這一項似乎有些內容要修改</p>
+<p>沒錯，網址中的 <code>&lt;username&gt;</code> 要改成你的 GitHub 帳號，<code>&lt;project&gt;</code> 則要改成你的 GitHub repo 名稱，假設我的帳號是「amy12345」、repo 名稱是「amy_hexo」，那 repo 這項就要改成：<code>https://github.com/amy12345/amy_hexo</code></p>
+<p>其中 branch 這項，代表之後部署 Hexo 部落格到 GitHub Pages 時，會部署到哪個分支名稱，這邊可以直接用預設名稱 gh-pages<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694g6tmS3msZC.png" alt="新增 deploy 內容到全站 config 檔"></p>
+<p>接下來是不是要下指令部署啦？</p>
+<p>先等等！全站的 config 檔還有東西要改，我們找到 <code>url</code> 然後會看見檔案中的註解有提示，如果你是用 GitHub Pages 要把 <code>url</code> 這項改成：<code>https://username.github.io/project</code>，經過前一個步驟，聰明的你一定已經知道要怎麼改了吧 ~</p>
+<p>用我前面的範例套用，我的 <code>url</code> 這項就要改成：<code>https://amy12345.github.io/amy_hexo</code></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726945eqhPSD2zX.png" alt="修改 url 網址"></p>
+<p>好的，接下來就是期待已久的下指令啦 ~ 執行以下指令部署你的 Hexo 網站到 GitHub Pages ( 如果之後要更新網站內容一樣要用以下指令部署 )</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726945MZuwAZHdr.png" alt="執行 hexo clean &amp;&amp; hexo deploy 指令"></p>
+<ul>
+<li><strong>補充</strong>：<code>hexo clean</code> 跟 <code>hexo deploy</code> 是兩個不同指令，<code>hexo clean</code> 會清除原先有的 public 資料夾，確保後續部署的是最新的網站內容，而 <code>hexo deploy</code> 執行後會產生 public 資料夾，裡面是編譯後的網站內容，且還會把編譯內容部署到 GitHub Pages<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694hUBnwMb0tH.png" alt="hexo deploy 指令"></li>
+</ul>
+<p>執行完成後回到你的 GitHub repo 頁面，重新整理就會看見出現了剛剛部署的 gh-pages 分支</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694eywtSg9EJh.png" alt=" GitHub repo 頁面更新"></p>
+<p>然後點擊上方的「Settings」</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726949LOHOiU9MD.png" alt="點擊 Settings "></p>
+<p>選擇左側欄的「Pages」，就會在黃框處看見你部署到 GitHub Pages 的部落格網址，如果沒出現網址就稍等一下再重整網頁<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694fv24Mpv2xe.png" alt=" GitHub Pages 網址位置"></p>
+<p>點進網址後，就可以看見你的部落格囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694vAPPC9dejM.png" alt="部署部落格完成的樣子"></p>
+<ul>
+<li><strong>小提醒</strong>：點進網址後如果還沒出現預期的網站樣式，就等一下再重整網頁或用無痕模式開看看，等很久還是沒反應，就需要檢查前面提到的全站 config 檔設定，是否有錯誤或缺漏，有的話修改儲存後再重新下指令部署</li>
+</ul>
+<h2 id="常見-Hexo-指令"><a href="#常見-Hexo-指令" class="headerlink" title="常見 Hexo 指令"></a>常見 Hexo 指令</h2><p>看到這篇文章恭喜你👏已經將 Hexo 指令學得差不多了，接下來就列出一些比較常見的 Hexo 指令做個小統整吧 ~</p>
+<ul>
+<li><code>hexo init 你的網站英文名稱</code>：初始化 Hexo 部落格環境的指令，init 後面接自訂的網站英文名稱，執行後會在專案資料夾中，新增 Hexo 部落格網站的資料夾，該資料夾名稱與自訂的網站英文名稱相同</li>
+<li><code>hexo server</code> 或 <code>hexo s</code>：開啟 Hexo 伺服器，執行後可以在本地端查看 Hexo 網站的樣子</li>
+<li><code>hexo new &#39;你的文章名稱&#39;</code>：新增 Hexo 部落格文章，new 後面接自訂的文章名稱，記得名稱要用單引號包住，執行後會在 <code>source</code> 內的 <code>_posts</code> 資料夾中新增一個文章的 md 檔</li>
+<li><code>hexo new page 頁面英文名稱</code>：新增 Hexo 網站的頁面，page 後面接頁面英文名稱，執行後會在 <code>source</code> 內新增該頁面名稱的資料夾，裡面有 <code>index.md</code> 檔，頁面相關設定可見本系列文章第五篇</li>
+<li><code>hexo clean</code>：執行後會清除 public 資料夾</li>
+<li><code>hexo deploy</code>：執行後會產生 public 資料夾，並把裡面編譯後的網站內容部署到 GitHub Pages</li>
+<li><code>hexo generate</code> 或 <code>hexo g</code>：執行後會產生 public 資料夾，裡面是編譯後的網站內容，和 <code>hexo deploy</code> 不同，不會把網站內容部署到 GitHub Pages</li>
+</ul>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>看完這篇文章相信大家都能夠了解，如何將自己的 Hexo 部落格網站部署到 GitHub Pages 了，其實說到 GitHub 通常會講到 git 指令，但是這個系列主要還是介紹 Hexo，怕模糊焦點所以就先不談 git 的相關知識 <del>(留給未來的我寫</del></p>
+<p>作為補償我幫大家整理了 Hexo 的常見指令，請笑納🫡，不過如果想多了解 git 的內容可以參考以下的一些學習資源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://w3c.hexschool.com/git/cfdbd310">Git &amp; GitHub 教學手冊</a></li>
+<li><a target="_blank" rel="noopener" href="https://gitbook.tw/">為你自己學 Git</a></li>
+</ul>
+<p>那我們就下篇文章見囉 ~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/amy6072698/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/amy10blog/tags/Hexo/" rel="tag"><i class="fa fa-wand-sparkles"></i> Hexo</a>
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/04/26/20250426-hexo-learning6/" rel="prev" title="從零開始學 Hexo (6) | 認識 Hexo 目錄與調整全站網站設定">
+                  <i class="fa fa-angle-left"></i> 從零開始學 Hexo (6) | 認識 Hexo 目錄與調整全站網站設定
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/04/28/20250428-hexo-learning8/" rel="next" title="從零開始學 Hexo (8) | landscape 主題如何客製 Hexo 首頁">
+                  從零開始學 Hexo (8) | landscape 主題如何客製 Hexo 首頁 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-hat-wizard"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">轉載文章時請附上作者名 (Amy咂摳) 及原文連結，永遠感謝你</span>
+  </div>
+  <script color="211,202,236" opacity="0.8" zIndex="-1" count="33" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"amy6072698","repo":"amy10blog","client_id":"Ov23lihGMNKD37j8MGqG","client_secret":"bf537fcc7ae373e1434f2096214e7530b6df543a","admin_user":"amy6072698","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"11c6624477b11f7773141926fc40bf80"}</script>
+<script src="/amy10blog/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

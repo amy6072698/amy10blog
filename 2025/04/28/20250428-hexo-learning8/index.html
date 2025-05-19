@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#535C91" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/amy10blog/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/amy10blog/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/amy10blog/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/amy10blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/amy10blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"amy6072698.github.io","root":"/amy10blog/","images":"/amy10blog/images","scheme":"Gemini","darkmode":true,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-dark","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#E5C3A6","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/amy10blog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/amy10blog/js/config.js" defer></script>
+
+    <meta name="description" content="介紹如何在 landscape 主題，客製化 Hexo 的網站樣式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="從零開始學 Hexo (8) | landscape 主題如何客製 Hexo 首頁">
+<meta property="og:url" content="http://amy6072698.github.io/amy10blog/2025/04/28/20250428-hexo-learning8/index.html">
+<meta property="og:site_name" content="Amy咂摳修練手冊">
+<meta property="og:description" content="介紹如何在 landscape 主題，客製化 Hexo 的網站樣式">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DXCgVkXtw9.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694eiZK7BnfZg.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694OgBZpWQr1B.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Km4xhLRGIs.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694nx5IU5RqRU.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ZHtEhaq0fP.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Q2p0SzBz5J.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ZORy0QJsgM.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694z6jKtvV9P7.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694PTPAevByKF.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694rBGpjpG9F4.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726947eXhg3Soh5.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694waRqhgWjVu.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726949jDMJAUVze.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694pC5A3B2pvV.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694a5YcZghaAy.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694qM3imLmALb.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694NE39Iecdrj.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694gSa0W73xpA.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726940DfKVED972.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694KbGlNYdlh1.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726948grKGiJp26.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694m0QsAcNj1e.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YtDDZwf1nN.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/201726942vuNBWi5jl.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694JflYnd5dLB.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694VT5xzoXsGo.png">
+<meta property="article:published_time" content="2025-04-28T13:15:00.000Z">
+<meta property="article:modified_time" content="2025-05-19T15:57:12.880Z">
+<meta property="article:author" content="Amy咂摳">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DXCgVkXtw9.png">
+
+
+<link rel="canonical" href="http://amy6072698.github.io/amy10blog/2025/04/28/20250428-hexo-learning8/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://amy6072698.github.io/amy10blog/2025/04/28/20250428-hexo-learning8/","path":"2025/04/28/20250428-hexo-learning8/","title":"從零開始學 Hexo (8) | landscape 主題如何客製 Hexo 首頁"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>從零開始學 Hexo (8) | landscape 主題如何客製 Hexo 首頁 | Amy咂摳修練手冊</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/utils.js" defer></script><script src="/amy10blog/js/motion.js" defer></script><script src="/amy10blog/js/sidebar.js" defer></script><script src="/amy10blog/js/next-boot.js" defer></script><script src="/amy10blog/js/bookmark.js" defer></script><script src="/amy10blog/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/amy10blog/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/amy10blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/amy10blog/atom.xml" title="Amy咂摳修練手冊" type="application/atom+xml">
+<link rel="alternate" href="/amy10blog/rss2.xml" title="Amy咂摳修練手冊" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/amy10blog/" class="brand" rel="start">
+        <img class="custom-logo-image" src="/amy10blog/images/logo.svg" alt="Amy咂摳修練手冊">
+      <i class="logo-line"></i>
+      <p class="site-title">Amy咂摳修練手冊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">歡迎進入網頁的奇幻世界</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/amy10blog/" rel="section"><i class="fa fa-place-of-worship fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/amy10blog/about/" rel="section"><i class="fa fa-book-open-reader fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/amy10blog/tags/" rel="section"><i class="fa fa-wand-sparkles fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/amy10blog/categories/" rel="section"><i class="fa fa-scroll fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/amy10blog/archives/" rel="section"><i class="fa fa-box-open fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-rss"><a href="/amy10blog/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BF%80%E7%99%BC%E4%BD%A0%E7%9A%84%E5%AE%A2%E8%A3%BD%E9%AD%82"><span class="nav-number">1.</span> <span class="nav-text">激發你的客製魂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EJS-%E6%A8%A3%E7%89%88%E8%AA%9E%E8%A8%80"><span class="nav-number">2.</span> <span class="nav-text">EJS 樣版語言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layout-ejs-%E6%AA%94%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text">layout.ejs 檔案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E7%A2%BA%E5%AE%9A%E5%BC%95%E5%85%A5%E7%9A%84%E6%98%AF%E4%B8%8D%E6%98%AF%E9%80%99%E5%80%8B%E6%AA%94%E6%A1%88%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">不確定引入的是不是這個檔案怎麼辦？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E9%BA%BC%E5%AE%A2%E8%A3%BD%E5%8C%96%E6%BB%BF%E7%89%88%E9%A0%81%E9%9D%A2"><span class="nav-number">4.</span> <span class="nav-text">怎麼客製化滿版頁面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%BF%E7%89%88-CSS-%E6%A8%A3%E5%BC%8F%E8%AA%BF%E6%95%B4"><span class="nav-number">4.1.</span> <span class="nav-text">滿版 CSS 樣式調整</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E8%A3%BD%E4%BD%A0%E7%9A%84-Hexo-%E7%B6%B2%E7%AB%99%E9%A6%96%E9%A0%81"><span class="nav-number">5.</span> <span class="nav-text">客製你的 Hexo 網站首頁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-%E6%A8%A3%E5%BC%8F%E6%80%8E%E9%BA%BC%E5%AE%A2%E8%A3%BD%E8%AA%BF%E6%95%B4"><span class="nav-number">6.</span> <span class="nav-text">CSS 樣式怎麼客製調整</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%B0%8E%E8%A6%BD%E5%88%97%E9%A0%85%E7%9B%AE%E6%96%87%E5%AD%97%E9%A1%8F%E8%89%B2"><span class="nav-number">6.1.</span> <span class="nav-text">修改導覽列項目文字顏色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">7.</span> <span class="nav-text">結語</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy咂摳"
+      src="/amy10blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Amy咂摳</p>
+  <div class="site-description" itemprop="description">分享前端開發相關的文章</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/amy10blog/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/amy10blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/amy10blog/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://discordapp.com/users/1172554977592475708" title="Discord → http:&#x2F;&#x2F;discordapp.com&#x2F;users&#x2F;1172554977592475708" rel="noopener me" target="_blank"><i class="fab fa-discord fa-fw"></i>Discord</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ithelp.ithome.com.tw/users/20172694/articles" title="iT邦幫忙 → https:&#x2F;&#x2F;ithelp.ithome.com.tw&#x2F;users&#x2F;20172694&#x2F;articles" rel="noopener me" target="_blank"><i class="fa fa-comment fa-fw"></i>iT邦幫忙</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://amy6072698.github.io/amy10blog/2025/04/28/20250428-hexo-learning8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/amy10blog/images/avatar.jpg">
+      <meta itemprop="name" content="Amy咂摳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy咂摳修練手冊">
+      <meta itemprop="description" content="分享前端開發相關的文章">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="從零開始學 Hexo (8) | landscape 主題如何客製 Hexo 首頁 | Amy咂摳修練手冊">
+      <meta itemprop="description" content="介紹如何在 landscape 主題，客製化 Hexo 的網站樣式">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          從零開始學 Hexo (8) | landscape 主題如何客製 Hexo 首頁
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-04-28 21:15:00" itemprop="dateCreated datePublished" datetime="2025-04-28T21:15:00+08:00">2025-04-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-05-19 23:57:12" itemprop="dateModified" datetime="2025-05-19T23:57:12+08:00">2025-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/amy10blog/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="激發你的客製魂"><a href="#激發你的客製魂" class="headerlink" title="激發你的客製魂"></a>激發你的客製魂</h2><p>經過前面的努力我們終於把 Hexo 網站部署到 GitHub Pages 了，但是這樣用主題模板套用的固定結構、樣式的網站，滿意嗎？</p>
+<p>沒錯！我們不滿意！這篇文章就是來激發你的客製魂的，接下來就開始介紹如何用預設主題 landscape 來客製化你的 Hexo 網站吧 ~</p>
+<h2 id="EJS-樣版語言"><a href="#EJS-樣版語言" class="headerlink" title="EJS 樣版語言"></a>EJS 樣版語言</h2><p>開始客製化之前需要先認識一下 EJS 這個樣版語言，這邊會簡單先講解它的作用，如果想深入了解語法可以到 <a target="_blank" rel="noopener" href="https://ejs.bootcss.com/#docs">EJS 官網文件</a>查看官方說明</p>
+<p>仔細觀察你應該會發現你寫的每篇文章頁面，網頁的結構跟樣式都很相似，唯一不同的是文章內容</p>
+<p>前面提過只要在 <code>source/_posts</code> 資料夾的 md 檔內寫入文章內容，文章內容就會更新到該文章的頁面上，不需要每篇文章都新增一個不同的 HTML 檔…</p>
+<p>而 landscape 主題就是使用 EJS，做到把網站中重複部分拆分成不同 EJS 檔，再將每個部分的結構和不同資料內容，整合到一個 <code>layout.ejs</code> 的檔案中</p>
+<p>簡單來說 EJS 樣版語言，可以做到把網頁結構跟資料組合成一個個看起來結構很像，但顯示資料卻不同的網頁 ( 像每篇文章頁面一樣 )</p>
+<p>比較以下 Hexo 的文章頁面，網頁的結構、樣式都一樣，只有文章內容不同</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DXCgVkXtw9.png" alt=" Hexo 文章頁面 1"><br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694eiZK7BnfZg.png" alt=" Hexo 文章頁面 2"></p>
+<h2 id="layout-ejs-檔案"><a href="#layout-ejs-檔案" class="headerlink" title="layout.ejs 檔案"></a>layout.ejs 檔案</h2><p>前有提到網站的結構跟資料會整合到一個 <code>layout.ejs</code> 的檔案中，那接下來就看看這個檔案，試著調整看看會對網頁產生什麼改變吧 ~</p>
+<p>首先點開 themes 底下的 landscape 資料夾，在點開裡面的 layout 資料夾，就會看見 <code>layout.ejs</code> 的檔案，點開它你會發現檔案的內容很像 HTML，但是又混合一些用 <code>&lt;%- %&gt;</code> 包住的程式碼</p>
+<p><code>&lt;%- %&gt;</code> 內可以寫入 JavaScript 控制網站結構，也可以匯入其他檔案的內容到 <code>layout.ejs</code> 檔中，匯入的結構或資料會放在 <code>&lt;%- %&gt;</code> 程式碼所在的位置</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694OgBZpWQr1B.png" alt=" layout.ejs 檔案"></p>
+<p>先看 <code>&lt;%- partial(&#39;_partial/head&#39;) %&gt;</code> 這個片段，在這行程式碼的位置引入了網站的 head，被引入的是在 <code>_partial</code> 資料夾內的 <code>head.ejs</code> 中的內容</p>
+<p>點開檔案可以看到確實有 <code>&lt;head&gt;</code> 標籤和 head 裡面會有的內容</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Km4xhLRGIs.png" alt=" head.ejs 檔案"></p>
+<hr>
+<h3 id="不確定引入的是不是這個檔案怎麼辦？"><a href="#不確定引入的是不是這個檔案怎麼辦？" class="headerlink" title="不確定引入的是不是這個檔案怎麼辦？"></a>不確定引入的是不是這個檔案怎麼辦？</h3><p>雖然現在知道怎麼找被引入檔案的位置，但如果不確定到底引入的是不是這個檔案，要怎麼辦？</p>
+<p>這時候可以試著修改那個檔案的內容，觀察網站結構是否改變，現在模擬一下情境：</p>
+<p>假設我想加入文字到網站的 footer 位置，這時候我開啟 Hexo 伺服器，點開本地端的網站連結，打開 Chrome 的開發者工具，查看 Elements 的 HTML 結構，發現 footer 的區塊被包在 <code>&lt;div id=&quot;wrap&quot;&gt;</code> 的最後面</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694nx5IU5RqRU.png" alt=" Elements 開發者工具 footer 位置"></p>
+<p>這時候我回到 <code>layout.ejs</code> 檔，尋找 footer 區塊的對應位置，發現它可能在第 14 行</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ZHtEhaq0fP.png" alt=" layout.ejs 第 14 行"></p>
+<p>第 14 行程式碼有看到 <code>partial(&#39;_partial/footer&#39;</code> 這樣的內容，所以我覺得被引入的是 <code>_partial</code> 資料夾內的 <code>footer.ejs</code> 檔，但我不太確定，就先在這個檔案內嘗試加入一行字</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694Q2p0SzBz5J.png" alt=" footer.ejs 修改"></p>
+<p>加入文字後儲存再重新整理網站，footer 確實有加入我剛剛輸入的文字內容，所以被引入的檔案就是 <code>footer.ejs</code> </p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694ZORy0QJsgM.png" alt="重新整理網站 footer 結果"></p>
+<p>經過上面示範的模擬情境，應該就比較知道要如何找到你要客製化的部分在哪，以及不確定時要怎麼驗證了，來嘗試找找想客製的部分在哪個檔案中吧 ~</p>
+<h2 id="怎麼客製化滿版頁面"><a href="#怎麼客製化滿版頁面" class="headerlink" title="怎麼客製化滿版頁面"></a>怎麼客製化滿版頁面</h2><p>如果去看 Hexo 網站的每個頁面，你會發現右側都有一個側欄選單，如果想讓關於或是首頁變成沒有側欄選單的滿版頁面，要怎麼做呢？</p>
+<p>還記得前面有提到，如何用文章 md 檔的開頭調整文章細節嗎？接下來就可以運用這個方法，讓你可以控制頁面是否要滿版顯示</p>
+<p>假設我希望關於頁面可以滿版顯示，先打開 <code>source/about</code> 下的 <code>index.md</code> 檔，在開頭加入自訂的內容：<code>fullPage: true</code></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694z6jKtvV9P7.png" alt="關於頁面 md 檔的開頭設定"></p>
+<p>看到小駝峰的命名方式應該可以預感到，沒錯… 接下來就是 JavaScript 登場的時候的，接下來會寫入一些 JavaScript 的內容到 <code>layout.ejs</code> 中</p>
+<p>但首先，要先找到我們想去除的側欄選單在檔案中的哪個位置，這時候就是依照前面的步驟，先在 Chrome 的開發者工具的 Elements 內，找到側欄選單的 HTML 結構位置</p>
+<p>你會發現它在 <code>&lt;div class=&quot;outer&quot;&gt;</code> 內</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694PTPAevByKF.png" alt=" Elements 側欄選單位置"></p>
+<p>然後就是找到 <code>layout.ejs</code> 檔案中對應的位置：第 10 ~ 12 行</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694rBGpjpG9F4.png" alt=" layout.ejs 第 10 ~ 12 行"></p>
+<p>再來就是在第 10 行 <code>if (</code> 後面寫入 JavaScript 判斷，修改後程式碼如下，這樣當 fullPage 是 ture 就不會顯示側欄選單</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!page.fullPage &amp;&amp; theme.sidebar &amp;&amp; theme.sidebar !== &#x27;bottom&#x27;)&#123; %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>加入後儲存再查看關於頁面右邊的側欄消失了</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726947eXhg3Soh5.png" alt="關於頁面側欄消失"></p>
+<hr>
+<h3 id="滿版-CSS-樣式調整"><a href="#滿版-CSS-樣式調整" class="headerlink" title="滿版 CSS 樣式調整"></a>滿版 CSS 樣式調整</h3><p>接下來你會發現側欄是消失了，但是左邊區塊怎麼沒有滿版向右邊延伸？</p>
+<p>那就要靠 CSS 的力量來調整了，但是如果直接改控制排版的 CSS 屬性，可能會連其他頁面版面都一起被調整，所以這時候就需要透過新增一個 class，來增加 CSS 權重用覆蓋方式，蓋掉原本 landscape 預設的樣式</p>
+<p>先用開發者工具找到是誰在控制頁面排版，這邊可以看到控制頁面排版的 CSS 屬性設定是 <code>float: left;</code>，選擇器是用 <code>#main</code></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694waRqhgWjVu.png" alt="控制頁面排版的 CSS 屬性"></p>
+<p>接下來回到 <code>layout.ejs</code> 檔案，找到 container 然後加入 class 屬性，class 屬性值寫入 JS 判斷讓 fullPage 為 true 時，再加入 fullPage 這個值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;container&quot; &lt;%- page.fullPage ? &#x27;class=&quot;fullPage&quot;&#x27; : &#x27;&#x27; %&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>回到網站查看會發現只有關於頁面，可以看見 container 多了 fullPage 這個 class，其他頁面則沒有</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726949jDMJAUVze.png" alt="關於頁面多了 fullPage 這個 class"></p>
+<p>再來就是調整 CSS 啦 ~ 因為還沒講到 CSS 檔案怎麼客製化調整，所以這邊先在 <code>layout.ejs</code> 的 <code>&lt;/body&gt;</code> 結尾標籤前，用 <code>&lt;style&gt;</code> 標籤直接寫入 CSS 樣式</p>
+<p>這邊選擇器 <code>.fullPage #main</code> 權重較大，可以覆蓋原本的 CSS 預設樣式，除了把 float 改為 none 之外，也順便把 width 改成 100% <del>滿版樣式滿起來</del></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694pC5A3B2pvV.png" alt="寫入滿版樣式"></p>
+<p>回去查看關於頁面，就可以看見滿版頁面樣式囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694a5YcZghaAy.png" alt="關於頁面呈現滿版"></p>
+<h2 id="客製你的-Hexo-網站首頁"><a href="#客製你的-Hexo-網站首頁" class="headerlink" title="客製你的 Hexo 網站首頁"></a>客製你的 Hexo 網站首頁</h2><p>知道如何客製滿版頁面之後，接下來可能就會想動動網站的門面「首頁」，對 ~ 接下來就來看看怎麼讓首頁不要顯示成部落格文章列表，改成自己客製化的網頁結構囉 ~</p>
+<p>假如我想客製化首頁，但是又想保留現在首頁的結構樣式，把它移到落落格的頁面，要怎麼做呢？</p>
+<p>首先，先修改目前首頁的路由網址，進到全站的 config 檔，找到 <code>index_generator</code> 片段，把 <code>path</code> 這項改成 <code>&#39;/blog&#39;</code></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694qM3imLmALb.png" alt="全站 config 首頁路由設定"></p>
+<p>再來就是設定導覽列的網址，和前面文章提過的修改方式差不多，一樣到主題的 config 檔的 menu 設定，這邊把網址路由 <code>/archives</code> 改成 <code>/blog</code></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694NE39Iecdrj.png" alt="修改主題的 config 檔部落格路由"></p>
+<p>然後執行 <code>hexo clean</code> 指令清除目前的編譯檔後，重新開啟 Hexo 伺服器，點擊上方導覽列的部落格項目，進入後就會看到原本的首頁出現了</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694gSa0W73xpA.png" alt="首頁移動到部落格頁面"></p>
+<p>接下來就是放首頁 HTML 檔的時候啦 ~ 到 source 資料夾內新增一個 <code>index.html</code> 檔案，在檔案開頭加入 title 和 fullPage 的設定，然後加入首頁的 HTML 結構</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726940DfKVED972.png" alt="新增首頁的 HTML 檔"></p>
+<p>回到網站進入首頁，剛剛寫的文字就出現在首頁囉 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694KbGlNYdlh1.png" alt="首頁呈現結果"></p>
+<h2 id="CSS-樣式怎麼客製調整"><a href="#CSS-樣式怎麼客製調整" class="headerlink" title="CSS 樣式怎麼客製調整"></a>CSS 樣式怎麼客製調整</h2><p>修改好首頁之後，你可能會想要再多客製一些網站的樣式，那就需要修改主題的 CSS 樣式了</p>
+<p>進到 <code>themes/landscape/source</code> 路徑下，會看見一個 <code>css</code> 資料夾，裡面有一個 <code>style.styl</code> 檔，打開會看到內容很像 Sass 的寫法，styl 檔其實是一個叫 <a target="_blank" rel="noopener" href="https://stylus-lang.com/">Stylus</a> 的 CSS 預處理器，作用跟 Sass 很類似</p>
+<p>如果有學過 Sass，可以試著自己修改裡面的樣式，在客製化時如果擔心直接修改，之後需要更新版本會有影響，可以註解原本的預設設定的內容，方便日後對照修改前後的內容</p>
+<p>另外也可以使用 CSS 的方式客製樣式，前篇常見的 Hexo 指令有提到執行 <code>hexo generate</code> 指令，會產生 public 資料夾，裡面是編譯後的網站內容</p>
+<p>沒錯，接下來就是執行 <code>hexo generate</code> 指令，然後進去 public 找到 <code>css</code> 資料夾 ，你會看見有一個 <code>style.css</code> 檔案<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726948grKGiJp26.png" alt=" public 裡的 style.css 檔案"></p>
+<p>這個檔案裡是目前網站套用的 CSS 樣式，把它複製到剛剛 <code>themes/landscape/source</code> 路徑下的 <code>css</code> 資料夾內</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694m0QsAcNj1e.png" alt="複製 style.css 檔案"></p>
+<p>然後打開 <code>style.styl</code> 檔，在最底下加入 <code>@import &quot;style.css&quot;</code> 這行程式碼，引入剛剛複製的 <code>style.css</code> 檔覆蓋原本的樣式<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YtDDZwf1nN.png" alt="引入複製的 style.css 檔"></p>
+<p>接下來就可以在剛剛複製的這個檔案中，客製化自己的網站樣式啦 ~</p>
+<h3 id="修改導覽列項目文字顏色"><a href="#修改導覽列項目文字顏色" class="headerlink" title="修改導覽列項目文字顏色"></a>修改導覽列項目文字顏色</h3><p>假設我想修改網站上方導覽列項目的文字顏色，要怎麼做呢？</p>
+<p>首先，一樣利用開發者工具，查看控制導覽列項目文字顏色的 CSS 屬性在哪，這邊可以發現是 <code>.nav-icon, .main-nav-link</code> 這個選擇器內的 color 屬性在控制<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726942vuNBWi5jl.png" alt="開發者工具畫面"></p>
+<p>看上圖黃框處，可以知道這行程式碼在 <code>style.css</code> 檔內大約 381 行的位置，接下來就來修改 color 屬性，我要改成 pink <del>粉粉der</del></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694JflYnd5dLB.png" alt="修改導覽列 color 屬性"></p>
+<p>再來先執行 <code>hexo clean</code> 清除舊的編譯內容，然後再開啟 Hexo 伺服器，就可以看見上方導覽列文字 pink 起來啦 ~</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694VT5xzoXsGo.png" alt="上方導覽列文字顏色改為 pink "></p>
+<p>接下來就可以利用以上方法，自由的在 <code>style.css</code> 檔中客製化自己的網站樣式囉 ~</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>這篇文章介紹了如何在 landscape 主題中，客製化 Hexo 的網站樣式，這些客製方法是學習加上實作後得來的，也鼓勵大家實作遇到問題，可以多查看官方文件，或是尋找大神寫過的文章，來解決目前遇到的難題</p>
+<p>不同 Hexo 主題在客製化上可能要修改的地方會不同，但如果可以跟上這篇的操作，就可以期許自己去研究如何客製化你更喜歡的 Hexo 主題，不用侷限在 landscape 主題</p>
+<p>下篇文章會帶大家學了解如何挑選及更換主題，那我們就下篇文章見囉 ~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/amy6072698/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/amy10blog/tags/Hexo/" rel="tag"><i class="fa fa-wand-sparkles"></i> Hexo</a>
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/04/27/20250427-hexo-learning7/" rel="prev" title="從零開始學 Hexo (7) | 部署你的落格網站與常見 Hexo 指令">
+                  <i class="fa fa-angle-left"></i> 從零開始學 Hexo (7) | 部署你的落格網站與常見 Hexo 指令
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/04/29/20250429-hexo-learning9/" rel="next" title="從零開始學 Hexo (9) | Hexo 主題選擇及更換網站主題">
+                  從零開始學 Hexo (9) | Hexo 主題選擇及更換網站主題 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-hat-wizard"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">轉載文章時請附上作者名 (Amy咂摳) 及原文連結，永遠感謝你</span>
+  </div>
+  <script color="211,202,236" opacity="0.8" zIndex="-1" count="33" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"amy6072698","repo":"amy10blog","client_id":"Ov23lihGMNKD37j8MGqG","client_secret":"bf537fcc7ae373e1434f2096214e7530b6df543a","admin_user":"amy6072698","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"b1e24a88057e2b33f23fcf2656c24e29"}</script>
+<script src="/amy10blog/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>
