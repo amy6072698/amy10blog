@@ -57,10 +57,10 @@
 <meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694JflYnd5dLB.png">
 <meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694VT5xzoXsGo.png">
 <meta property="article:published_time" content="2025-04-28T13:15:00.000Z">
-<meta property="article:modified_time" content="2025-05-19T15:57:12.880Z">
+<meta property="article:modified_time" content="2025-05-19T16:36:04.620Z">
 <meta property="article:author" content="Amy咂摳">
-<meta property="article:tag" content="前端">
 <meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DXCgVkXtw9.png">
 
@@ -297,7 +297,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2025-05-19 23:57:12" itemprop="dateModified" datetime="2025-05-19T23:57:12+08:00">2025-05-19</time>
+      <time title="修改時間：2025-05-20 00:36:04" itemprop="dateModified" datetime="2025-05-20T00:36:04+08:00">2025-05-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -327,7 +327,8 @@
 <p>而 landscape 主題就是使用 EJS，做到把網站中重複部分拆分成不同 EJS 檔，再將每個部分的結構和不同資料內容，整合到一個 <code>layout.ejs</code> 的檔案中</p>
 <p>簡單來說 EJS 樣版語言，可以做到把網頁結構跟資料組合成一個個看起來結構很像，但顯示資料卻不同的網頁 ( 像每篇文章頁面一樣 )</p>
 <p>比較以下 Hexo 的文章頁面，網頁的結構、樣式都一樣，只有文章內容不同</p>
-<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DXCgVkXtw9.png" alt=" Hexo 文章頁面 1"><br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694eiZK7BnfZg.png" alt=" Hexo 文章頁面 2"></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694DXCgVkXtw9.png" alt=" Hexo 文章頁面 1"></p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694eiZK7BnfZg.png" alt=" Hexo 文章頁面 2"></p>
 <h2 id="layout-ejs-檔案"><a href="#layout-ejs-檔案" class="headerlink" title="layout.ejs 檔案"></a>layout.ejs 檔案</h2><p>前有提到網站的結構跟資料會整合到一個 <code>layout.ejs</code> 的檔案中，那接下來就看看這個檔案，試著調整看看會對網頁產生什麼改變吧 ~</p>
 <p>首先點開 themes 底下的 landscape 資料夾，在點開裡面的 layout 資料夾，就會看見 <code>layout.ejs</code> 的檔案，點開它你會發現檔案的內容很像 HTML，但是又混合一些用 <code>&lt;%- %&gt;</code> 包住的程式碼</p>
 <p><code>&lt;%- %&gt;</code> 內可以寫入 JavaScript 控制網站結構，也可以匯入其他檔案的內容到 <code>layout.ejs</code> 檔中，匯入的結構或資料會放在 <code>&lt;%- %&gt;</code> 程式碼所在的位置</p>
@@ -393,19 +394,22 @@
 <p>進到 <code>themes/landscape/source</code> 路徑下，會看見一個 <code>css</code> 資料夾，裡面有一個 <code>style.styl</code> 檔，打開會看到內容很像 Sass 的寫法，styl 檔其實是一個叫 <a target="_blank" rel="noopener" href="https://stylus-lang.com/">Stylus</a> 的 CSS 預處理器，作用跟 Sass 很類似</p>
 <p>如果有學過 Sass，可以試著自己修改裡面的樣式，在客製化時如果擔心直接修改，之後需要更新版本會有影響，可以註解原本的預設設定的內容，方便日後對照修改前後的內容</p>
 <p>另外也可以使用 CSS 的方式客製樣式，前篇常見的 Hexo 指令有提到執行 <code>hexo generate</code> 指令，會產生 public 資料夾，裡面是編譯後的網站內容</p>
-<p>沒錯，接下來就是執行 <code>hexo generate</code> 指令，然後進去 public 找到 <code>css</code> 資料夾 ，你會看見有一個 <code>style.css</code> 檔案<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726948grKGiJp26.png" alt=" public 裡的 style.css 檔案"></p>
+<p>沒錯，接下來就是執行 <code>hexo generate</code> 指令，然後進去 public 找到 <code>css</code> 資料夾 ，你會看見有一個 <code>style.css</code> 檔案</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726948grKGiJp26.png" alt=" public 裡的 style.css 檔案"></p>
 <p>這個檔案裡是目前網站套用的 CSS 樣式，把它複製到剛剛 <code>themes/landscape/source</code> 路徑下的 <code>css</code> 資料夾內</p>
 <p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694m0QsAcNj1e.png" alt="複製 style.css 檔案"></p>
-<p>然後打開 <code>style.styl</code> 檔，在最底下加入 <code>@import &quot;style.css&quot;</code> 這行程式碼，引入剛剛複製的 <code>style.css</code> 檔覆蓋原本的樣式<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YtDDZwf1nN.png" alt="引入複製的 style.css 檔"></p>
+<p>然後打開 <code>style.styl</code> 檔，在最底下加入 <code>@import &quot;style.css&quot;</code> 這行程式碼，引入剛剛複製的 <code>style.css</code> 檔覆蓋原本的樣式</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694YtDDZwf1nN.png" alt="引入複製的 style.css 檔"></p>
 <p>接下來就可以在剛剛複製的這個檔案中，客製化自己的網站樣式啦 ~</p>
 <h3 id="修改導覽列項目文字顏色"><a href="#修改導覽列項目文字顏色" class="headerlink" title="修改導覽列項目文字顏色"></a>修改導覽列項目文字顏色</h3><p>假設我想修改網站上方導覽列項目的文字顏色，要怎麼做呢？</p>
-<p>首先，一樣利用開發者工具，查看控制導覽列項目文字顏色的 CSS 屬性在哪，這邊可以發現是 <code>.nav-icon, .main-nav-link</code> 這個選擇器內的 color 屬性在控制<br><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726942vuNBWi5jl.png" alt="開發者工具畫面"></p>
+<p>首先，一樣利用開發者工具，查看控制導覽列項目文字顏色的 CSS 屬性在哪，這邊可以發現是 <code>.nav-icon, .main-nav-link</code> 這個選擇器內的 color 屬性在控制</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/201726942vuNBWi5jl.png" alt="開發者工具畫面"></p>
 <p>看上圖黃框處，可以知道這行程式碼在 <code>style.css</code> 檔內大約 381 行的位置，接下來就來修改 color 屬性，我要改成 pink <del>粉粉der</del></p>
 <p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694JflYnd5dLB.png" alt="修改導覽列 color 屬性"></p>
 <p>再來先執行 <code>hexo clean</code> 清除舊的編譯內容，然後再開啟 Hexo 伺服器，就可以看見上方導覽列文字 pink 起來啦 ~</p>
 <p><img src="https://ithelp.ithome.com.tw/upload/images/20250519/20172694VT5xzoXsGo.png" alt="上方導覽列文字顏色改為 pink "></p>
 <p>接下來就可以利用以上方法，自由的在 <code>style.css</code> 檔中客製化自己的網站樣式囉 ~</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>這篇文章介紹了如何在 landscape 主題中，客製化 Hexo 的網站樣式，這些客製方法是學習加上實作後得來的，也鼓勵大家實作遇到問題，可以多查看官方文件，或是尋找大神寫過的文章，來解決目前遇到的難題</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>這篇文章介紹了如何在 landscape 主題中，客製化 Hexo 的網站樣式，這些客製方法是學習加上實作後得來的，也鼓勵大家實作遇到問題，可以多查看官方文件，或是尋找大神寫過的技術文章，來解決目前遇到的難題</p>
 <p>不同 Hexo 主題在客製化上可能要修改的地方會不同，但如果可以跟上這篇的操作，就可以期許自己去研究如何客製化你更喜歡的 Hexo 主題，不用侷限在 landscape 主題</p>
 <p>下篇文章會帶大家學了解如何挑選及更換主題，那我們就下篇文章見囉 ~</p>
 
@@ -422,8 +426,8 @@
   </script>
 </div>
           <div class="post-tags">
-              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
               <a href="/amy10blog/tags/Hexo/" rel="tag"><i class="fa fa-wand-sparkles"></i> Hexo</a>
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
           </div>
 
         
