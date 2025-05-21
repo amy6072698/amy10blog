@@ -15,8 +15,33 @@
     <atom:link href="http://amy6072698.github.io/amy10blog/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>分享前端開發相關的文章</description>
-    <pubDate>Mon, 19 May 2025 16:12:26 GMT</pubDate>
+    <pubDate>Wed, 21 May 2025 16:19:15 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>JavaScript 修練 (3) | 運算子執行先後</title>
+      <link>http://amy6072698.github.io/amy10blog/2025/05/21/20250521-js-learning3/</link>
+      <guid>http://amy6072698.github.io/amy10blog/2025/05/21/20250521-js-learning3/</guid>
+      <pubDate>Wed, 21 May 2025 11:06:09 GMT</pubDate>
+      
+      <description>介紹運算子對程式碼執行先後順序的影響</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><p>前篇文章有提到表達式 ( Expression ) 會回傳值，而除了純值、呼叫函式之外，運算子 ( Operator ) 執行時也會回傳值，所以 MDN 文件把<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators">表達式和運算子</a>放在同一章節內是有道理的</p><h3 id="等號運算子也會回傳值"><a href="#等號運算子也會回傳值" class="headerlink" title="等號運算子也會回傳值"></a>等號運算子也會回傳值</h3><p>我們知道等號運算子 <code>=</code> ( Assignment Operator ) 是將右側的值賦予到左側變數上，但看開發者工具的 Console 執行結果，會發現它也會回傳值</p><p><img src="https://ithelp.ithome.com.tw/upload/images/20250522/20172694ee3z9lTu4o.png" alt="等號運算子也會回傳值"></p><p>🔮如果是 <code>var a = 1;</code> 則不會回傳值，雖然後方 <code>a = 1</code> 是表達式，但前篇有提過用 var 宣告會讓這行程式碼被判斷為陳述式，所以最終不會回傳值</p><p>補充：Assignment Operator 中文翻譯有指派運算子、指定運算子</p><h3 id="運算子與運算元"><a href="#運算子與運算元" class="headerlink" title="運算子與運算元"></a>運算子與運算元</h3><p>運算子是由一個符號或單字組成，且至少要搭配一個運算元才能執行，所以我們常常會聽到的「一元」、「二元」、「三元」運算子，就是在說這個運算子的運算元數量</p><p>以下方的 <code>+</code> 運算子為例，而左右兩個數字是運算元，所以它是「二元運算子」</p><p><img src="https://ithelp.ithome.com.tw/upload/images/20250522/20172694QUXAr9uX6d.png" alt="運算子與運算元"></p><p>大部分運算子都是「二元運算子」，且都是以符號形式為主，如算數運算子 ( Arithmetic Operator )： <code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>，此外也有「一元運算子」和「三元運算子」</p><h4 id="一元運算子"><a href="#一元運算子" class="headerlink" title="一元運算子"></a>一元運算子</h4><p>前面提到的 delete 就是一元運算子，它是以 delete 這個單字為運算子，搭配後方的運算元組成，執行過程中會刪除物件下的一個屬性，同時也會回傳刪除的結果 ( 下圖紅框處 )</p><p><img src="https://ithelp.ithome.com.tw/upload/images/20250522/20172694BT7xrj0v12.png" alt="delete 是一元運算子"></p><p>另外 typeof 也是一元運算子，它可以用來取得運算元的型別</p><p><img src="https://ithelp.ithome.com.tw/upload/images/20250522/20172694wu56c4GAmj.png" alt="typeof 是一元運算子"></p><h4 id="三元運算子"><a href="#三元運算子" class="headerlink" title="三元運算子"></a>三元運算子</h4><p>三元運算子只有一個，也稱為「條件運算子」，它由兩個運算子 <code>?</code>、<code>:</code> 和三個運算元組成，會由 <code>?</code> 左邊判斷式的真假值決定要執行 <code>:</code> 左邊或右邊的表達式，然後回傳一個結果，寫法示範如下</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判斷式 ? 真值時執行的表達式 : 假值時執行的表達式</span></span><br><span class="line"><span class="number">1</span> === <span class="number">1</span> ? <span class="string">&#x27;相等&#x27;</span> : <span class="string">&#x27;不相等&#x27;</span>;</span><br></pre></td></tr></table></figure><p>因為 <code>1 === 1</code> 為 <code>true</code>，所以執行 <code>:</code> 左邊的表達式，回傳值為 <code>&#39;相等&#39;</code></p><p><img src="https://ithelp.ithome.com.tw/upload/images/20250522/20172694VVOd7MKTyR.png" alt="三元運算子執行後的回傳值"></p><p>和前篇介紹的 if 判斷式很類似，但寫法與執行還是有差異，它不僅可以作為判斷用，也可以用來回傳最終執行結果</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isSleeping = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">const</span> result = isSleeping ? <span class="string">&#x27;睡覺中，請勿打擾&#x27;</span> : <span class="string">&#x27;醒了，請吵我&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);  <span class="comment">// &#x27;睡覺中，請勿打擾&#x27;</span></span><br></pre></td></tr></table></figure><p>無論是哪一種類型的運算子，都要記得「運算子屬於表達式的一種」( 會回傳值 )</p><h3 id="運算子位置影響回傳和賦值先後"><a href="#運算子位置影響回傳和賦值先後" class="headerlink" title="運算子位置影響回傳和賦值先後"></a>運算子位置影響回傳和賦值先後</h3><p>學習運算子 <code>++</code> 的過程中，一定有看過類似 <code>++a</code>、<code>a++</code> 這兩種寫法，放前面跟放後面有差嗎？答案是有的，但是不一定每次都能看出它們的差異，所以可能會被忽略，導致當這樣的差異影響到程式碼的結果時，找不出原因在哪</p><p>部分運算子在執行過程中不會影響原始值，如：前面提過的 <code>+</code> 運算子，雖然會進行計算，但除非將結果另外用等號賦值，否則不會變更到變數的原始值</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a + <span class="number">1</span>);  <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// + 運算子沒有變更 a 的原始值</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);  <span class="comment">// 1</span></span><br></pre></td></tr></table></figure><p>但也有運算子在執行過程中會影響原始值，如：開頭說的 <code>++</code> 運算子，它屬於一元運算子，在它前方或後方加入一個值為數值的變數作為運算元，就可以讓該運算元變數的值增加 1</p><p>以下兩組程式碼，差異只有第二行 <code>++</code> 運算子放在 <code>a</code> 變數前或後，但無論前後都會影響變數原始值讓它增加 1，所以變數 <code>a</code> 的值最後都被賦予為 2</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(++a);  <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a++);  <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure><p>仔細看會發現雖然最後 <code>a</code> 的值都是 2，但是 <code>++a</code> 跟 <code>a++</code> 兩者用 <code>console.log</code> 印出的結果卻不同，這是因為 <code>++</code> 運算子放在運算元前方或後方，會影響它回傳值的時機點</p><ul><li><strong><code>++</code> 在前方</strong>：會<strong>先計算並賦值</strong>，然後才會回傳運算元的變數值</li><li><strong><code>++</code> 在後方</strong>：會<strong>先回傳運算元的變數值</strong>，然後才會計算並賦值</li></ul><p>因此，隨然最後都會改變變數 <code>a</code> 的值，但是執行順序的不同，就會導致程式碼運作的不同，接下來看看幾個範例，實際比較兩者運作上的差異吧 ~</p><p>以下兩組程式碼就是因為回傳時機點不同，而導致 <code>*10</code> 的計算結果不同，第一組程式碼是將 <code>a</code> 的值 <code>+1</code> 後，才執行計算 <code>*10</code>，第二組則是先用 <code>+1</code> 前的 <code>a</code> 值和 <code>*10</code> 計算 ( <code>1 * 10</code> )，再將 <code>a</code> 的值 <code>+1</code></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a++ 會先回傳值 1，跟後面的 * 10 計算，然後再把 a + 1 的計算結果賦值給 a，所以 b 的值是 10</span></span><br><span class="line"><span class="keyword">const</span> b = a++ * <span class="number">10</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);  <span class="comment">// 10</span></span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ++a 會先 a + 1 的計算結果賦值給 a，再回傳值 2，然後跟後面的 * 10 計算，所以 b 的值是 20</span></span><br><span class="line"><span class="keyword">const</span> b = ++a * <span class="number">10</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);  <span class="comment">// 20</span></span><br></pre></td></tr></table></figure><h4 id="小試身手"><a href="#小試身手" class="headerlink" title="小試身手"></a>小試身手</h4><p>那麼經過上面的說明，試試看你能不能回答以下三個 <code>console.log</code> 印出的結果吧 ~</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a++);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(++a);</span><br></pre></td></tr></table></figure><p>以上程式碼中 <code>a++</code> 會先回傳變數 <code>a</code> 的值，所以 <code>console.log(a++);</code> 印出的結果不是計算賦值後的結果，是 <code>a</code> 計算前的值 <strong>1</strong>，而 <code>console.log(a);</code> 印出的結果，才是前面計算賦值後的結果 <strong>2</strong>，最後 <code>++a</code> 會先計算並賦值，再回傳變數 <code>a</code> 的值，所以 <code>console.log(++a);</code> 印出的結果是計算後的結果 <strong>3</strong></p><h3 id="回傳值不一定是賦值"><a href="#回傳值不一定是賦值" class="headerlink" title="回傳值不一定是賦值"></a>回傳值不一定是賦值</h3><p>前面提過等號運算子，可以讓 <code>=</code> 右側的值賦予到左側，而且會回傳一個新值，而很多時候我們會誤以為賦值一定會成功，「回傳的值」在我們心裡跟「賦予的值」默默畫上了等號，但是這兩個值並不一定會相等 <del>( 直接心碎 QAQ</del>，就像以下範例</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定義 obj 物件，在裡面加入屬性 value</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用 Object.freeze() 凍結物件</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">freeze</span>(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重新將 obj.value 賦值為 2，會回傳的值為 2</span></span><br><span class="line">obj.<span class="property">value</span> = <span class="number">2</span>;  <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 賦予給 obj.value 的值還是 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">value</span>);  <span class="comment">// 1</span></span><br></pre></td></tr></table></figure><p>下圖是執行以上程式碼的結果，可以看到當執行 <code>obj.value = 2;</code> 回傳的值為 2，因為 <code>obj</code> 物件內的屬性 <code>value</code> 無法被更動，所以就算重新賦值，<code>obj.value</code> 的值還是 1，但是紅框處的回傳值卻不是 1 而是 2，因此等號回傳的結果不一定與賦予值相等</p><p><img src="https://ithelp.ithome.com.tw/upload/images/20250522/20172694Xag9QYZW6p.png" alt="等號回傳值不一定與賦予值相等"></p><h4 id="連續賦值產生的問題"><a href="#連續賦值產生的問題" class="headerlink" title="連續賦值產生的問題"></a>連續賦值產生的問題</h4><p>既然前面提到了賦值，那就順便說說連續賦值會產生的問題吧 ~ 先看看以下範例，newValue 的最終值是 1 還是 2 呢？</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">freeze</span>(obj);</span><br><span class="line"><span class="keyword">const</span> newValue = obj.<span class="property">value</span> = <span class="number">2</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newValue);  <span class="comment">// ？</span></span><br></pre></td></tr></table></figure><p>依照前面講的等號執行順序，應該是先執行 <code>obj.value = 2</code>，把右邊的值 2 賦予給 <code>obj.value</code>，再執行 <code>newValue = obj.value</code>，把 <code>obj.value</code> 的值賦予給 <code>newValue</code>，然後因為 <code>value</code> 無法被更動，所以答案是 1 對吧？</p><p>很遺憾答錯了… 答案是 2，這時候一定覺得滿頭問號，為什麼？</p><p>現在就來重新拆解上方程式碼的執行流程：</p><ol><li>執行 <code>obj.value = 2</code>，這時候會回傳一個新值 2</li><li>執行 <code>newValue = 2</code>，而這個 2 就來自於流程 1 回傳的值，所以 <code>newValue</code> 的值跟 <code>obj.value</code> 的值根本無關</li></ol><p><img src="https://ithelp.ithome.com.tw/upload/images/20250522/201726941nqnmpZMrt.png" alt="連續賦值程式碼執行流程"></p><p>中間的部分就算無法被賦值，賦予值的行為也還是會繼續進行，這就是要避免在實戰中連續賦值的原因，它可能會給你帶來意想不到的結果 <del>(除非你喜歡驚嚇不然請避免這樣寫</del></p><p>其中在 <a href="https://eslint.org/docs/latest/rules/no-multi-assign">ESLint 中 no-multi-assign 的內容</a>就有提到不要連續賦值的範例如下，當連續賦值時，其實只有左側的變數 <code>a</code> 有被宣告，中間的變數 <code>b</code> 則會因為沒宣告變成全域屬性，所以在外層作用域也可以取得 <code>b</code> 的值</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> a = b = <span class="number">0</span>;</span><br><span class="line">    b = <span class="number">1</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);  <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>);  <span class="comment">// 印出結果如下圖，b 變成全域屬性</span></span><br></pre></td></tr></table></figure><p><img src="https://ithelp.ithome.com.tw/upload/images/20250522/20172694PrShDmlk66.png" alt="b 變成全域屬性"></p><h2 id="優先序與相依性"><a href="#優先序與相依性" class="headerlink" title="優先序與相依性"></a>優先序與相依性</h2><p>我們在學數學四則運算時，老師總會說要「先乘除後加減」，所以當看到 <code>4 + 2 * 3</code>，我們會習慣先處理後面的 <code>2 * 3</code>，再將結果 6 與 4 相加，得出結果為 10</p><p>這個算式在 JavasScript 中得出的結果也是 10，這邊我們會發現其實 JavasScript 在執行時也有優先順序的概念，這樣的概念不僅限於數學符號，而是所有運算子都會依據此優先順序執行</p><p><img src="https://ithelp.ithome.com.tw/upload/images/20250522/20172694KJtM7AcVdR.png" alt="JS 乘法優先於加法"></p><p>而 JavasScript 中的「運算子優先序」( Operator precedence ) 就是用來<strong>決定執行先後順序</strong>的，優先序較高的運算子就會優先執行，上述的的例子中 <code>*</code> 運算子優先序就高於 <code>+</code> 運算子</p><p>另外還有一個「相依性」( Associativity ) 則用於<strong>決定執行的方向性</strong>，通常會認為程式碼是由左向右執行，但是其實也有許多運算子是由右向左執行的，如上面提到的等號運算子就是由右向左執行</p><p>而「優先序」與「相依性」會影響整段程式碼的執行結果，如果沒有它們決定執行順序，那麼 JavasScript 執行的概念會大亂，另外在 MDN 文件上也有<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Operator_precedence#%E8%A1%A8%E6%A0%BCtable">表格</a>，整理各個運算子的優先序與相依性可以參考</p><p>接下來來看幾個範例，觀察優先序與相依性如何影響程式碼執行順序</p><p>以下範例中，<code>=</code> 運算子優先序低於右側的 <code>*</code> 和 <code>+</code> 運算子，所以會先執行右側結果，而 <code>*</code> 運算子優先序高於 <code>+</code> 運算子，所以計算結果為 7，接下來再執行 <code>=</code> 把右側結果 7 賦值給左側的 a，所以 a 的值為 7</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">3</span> + <span class="number">2</span> * <span class="number">5</span>;</span><br></pre></td></tr></table></figure><p>接下來看一個比較的範例，兩行程式碼如果以我們固有的思考方式，會覺得兩個都應該回傳 true，但是對 JS 來說這兩行程式碼執行之後的結果卻不同</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> &lt; <span class="number">2</span> &lt; <span class="number">3</span>;  <span class="comment">// 回傳 true</span></span><br><span class="line"><span class="number">3</span> &gt; <span class="number">2</span> &gt; <span class="number">1</span>;  <span class="comment">// 回傳 false</span></span><br></pre></td></tr></table></figure><p>兩行程式碼看似相同結果卻不同，所以跟連續賦值一樣，連續比較也是不建議在實戰中出現的寫法，那麼就來看看這兩行程式碼實際時怎麼執行的吧 ~</p><p><strong>第一行 <code>1 &lt; 2 &lt; 3;</code></strong></p><ol><li><code>&lt;</code> 運算子的相依性是由左向右執行，<code>1 &lt; 2</code> 會得到 true 的結果</li><li>再來執行 <code>true &lt; 3</code>，true 會轉型為數字 1，而 3 大於 1，所以結果為 true</li></ol><p><strong>第二行 <code>3 &gt; 2 &gt; 1;</code></strong></p><ol><li><code>&gt;</code> 運算子的相依性是由左向右執行，<code>3 &gt; 2</code> 會得到 true 的結果</li><li>再來執行 <code>true &gt; 1</code>，1 不大於 1，所以結果為 false</li></ol><p>看完上面兩行程式碼的實際執行，就會發現 <code>1 &lt; 2 &lt; 3;</code> 會回傳 true，只是個美麗的誤會，實際上並不會照我們期望的那樣比較，而是一步一步按照相依性規則執行比較的結果</p><h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>前面有提到運算子屬於表達式的一種，結合前篇文章表達式會回傳值的概念和以上程式碼示範，可以觀察到表達式的回傳值會影響前後文的運作，鏈式寫法雖然比較精簡，但還是要了解其中執行先後的概念，才能避開不如預期的錯誤或結果</p><p>那我們就下篇文章見囉 ~</p>]]></content:encoded>
+      
+      
+      <category domain="http://amy6072698.github.io/amy10blog/categories/JavaScript/">JavaScript</category>
+      
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/JavaScript/">JavaScript</category>
+      
+      
+      <comments>http://amy6072698.github.io/amy10blog/2025/05/21/20250521-js-learning3/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>JavaScript 修練 (2) | 陳述式與表達式</title>
@@ -84,9 +109,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/30/20250430-hexo-learning10/#disqus_thread</comments>
@@ -109,9 +134,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/29/20250429-hexo-learning9/#disqus_thread</comments>
@@ -134,9 +159,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/28/20250428-hexo-learning8/#disqus_thread</comments>
@@ -159,9 +184,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/27/20250427-hexo-learning7/#disqus_thread</comments>
@@ -184,9 +209,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/26/20250426-hexo-learning6/#disqus_thread</comments>
@@ -209,9 +234,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/25/20250425-hexo-learning5/#disqus_thread</comments>
@@ -234,9 +259,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/24/20250424-hexo-learning4/#disqus_thread</comments>
@@ -259,9 +284,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/23/20250423-hexo-learning3/#disqus_thread</comments>
@@ -284,9 +309,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/22/20250422-hexo-learning2/#disqus_thread</comments>
@@ -309,9 +334,9 @@
       <category domain="http://amy6072698.github.io/amy10blog/categories/Hexo/">Hexo</category>
       
       
-      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
-      
       <category domain="http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/">前端</category>
+      
+      <category domain="http://amy6072698.github.io/amy10blog/tags/Hexo/">Hexo</category>
       
       
       <comments>http://amy6072698.github.io/amy10blog/2025/04/21/20250421-hexo-learning1/#disqus_thread</comments>
