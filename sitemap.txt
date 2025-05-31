@@ -1,3 +1,6 @@
+http://amy6072698.github.io/amy10blog/2025/05/24/20250524-js-learning6/
+http://amy6072698.github.io/amy10blog/2025/05/23/20250523-js-learning5/
+http://amy6072698.github.io/amy10blog/2025/05/22/20250522-js-learning4/
 http://amy6072698.github.io/amy10blog/2025/05/21/20250521-js-learning3/
 http://amy6072698.github.io/amy10blog/2025/04/30/20250430-hexo-learning10/
 http://amy6072698.github.io/amy10blog/2025/04/29/20250429-hexo-learning9/
@@ -15,8 +18,8 @@ http://amy6072698.github.io/amy10blog/2025/04/15/20250415_reflections_on_learing
 http://amy6072698.github.io/amy10blog/404.html
 http://amy6072698.github.io/amy10blog/google2e570d0ff8d29cc9.html
 http://amy6072698.github.io/amy10blog/2024/06/09/20240609_reflections_on_learing_hexschool/
-http://amy6072698.github.io/amy10blog/categories/index.html
 http://amy6072698.github.io/amy10blog/tags/index.html
+http://amy6072698.github.io/amy10blog/categories/index.html
 http://amy6072698.github.io/amy10blog/about/index.html
 http://amy6072698.github.io/amy10blog
 http://amy6072698.github.io/amy10blog/tags/%E5%89%8D%E7%AB%AF/

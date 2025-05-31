@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#535C91" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/amy10blog/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/amy10blog/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/amy10blog/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/amy10blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/amy10blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"amy6072698.github.io","root":"/amy10blog/","images":"/amy10blog/images","scheme":"Gemini","darkmode":true,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-dark","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#E5C3A6","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/amy10blog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/amy10blog/js/config.js" defer></script>
+
+    <meta name="description" content="本篇將介紹強型別與弱型別的基本概念，及 JavaScript 型別判斷方式，還有原始型別包裹物件的相關內容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 修練 (4) | 型別判斷與原始型別包裹物件">
+<meta property="og:url" content="http://amy6072698.github.io/amy10blog/2025/05/22/20250522-js-learning4/index.html">
+<meta property="og:site_name" content="Amy咂摳修練手冊">
+<meta property="og:description" content="本篇將介紹強型別與弱型別的基本概念，及 JavaScript 型別判斷方式，還有原始型別包裹物件的相關內容">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694ppvyED8V6z.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694Tl5oWJPosS.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694wxjGqTdF7n.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694Q6eGSYvXhw.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694FGXJ7wurX0.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694xFFX56y3KJ.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694yIxdwRzLyO.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694CUGxj5ffuL.png">
+<meta property="article:published_time" content="2025-05-22T08:21:54.000Z">
+<meta property="article:modified_time" content="2025-05-31T12:53:04.605Z">
+<meta property="article:author" content="Amy咂摳">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694ppvyED8V6z.png">
+
+
+<link rel="canonical" href="http://amy6072698.github.io/amy10blog/2025/05/22/20250522-js-learning4/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://amy6072698.github.io/amy10blog/2025/05/22/20250522-js-learning4/","path":"2025/05/22/20250522-js-learning4/","title":"JavaScript 修練 (4) | 型別判斷與原始型別包裹物件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript 修練 (4) | 型別判斷與原始型別包裹物件 | Amy咂摳修練手冊</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/utils.js" defer></script><script src="/amy10blog/js/motion.js" defer></script><script src="/amy10blog/js/sidebar.js" defer></script><script src="/amy10blog/js/next-boot.js" defer></script><script src="/amy10blog/js/bookmark.js" defer></script><script src="/amy10blog/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/amy10blog/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/amy10blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/amy10blog/atom.xml" title="Amy咂摳修練手冊" type="application/atom+xml">
+<link rel="alternate" href="/amy10blog/rss2.xml" title="Amy咂摳修練手冊" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/amy10blog/" class="brand" rel="start">
+        <img class="custom-logo-image" src="/amy10blog/images/logo.svg" alt="Amy咂摳修練手冊">
+      <i class="logo-line"></i>
+      <p class="site-title">Amy咂摳修練手冊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">歡迎進入網頁的奇幻世界</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/amy10blog/" rel="section"><i class="fa fa-place-of-worship fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/amy10blog/about/" rel="section"><i class="fa fa-book-open-reader fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/amy10blog/tags/" rel="section"><i class="fa fa-wand-sparkles fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/amy10blog/categories/" rel="section"><i class="fa fa-scroll fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/amy10blog/archives/" rel="section"><i class="fa fa-box-open fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-rss"><a href="/amy10blog/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%B7%E5%9E%8B%E5%88%A5%E8%88%87%E5%BC%B1%E5%9E%8B%E5%88%A5"><span class="nav-number">1.</span> <span class="nav-text">強型別與弱型別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-%E6%98%AF%E5%BC%B1%E5%9E%8B%E5%88%A5%E8%AA%9E%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">JavaScript 是弱型別語言</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-%E7%9A%84%E5%9E%8B%E5%88%A5%E8%88%87%E5%88%A4%E6%96%B7"><span class="nav-number">2.</span> <span class="nav-text">JavaScript 的型別與判斷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5"><span class="nav-number">2.1.</span> <span class="nav-text">原始型別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%9E%8B%E5%88%A5"><span class="nav-number">2.2.</span> <span class="nav-text">物件型別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%B7%E5%9E%8B%E5%88%A5%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">判斷型別的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%9E%8B%E5%88%A5%E5%8F%AF%E4%BB%A5%E8%87%AA%E7%94%B1%E6%96%B0%E5%A2%9E%E5%B1%AC%E6%80%A7"><span class="nav-number">2.3.1.</span> <span class="nav-text">物件型別可以自由新增屬性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5%E7%84%A1%E6%B3%95%E6%96%B0%E5%A2%9E%E5%B1%AC%E6%80%A7"><span class="nav-number">2.3.2.</span> <span class="nav-text">原始型別無法新增屬性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typeof-%E7%9A%84%E4%BE%8B%E5%A4%96"><span class="nav-number">2.3.3.</span> <span class="nav-text">typeof 的例外</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5%E5%8C%85%E8%A3%B9%E7%89%A9%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">原始型別包裹物件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5%E5%8C%85%E8%A3%B9%E7%89%A9%E4%BB%B6%E5%8F%AF%E7%94%A8%E4%BE%86%E8%BD%89%E6%8F%9B%E5%9E%8B%E5%88%A5"><span class="nav-number">3.1.</span> <span class="nav-text">原始型別包裹物件可用來轉換型別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E8%A6%81%E6%8A%8A%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5%E5%8C%85%E8%A3%B9%E7%89%A9%E4%BB%B6%E4%BD%9C%E7%82%BA%E5%87%BD%E5%BC%8F%E5%BB%BA%E6%A7%8B%E5%AD%90%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">不要把原始型別包裹物件作為函式建構子使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy咂摳"
+      src="/amy10blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Amy咂摳</p>
+  <div class="site-description" itemprop="description">分享前端開發相關的文章</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/amy10blog/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/amy10blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/amy10blog/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://discordapp.com/users/1172554977592475708" title="Discord → http:&#x2F;&#x2F;discordapp.com&#x2F;users&#x2F;1172554977592475708" rel="noopener me" target="_blank"><i class="fab fa-discord fa-fw"></i>Discord</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ithelp.ithome.com.tw/users/20172694/articles" title="iT邦幫忙 → https:&#x2F;&#x2F;ithelp.ithome.com.tw&#x2F;users&#x2F;20172694&#x2F;articles" rel="noopener me" target="_blank"><i class="fa fa-comment fa-fw"></i>iT邦幫忙</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://amy6072698.github.io/amy10blog/2025/05/22/20250522-js-learning4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/amy10blog/images/avatar.jpg">
+      <meta itemprop="name" content="Amy咂摳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy咂摳修練手冊">
+      <meta itemprop="description" content="分享前端開發相關的文章">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript 修練 (4) | 型別判斷與原始型別包裹物件 | Amy咂摳修練手冊">
+      <meta itemprop="description" content="本篇將介紹強型別與弱型別的基本概念，及 JavaScript 型別判斷方式，還有原始型別包裹物件的相關內容">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript 修練 (4) | 型別判斷與原始型別包裹物件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-05-22 16:21:54" itemprop="dateCreated datePublished" datetime="2025-05-22T16:21:54+08:00">2025-05-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-05-31 20:53:04" itemprop="dateModified" datetime="2025-05-31T20:53:04+08:00">2025-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/amy10blog/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="強型別與弱型別"><a href="#強型別與弱型別" class="headerlink" title="強型別與弱型別"></a>強型別與弱型別</h2><p>開始介紹 JavaScript 中型別有哪些和判斷的方式之前，我想先介紹一些強型別與弱型別的基礎知識，程式語言中依語言型別系統 ( Type system ) 分成「<strong>強型別語言</strong>」與「<strong>弱型別語言</strong>」兩種</p>
+<ul>
+<li><strong>強型別</strong>：程式所定義的變數型別等於變數在執行時的型別，在宣告變數時必須指定一種資料型別給它</li>
+<li><strong>弱型別</strong>：不需要在宣告變數時指定資料型別，雖語法較簡潔，但要注意型別轉換所產生的非預期結果</li>
+</ul>
+<h3 id="JavaScript-是弱型別語言"><a href="#JavaScript-是弱型別語言" class="headerlink" title="JavaScript 是弱型別語言"></a>JavaScript 是弱型別語言</h3><p>那麼 JavaScript 經過前幾篇文章的程式碼，可以很明顯發現宣告變數時只是直接賦予值，就開始使用這個變數了，並不需要指定資料型別給變數，所以我們可以知道 JavaScript 屬於「<strong>弱型別</strong>」語言</p>
+<p>可是不需要指定型別，JavaScript 的型別是怎麼來的？JavaScript 的型別只在值本身，而非透過變數帶來資料型別的資訊，也就是說「<strong>變數沒有型別，值才有</strong>」</p>
+<p>不用指定型別不是少一件事要做，也挺好的不是嗎？但是 JavaScript 沒有這麼單純，它的型別不是固定不變的，你可以透過一些方式讓變數的值轉換型別，這對於習慣撰寫強型別語言的開發者來說，簡直就是災難 <del>調皮的 JavaScript</del></p>
+<p>這表示如果不熟悉 JavaScript 型別轉換背後的規則，將可能在執行程式碼時產生不如預期的結果，至於哪些情況會讓型別發生轉換，就是這篇文章將提到的主要內容</p>
+<h2 id="JavaScript-的型別與判斷"><a href="#JavaScript-的型別與判斷" class="headerlink" title="JavaScript 的型別與判斷"></a>JavaScript 的型別與判斷</h2><p>在開始說明型別轉換之前，首先要先認識 JavaScript 有哪些型別，JavaScript 的型別主要區分為兩大類：「原始型別」( Primitives，也稱為基本型別 ) 與「物件型別」( Object )</p>
+<h3 id="原始型別"><a href="#原始型別" class="headerlink" title="原始型別"></a>原始型別</h3><p>以下七種型別屬於原始型別，這邊就不細說每個型別的特徵，只專注在介紹型別判斷的內容，若想深入了解每個型別可以參考 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Data_structures#%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5">MDN 的文件</a></p>
+<ul>
+<li>String ( 字串 )</li>
+<li>Number ( 數值 )</li>
+<li>Boolean ( 布林 )</li>
+<li>Undefined</li>
+<li>Null</li>
+<li>BigInt</li>
+<li>Symbol</li>
+</ul>
+<h3 id="物件型別"><a href="#物件型別" class="headerlink" title="物件型別"></a>物件型別</h3><p>Object：不屬於原始型別的，都屬於物件型別</p>
+<p>🔮<strong>只要不屬於原始型別，就會被歸類為「物件型別」</strong>，所以沒有什麼陣列型別或函式型別，不是原始型別就是物件型別</p>
+<h3 id="判斷型別的方式"><a href="#判斷型別的方式" class="headerlink" title="判斷型別的方式"></a>判斷型別的方式</h3><p>想知道一個值屬於原始型別還是物件型別，只需要記得一個重點「<strong>物件型別可以自由新增屬性，但是原始型別不行</strong>」，接下來看看幾個範例</p>
+<h4 id="物件型別可以自由新增屬性"><a href="#物件型別可以自由新增屬性" class="headerlink" title="物件型別可以自由新增屬性"></a>物件型別可以自由新增屬性</h4><p>物件、陣列、函式屬於物件型別，試著新增屬性</p>
+<ul>
+<li><p><strong>物件</strong>：物件本身就有新增屬性的功能，印出 person 物件可以看見新增的 name 屬性，也能夠存取到物件內的 name 屬性值為 <code>&#39;小夏&#39;</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;&#125;;</span><br><span class="line">person.<span class="property">name</span> = <span class="string">&quot;小夏&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person);  <span class="comment">// &#123;name: &#x27;小夏&#x27;&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>);  <span class="comment">// 小夏</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>陣列</strong>：雖然根據印出結果可以看見陣列內確實有新增的 name 屬性，可以運作，但實戰中請不要這樣做，陣列有它自己的運作方法，這樣奇怪的結構可能會造成一些操作問題</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [];</span><br><span class="line">arr.<span class="property">name</span> = <span class="string">&quot;可愛的陣列列&quot;</span>;</span><br><span class="line">arr.<span class="title function_">push</span>(<span class="number">1</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr);  <span class="comment">// [1, name: &#x27;可愛的陣列列&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="property">name</span>);  <span class="comment">// 可愛的陣列列</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694ppvyED8V6z.png" alt="陣列也可以新增屬性"></p>
+</li>
+<li><p><strong>函式</strong>：因為函式本身已經有 name 屬性了，為了不覆蓋它，改為新增 myName 屬性，可以用 <code>console.log</code> 取得屬性值，但是看不見 fn 函式裡面的內容，所以要改用 <code>console.dir</code>，強制它使用物件結構展示，就可以看到 fn 函式變成一個可展開的物件，展開後可以看見裡面有剛新增的 myName 屬性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fn = <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;;</span><br><span class="line">fn.<span class="property">myName</span> = <span class="string">&quot;小春&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(fn.<span class="property">myName</span>);  <span class="comment">// 小春</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(fn);  <span class="comment">// ƒ () &#123;&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(fn);  <span class="comment">// 下拉展開可以看到 myName 屬性</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694Tl5oWJPosS.png" alt="下拉展開可以看到 myName 屬性"></p>
+</li>
+</ul>
+<h4 id="原始型別無法新增屬性"><a href="#原始型別無法新增屬性" class="headerlink" title="原始型別無法新增屬性"></a>原始型別無法新增屬性</h4><p>相反的，原始型別無法新增屬性，以下方原始型別中的 number 數值型別來說，新增屬性不會跳錯，但是無法取得 myName 的值，而且無論用 <code>console.log</code>、<code>console.dir</code> 都只會印出數值 1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let num = 1;</span><br><span class="line">num.myName = &quot;我是數字 1&quot;;</span><br><span class="line">console.log(num.myName);  // undefined</span><br><span class="line">console.log(num);  // 1</span><br><span class="line">console.dir(num);  // 1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694wxjGqTdF7n.png" alt="number 型別無法取得 myName 的屬性值"></p>
+<p>🔮如果試圖在 null、undefined 內新增屬性，會跳出 TypeError 的錯誤</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694Q6eGSYvXhw.png" alt="在 null、undefined 內新增屬性跳出 TypeError"></p>
+<h4 id="typeof-的例外"><a href="#typeof-的例外" class="headerlink" title="typeof 的例外"></a>typeof 的例外</h4><p>相信講到判斷型別，一定會有人第一時間想到前篇提到的一元運算子 <code>typeof</code>，沒錯！它會回傳運算元的型別，但是有一些例外狀況</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原始型別</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="string">&quot;沒騙你！我是字串&quot;</span>);  <span class="comment">// string</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="number">1</span>);  <span class="comment">// number</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">true</span>);  <span class="comment">// boolean</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">undefined</span>);  <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">null</span>);  <span class="comment">// object</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="number">5n</span>);  <span class="comment">// bigint</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="title class_">Symbol</span>(<span class="number">1</span>));  <span class="comment">// symbol</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 物件型別</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> &#123;&#125;);  <span class="comment">// object</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> []);  <span class="comment">// object</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;);  <span class="comment">// function</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> /<span class="number">1234</span>/);  <span class="comment">// object，正規表達式也是物件型別</span></span><br></pre></td></tr></table></figure>
+
+<p>觀察上方 <code>typeof</code> 程式碼，你就會發現 <code>null</code> 和 <code>function</code> 怪怪的，怎麼不是顯示我們預期的 null 跟 object</p>
+<ul>
+<li><p><strong>null</strong></p>
+<p><code>typeof null</code> 為什麼是 <code>object</code>？ 其實它是一個過去就存在的 bug，曾經也有被討論要修改，但考慮到這會影響太多舊有的程式，所以就不修改了</p>
+<p>產生這個 bug 的原因，簡單來說就是在 JavaScript 初期的實作中，JavaScript 的值是由一個表示「型別」的標籤，與實際內容的「值」所組合成的</p>
+<p>但是由於物件 ( Object ) 這個型別的標籤是「0」，而且 null 代表的是空值 ( NULL pointer，慣例上會以 0x00 來表示 )，於是代表 null 的標籤與物件的標籤搞混了，就產生了這樣的錯誤結果</p>
+<p>如果想了解更多 typeof null 的內容可以參考這篇文章：<a target="_blank" rel="noopener" href="https://javascriptrefined.io/null-and-typeof-9330e475d272">Null and typeof</a></p>
+</li>
+<li><p><strong>function</strong></p>
+<p>再來說說函式，嚴格來說「函式是一個函式物件」，<code>typeof function()&#123; &#125;</code> 回傳的是 <code>function</code>，但實際上仍然是屬於「物件型別」，前面也驗證過物件型別能新增屬性，而函式也可以，只是與一般物件不同的是，函式多了可以被呼叫 ( be invoked ) 的功能</p>
+<p>而 <a target="_blank" rel="noopener" href="https://262.ecma-international.org/5.1/#sec-4.3.24">ECMAScript</a> 對於 function 的定義也可以作為參考</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694FGXJ7wurX0.png" alt="ECMAScript 對於 function 的定義"></p>
+</li>
+</ul>
+<h2 id="原始型別包裹物件"><a href="#原始型別包裹物件" class="headerlink" title="原始型別包裹物件"></a>原始型別包裹物件</h2><p>之後的文章會介紹一些型別轉換的內容，而其中會需要一些「原始型別包裹物件」( Primitive Wrapper Objects ) 的相關知識，所以加入在本篇文章介紹，原始型別中除了 undefined、null 之外，每個型別都有各自可以使用的方法 ( undefined、null 型別沒有包裹物件 )</p>
+<p>如下範例，字串型別可以使用 <code>toUpperCase</code> 方法，將字串字母都轉為大寫，數值型別卻無法使用，可是字串是純值，不是物件、也不是函式，<code>toUpperCase</code> 方法又是從哪裡來的呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;i am amy&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="title function_">toUpperCase</span>());  <span class="comment">// I AM AMY</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 數值型別沒有 toUpperCase 這個方法，試圖使用會跳出錯誤</span></span><br><span class="line"><span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num.<span class="title function_">toUpperCase</span>());  <span class="comment">// Uncaught TypeError: num.toUpperCase is not a function</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>原始型別的方法來自於「原始型別包裹物件」</strong>，建立一個純值時，就會套用與該值型別對應的包裹物件，因此純值就能使用包裹物件中的方法了</p>
+<p>以剛剛的 <code>toUpperCase</code> 方法為例，就可以在 String 包裹物件中找到這個方法，使用 <code>console.dir</code> 印出 String 這個包裹物件，展開一個叫 <code>prototype</code> 的物件</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694xFFX56y3KJ.png" alt="展開 String 的 prototype 物件"></p>
+<p>往下尋找就可以找到 String 包裹物件中的 <code>toUpperCase</code> 方法</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694yIxdwRzLyO.png" alt="String 中的 toUpperCase 方法"></p>
+<p>同理，數值和布林型別也有各自的包裹物件：Number、Boolean，同樣也可以試著用 <code>console.dir(Number);</code> 查看數值型別的包裹物件中有哪些方法，這邊就交給大家嘗試做做看囉 ~</p>
+<h3 id="原始型別包裹物件可用來轉換型別"><a href="#原始型別包裹物件可用來轉換型別" class="headerlink" title="原始型別包裹物件可用來轉換型別"></a>原始型別包裹物件可用來轉換型別</h3><p>而包裹物件其實也是一個可以被直接呼叫的函式，實戰中也會使用它來做型別的轉換，如以下範例，String 作為函式可以將傳入的值轉換成字串型別的值，所以轉型後的值能使用 String 中的 length 方法來查看字串的長度</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="title class_">String</span>(<span class="number">123</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="property">length</span>);  <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="不要把原始型別包裹物件作為函式建構子使用"><a href="#不要把原始型別包裹物件作為函式建構子使用" class="headerlink" title="不要把原始型別包裹物件作為函式建構子使用"></a>不要把原始型別包裹物件作為函式建構子使用</h3><p>以 String 來說，雖然可以使用 new 運算子來建構「字串」，但是這會造成所謂的「字串」變成物件，而這個物件會同時包含包裹物件的所有方法</p>
+<p>直接看看用 new 運算子結合 String 包裹物件建立字串，會發生什麼事：印出結果都會明示或暗示你，你建立的字串變成物件了，所以要避免用這種方式來建立原始型別的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;I am Amy&#x27;</span>);  <span class="comment">// str 會是一個物件</span></span><br><span class="line"><span class="keyword">let</span> str2 = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;I am Amy&#x27;</span>);  <span class="comment">// str2 會是另一個物件</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> str);  <span class="comment">// object</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str == str2);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">str.<span class="property">myName</span> = <span class="string">&#x27;我是字串&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str);  <span class="comment">// String &#123;&#x27;I am Amy&#x27;, myName: &#x27;我是字串&#x27;&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str2);  <span class="comment">// String &#123;&#x27;I am Amy&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>📎<strong>補充</strong>：BigInt、Symbol 僅能作為函式，無法作為函式建構子使用，若試圖這樣做，會跳出 TypeError 的錯誤如下圖</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694CUGxj5ffuL.png" alt="BigInt、Symbol 無法作為函式建構子使用"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>本篇文章簡單介紹了強型別與弱型別的基本概念，以及 JavaScript 中型別有哪些、型別判斷的方式和 typeof 的例外，最後介紹一些與原始型別包裹物件有關的內容，原始型別包裹物件在後面的文章也會出現，本篇文章算是建立一些基本知識，為接下來會往下介紹型別轉換時做鋪墊</p>
+<p>那我們就下篇文章見囉 ~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/amy6072698/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
+              <a href="/amy10blog/tags/JavaScript/" rel="tag"><i class="fa fa-wand-sparkles"></i> JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/05/21/20250521-js-learning3/" rel="prev" title="JavaScript 修練 (3) | 運算子執行先後">
+                  <i class="fa fa-angle-left"></i> JavaScript 修練 (3) | 運算子執行先後
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/05/23/20250523-js-learning5/" rel="next" title="JavaScript 修練 (5) | 型別的顯性與隱性轉換">
+                  JavaScript 修練 (5) | 型別的顯性與隱性轉換 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-hat-wizard"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">轉載文章時請附上作者名 (Amy咂摳) 及原文連結，永遠感謝你</span>
+  </div>
+  <script color="211,202,236" opacity="0.8" zIndex="-1" count="33" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"amy6072698","repo":"amy10blog","client_id":"Ov23lihGMNKD37j8MGqG","client_secret":"bf537fcc7ae373e1434f2096214e7530b6df543a","admin_user":"amy6072698","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"54aa3aa7c5b8fa222edeea882cec6727"}</script>
+<script src="/amy10blog/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

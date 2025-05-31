@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#535C91" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/amy10blog/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/amy10blog/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/amy10blog/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/amy10blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/amy10blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"amy6072698.github.io","root":"/amy10blog/","images":"/amy10blog/images","scheme":"Gemini","darkmode":true,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-dark","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#E5C3A6","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/amy10blog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/amy10blog/js/config.js" defer></script>
+
+    <meta name="description" content="本篇將介紹嚴格相等與寬鬆相等、真值與假值，及寬鬆相等比較時型別的轉換規則，真值與假值的實戰應用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 修練 (6) | 比較時的型別轉換與真值假值">
+<meta property="og:url" content="http://amy6072698.github.io/amy10blog/2025/05/24/20250524-js-learning6/index.html">
+<meta property="og:site_name" content="Amy咂摳修練手冊">
+<meta property="og:description" content="本篇將介紹嚴格相等與寬鬆相等、真值與假值，及寬鬆相等比較時型別的轉換規則，真值與假值的實戰應用">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694UAZNAFSveU.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694X0vjjatcVL.png">
+<meta property="article:published_time" content="2025-05-24T11:24:42.000Z">
+<meta property="article:modified_time" content="2025-05-31T12:57:14.914Z">
+<meta property="article:author" content="Amy咂摳">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694UAZNAFSveU.png">
+
+
+<link rel="canonical" href="http://amy6072698.github.io/amy10blog/2025/05/24/20250524-js-learning6/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://amy6072698.github.io/amy10blog/2025/05/24/20250524-js-learning6/","path":"2025/05/24/20250524-js-learning6/","title":"JavaScript 修練 (6) | 比較時的型別轉換與真值假值"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript 修練 (6) | 比較時的型別轉換與真值假值 | Amy咂摳修練手冊</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/utils.js" defer></script><script src="/amy10blog/js/motion.js" defer></script><script src="/amy10blog/js/sidebar.js" defer></script><script src="/amy10blog/js/next-boot.js" defer></script><script src="/amy10blog/js/bookmark.js" defer></script><script src="/amy10blog/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/amy10blog/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/amy10blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/amy10blog/atom.xml" title="Amy咂摳修練手冊" type="application/atom+xml">
+<link rel="alternate" href="/amy10blog/rss2.xml" title="Amy咂摳修練手冊" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/amy10blog/" class="brand" rel="start">
+        <img class="custom-logo-image" src="/amy10blog/images/logo.svg" alt="Amy咂摳修練手冊">
+      <i class="logo-line"></i>
+      <p class="site-title">Amy咂摳修練手冊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">歡迎進入網頁的奇幻世界</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/amy10blog/" rel="section"><i class="fa fa-place-of-worship fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/amy10blog/about/" rel="section"><i class="fa fa-book-open-reader fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/amy10blog/tags/" rel="section"><i class="fa fa-wand-sparkles fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/amy10blog/categories/" rel="section"><i class="fa fa-scroll fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/amy10blog/archives/" rel="section"><i class="fa fa-box-open fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-rss"><a href="/amy10blog/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AD%98"><span class="nav-number">1.</span> <span class="nav-text">前置知識</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9A%B4%E6%A0%BC%E7%9B%B8%E7%AD%89"><span class="nav-number">2.</span> <span class="nav-text">嚴格相等 &#x3D;&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AC%E9%AC%86%E7%9B%B8%E7%AD%89"><span class="nav-number">3.</span> <span class="nav-text">寬鬆相等 &#x3D;&#x3D;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number%E3%80%81String%E3%80%81Boolean-%E5%9E%8B%E5%88%A5"><span class="nav-number">3.1.</span> <span class="nav-text">Number、String、Boolean 型別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Null%E3%80%81Undefined-%E5%9E%8B%E5%88%A5"><span class="nav-number">3.2.</span> <span class="nav-text">Null、Undefined 型別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BigInt-%E5%9E%8B%E5%88%A5"><span class="nav-number">3.3.</span> <span class="nav-text">BigInt 型別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Symbol-%E5%9E%8B%E5%88%A5"><span class="nav-number">3.4.</span> <span class="nav-text">Symbol 型別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%9E%8B%E5%88%A5%E8%88%87%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5%E6%AF%94%E8%BC%83"><span class="nav-number">3.5.</span> <span class="nav-text">物件型別與原始型別比較</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Number%E3%80%81String%E3%80%81BigInt-%E5%9E%8B%E5%88%A5"><span class="nav-number">3.5.1.</span> <span class="nav-text">Number、String、BigInt 型別</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Null%E3%80%81Undefined"><span class="nav-number">3.5.2.</span> <span class="nav-text">Null、Undefined</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%A4%96%E6%83%85%E6%B3%81"><span class="nav-number">3.5.3.</span> <span class="nav-text">例外情況</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%9F%E5%80%BC%E8%88%87%E5%81%87%E5%80%BC%E7%9A%84%E6%87%89%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">真值與假值的應用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%9C%E5%85%85%E3%80%8CAND-%E3%80%8D%E5%92%8C%E3%80%8COR-%E3%80%8D"><span class="nav-number">4.1.</span> <span class="nav-text">補充「AND &amp;&amp;」和「OR ||」</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E6%98%AF%EF%BC%81%E4%BD%A0%E4%B8%8D%E6%98%AF%E5%81%87%E5%80%BC%E5%97%8E%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">不是！你不是假值嗎？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">6.</span> <span class="nav-text">結語</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy咂摳"
+      src="/amy10blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Amy咂摳</p>
+  <div class="site-description" itemprop="description">分享前端開發相關的文章</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/amy10blog/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/amy10blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/amy10blog/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://discordapp.com/users/1172554977592475708" title="Discord → http:&#x2F;&#x2F;discordapp.com&#x2F;users&#x2F;1172554977592475708" rel="noopener me" target="_blank"><i class="fab fa-discord fa-fw"></i>Discord</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ithelp.ithome.com.tw/users/20172694/articles" title="iT邦幫忙 → https:&#x2F;&#x2F;ithelp.ithome.com.tw&#x2F;users&#x2F;20172694&#x2F;articles" rel="noopener me" target="_blank"><i class="fa fa-comment fa-fw"></i>iT邦幫忙</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://amy6072698.github.io/amy10blog/2025/05/24/20250524-js-learning6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/amy10blog/images/avatar.jpg">
+      <meta itemprop="name" content="Amy咂摳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy咂摳修練手冊">
+      <meta itemprop="description" content="分享前端開發相關的文章">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript 修練 (6) | 比較時的型別轉換與真值假值 | Amy咂摳修練手冊">
+      <meta itemprop="description" content="本篇將介紹嚴格相等與寬鬆相等、真值與假值，及寬鬆相等比較時型別的轉換規則，真值與假值的實戰應用">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript 修練 (6) | 比較時的型別轉換與真值假值
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-05-24 19:24:42" itemprop="dateCreated datePublished" datetime="2025-05-24T19:24:42+08:00">2025-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-05-31 20:57:14" itemprop="dateModified" datetime="2025-05-31T20:57:14+08:00">2025-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/amy10blog/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前置知識"><a href="#前置知識" class="headerlink" title="前置知識"></a>前置知識</h2><p>前篇文章講了很多情況的型別轉換，而在比較時的型別轉換又是不同的規則，開始講解規則之前先介紹一些基礎知識：嚴格相等與寬鬆相等、真值與假值</p>
+<ul>
+<li><p><strong>嚴格相等與寬鬆相等</strong></p>
+<p>兩種相等的運算子符號差在等號數量，實戰中會建議使用三個等號 <code>===</code>，避免不如預期的結果，從以下兩者介紹中寬鬆相等 <code>==</code> 不用連型別都一樣，那麼前後運算元型別不同要如何比較呢？寬鬆相等會比較轉型後的結果，比較時的型別轉換規則就從這裡展開</p>
+<ul>
+<li><strong>嚴格相等 <code>===</code></strong>：值與型別，完全相等才能回傳 true，對應的不相等符號是 <code>!==</code></li>
+<li><strong>寬鬆相等 <code>==</code></strong>：值相等就回傳 true，型別不需要相等，對應的不相等符號是 <code>!=</code></li>
+</ul>
+</li>
+<li><p><strong>真值與假值</strong></p>
+<p>在 JavaScript 中，任何值用 Boolean 轉換型別的結果，不是 true 就是 false，所以可以把 JavaScript 中的值分成兩種「值」：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy">真值</a>、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy">假值</a></p>
+<ul>
+<li><strong>假值 ( falsy )</strong>：轉換為布林後會變成 <code>false</code> 的值</li>
+<li><strong>真值 ( truthy )</strong>：其他會變成 <code>true</code> 的值</li>
+</ul>
+<p>真值很多，所以只要<strong>記假值就好，除假值之外其他都是真值</strong>，以下是 MDN 整理的假值表格</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694UAZNAFSveU.png" alt="假值表格"></p>
+</li>
+</ul>
+<p>講完一些基礎知識之後，接下來就分別來介紹嚴格相等和寬鬆相等比較，以及真值假值的相關內容吧 ~</p>
+<h2 id="嚴格相等"><a href="#嚴格相等" class="headerlink" title="嚴格相等 ==="></a>嚴格相等 <code>===</code></h2><p>嚴格相等比寬鬆相等更單純，值和型別都相等才能回傳 <code>true</code>，但是還是有一些容易搞混的嚴格相等範例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下結果為 false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">NaN</span> === <span class="title class_">NaN</span>);  <span class="comment">// 因為 NaN 不等於 NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> === <span class="literal">null</span>);  <span class="comment">// 這是兩個不同的型別</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(&#123;&#125; === &#123;&#125;);  <span class="comment">// 左邊的物件實體和右邊的物件實體不是同一個實體</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([] === []);  <span class="comment">// 左邊的陣列實體和右邊的陣列實體不是同一個實體</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">new</span> <span class="title class_">Number</span>(<span class="number">0</span>) === <span class="keyword">new</span> <span class="title class_">Number</span>(<span class="number">0</span>));  <span class="comment">// 前篇說過這樣建立的 number 會變成物件型別，所以左右是兩個不同的實體</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 以下結果為 true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="number">0</span> === -<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>📎<strong>補充 NaN 特性</strong>：NaN ( Not a Number) 雖然不是數字，但是它的型別是 Number 型別，NaN 不等於任何值，包括它自己 ( 三個等號跟二個等號都不相等 )，NaN 跟任何數值計算都是 NaN <del>一直覺得 NaN 很像病毒，它會傳染耶</del></p>
+<h2 id="寬鬆相等"><a href="#寬鬆相等" class="headerlink" title="寬鬆相等 =="></a>寬鬆相等 <code>==</code></h2><p>寬鬆相等的規則就比較複雜，前面有提到寬鬆相等只要值相等就可以回傳 <code>true</code>，前後運算元的型別不同時，就會比較轉型後的結果，而其中每種型別轉換比較的規則都不大一樣</p>
+<h3 id="Number、String、Boolean-型別"><a href="#Number、String、Boolean-型別" class="headerlink" title="Number、String、Boolean 型別"></a>Number、String、Boolean 型別</h3><p>這三者之間在進行寬鬆相等的比對時，通通都會轉為 Number 型別再比較，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>(<span class="string">&#x27;a&#x27;</span>));  <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NaN 等於任何值也不等於自己</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;a&#x27;</span> == <span class="literal">true</span>);  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;a&#x27;</span> == <span class="literal">false</span>);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;a&#x27;</span> == <span class="number">1</span>);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 其他混合比較</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;1&#x27;</span> == <span class="literal">true</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> == <span class="string">&#x27;1&#x27;</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;0&#x27;</span> == <span class="literal">false</span>);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Null、Undefined-型別"><a href="#Null、Undefined-型別" class="headerlink" title="Null、Undefined 型別"></a>Null、Undefined 型別</h3><p>這兩者進行寬鬆相等的比對時幾乎不會轉型，null 和 undefined 除了跟自己相比，或兩者彼此相比結果是 true 之外，其他結果都為 false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">null</span> == <span class="number">0</span>);  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">null</span> == <span class="string">&#x27;&#x27;</span>);  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">null</span> == <span class="literal">false</span>);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> == <span class="number">0</span>);  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> == <span class="string">&#x27;&#x27;</span>);  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> == <span class="literal">false</span>);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">null</span> == <span class="literal">undefined</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">null</span> == <span class="literal">null</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> == <span class="literal">undefined</span>);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="BigInt-型別"><a href="#BigInt-型別" class="headerlink" title="BigInt 型別"></a>BigInt 型別</h3><p>任何值與 BigInt 型別進行寬鬆相等的比對時，都會轉型為「數學值」( mathematical value )，這裡說的數學值並不是指 Number 型別的值，實際比較時也可以理解為「和 BigInt 型別比較的值會轉型為 BigInt」，而與 Number 型別的值相比數學值具有以下特性：</p>
+<ul>
+<li>沒有 NaN</li>
+<li>沒有小數點</li>
+<li>沒有最大值</li>
+</ul>
+<p>除以上三點，數學值的其它概念與 Number 型別的值接近</p>
+<p>上面有提到最大值的概念，Number 型別其實有最大安全值，在 Number 包裹物件中的 MAX_SAFE_INTEGER 這個屬性就可以查看該值，當大於這個值計算精準度就會下降</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694X0vjjatcVL.png" alt="MAX_SAFE_INTEGER 的值"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Number 的最大安全值 MAX_SAFE_INTEGER</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>.<span class="property">MAX_SAFE_INTEGER</span>); <span class="comment">// 9007199254740991</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 單純用 Number 與 String 型別比較，會因為超出最大安全值而不精準</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">9007199254740991</span> == <span class="string">&#x27;9007199254740991&#x27;</span>); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">9007199254740993</span> == <span class="string">&#x27;9007199254740992&#x27;</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改用 BigInt 與 String 型別比較，不受最大安全值影響</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">9007199254740993n</span> == <span class="string">&#x27;9007199254740992&#x27;</span>); <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">9007199254740993n</span> == <span class="string">&#x27;9007199254740993&#x27;</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>遇到帶有小數點的 Number 型別值時，因為 BingInt 沒有小數點，所以結果會是 false，遇到 NaN 則因為 NaN 不等於任何值，所以結果為 false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Number 型別轉為 BingInt 型別比較</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">100</span> == <span class="number">100n</span>);  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// BingInt 沒有小數點</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">100.5</span> == <span class="number">100n</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NaN 不等於任何值</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">NaN</span> == <span class="number">100n</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Symbol-型別"><a href="#Symbol-型別" class="headerlink" title="Symbol 型別"></a>Symbol 型別</h3><p>Symbol 型別建立的值是唯一的，運作有點類似物件的「傳參考」特性，所以一樣的值，無論嚴格或寬鬆相等比對結果都是 false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 類似物件與物件比對的運作</span></span><br><span class="line"><span class="keyword">let</span> s1 = <span class="title class_">Symbol</span>(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="title class_">Symbol</span>(<span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s1 == s2);  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s1 === s2);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Symbol</span>(<span class="number">2</span>) == <span class="title class_">Symbol</span>(<span class="number">2</span>));  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Symbol</span>(<span class="number">2</span>) === <span class="title class_">Symbol</span>(<span class="number">2</span>));  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>注意以下範例會得到 true 的結果，運作和物件與物件比對很相近，這邊實際上只有建立一個 Symbol，s1 和 s2 是共用同一個記憶體位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// s1 和 s2 共用一個記憶體位置</span></span><br><span class="line"><span class="keyword">let</span> s1 = <span class="title class_">Symbol</span>(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">let</span> s2 = s1;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s1 == s2);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s1 === s2);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="物件型別與原始型別比較"><a href="#物件型別與原始型別比較" class="headerlink" title="物件型別與原始型別比較"></a>物件型別與原始型別比較</h3><p>前面提到 Symbol 型別比較的運作，很類似物件與物件比對的運作，會使用參考位置的方式比較，但物件型別與原始型別比較卻有不同規則，當物件型別與原始型別進行寬鬆相等比較時，JavaScript 會嘗試將物件型別轉換為與原始型別相同的型別，再進行比較</p>
+<h4 id="Number、String、BigInt-型別"><a href="#Number、String、BigInt-型別" class="headerlink" title="Number、String、BigInt 型別"></a>Number、String、BigInt 型別</h4><p>物件型別與這三種原始型別比較時，物件型別會嘗試轉換為與原始型別相同的型別，可以想成是用包裹物件 Number、String、BigInt 進行型別轉換後，再進行比較，這邊會以陣列為主要範例</p>
+<ul>
+<li><p><strong>物件型別 vs Number 型別</strong>：陣列 <code>[100]</code> 轉為 Number 型別是 <code>100</code>，所以結果為 true</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="number">100</span>] == <span class="number">100</span>);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>物件型別 vs String 型別</strong>：陣列 <code>[&#39;x&#39;, &#39;y&#39;]</code> 轉為 String 型別是 <code>&#39;x,y&#39;</code>，所以結果為 true，補充任何物件轉為 String 型別都是 <code>&#39;[object Object]&#39;</code>，所以 <code>&#123;&#125; == &#39;[object Object]&#39;</code> 結果為 true</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>] == <span class="string">&#x27;x,y&#x27;</span>);  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 任何物件轉為字串都是 &#x27;[object Object]&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(&#123;&#125; == <span class="string">&#x27;[object Object]&#x27;</span>);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>物件型別 vs BigInt 型別</strong>：陣列 <code>[&#39;100&#39;]</code> 和 <code>[100]</code> 轉為 BigInt 型別都是 <code>100n</code> ( 可以用 BigInt 包裹物件轉換型別查看結果 )，所以結果為 true</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="string">&#x27;100&#x27;</span>] == <span class="number">100n</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="number">100</span>] == <span class="number">100n</span>);  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// BigInt 不受最大安全值影響</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="string">&#x27;9007199254740992&#x27;</span>] == <span class="number">9007199254740993n</span>); <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="string">&#x27;9007199254740993&#x27;</span>] == <span class="number">9007199254740993n</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="Null、Undefined"><a href="#Null、Undefined" class="headerlink" title="Null、Undefined"></a>Null、Undefined</h4><p>Null 或 Undefined 型別本身沒有對應的包裹物件，物件型別也就不會轉換成 Null 或 Undefined 型別，所以物件型別與 Null 或 Undefined 型別比較的結果為 false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([] == <span class="literal">null</span>);  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(&#123;&#125; == <span class="literal">null</span>);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([] == <span class="literal">undefined</span>);  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(&#123;&#125; == <span class="literal">undefined</span>);  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="例外情況"><a href="#例外情況" class="headerlink" title="例外情況"></a>例外情況</h4><ul>
+<li><strong>Boolean 型別</strong>：物件型別與布林做比較，布林會轉為 Number 型別，物件型別也會轉為 Number 型別，再做比較</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// [] 轉為 Number 型別是 0，true 轉為 Number 型別是 1，false 則為 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([] == <span class="literal">false</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="number">1</span>] == <span class="literal">true</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="number">2</span>] == <span class="literal">true</span>);  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123;&#125; 轉為 Number 型別是 NaN，NaN 不等於任何值</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(&#123;&#125; == <span class="literal">true</span>);  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>📎物件型別與 Symbol 型別進行比較時，不是結果為 <code>false</code>，就是拋出無法轉型的錯誤，因此不建議直接讓物件或陣列與 Symbol 進行比較，因為幾乎不會得到 <code>true</code>，反而容易出現錯誤</p>
+<h2 id="真值與假值的應用"><a href="#真值與假值的應用" class="headerlink" title="真值與假值的應用"></a>真值與假值的應用</h2><p>真值與假值在實戰中，常會用於 if 判斷值是否存在、是否不為 0、是否不為 null 或 undefined，嚴格來說是判斷該值是否為「真值」，看看以下的範例應用</p>
+<p>變數 <code>a</code> 有被賦予值 <code>&#39;我是 a&#39;</code>，所以 if 判斷 <code>&#39;我是 a&#39;</code> 為真值，所以會運行完整的陳述式，若變數 <code>a</code> 的值是 null 或 undefined，則不會執行 <code>console.log(&#39;可運行&#39;);</code> 這行程式碼</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;我是 a&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span>(a)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;可運行&#x27;</span>);  <span class="comment">// &#x27;可運行&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>空的陣列 <code>[]</code> 是真值，若希望陣列內沒東西要被視為假值，可以在陣列後加上 <code>.length</code>，當長度為 0 就為假值，也就不會運行完整的陳述式了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// [] 是 true，console.log 會運行</span></span><br><span class="line"><span class="keyword">if</span>([])&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;可運行&#x27;</span>);  <span class="comment">// &#x27;可運行&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// [].length 是 false，所以 console.log 不會運行</span></span><br><span class="line"><span class="keyword">if</span>([].<span class="property">length</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;可運行&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>當然真值與假值在實戰中並不只限於 if，也有其他應用，像是搭配三元運算子或邏輯運算子 <code>&amp;&amp;</code>、<code>||</code> 來使用，接下來看幾個結合運算子的真值、假值應用範例</p>
+<ul>
+<li><p><strong>三元運算子</strong></p>
+<p>在 if 判斷式結構相對單純的情況下，可以改用三元運算子方式撰寫條件判斷的程式碼，能讓程式碼看起來更簡潔，增加閱讀性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if 判斷式</span></span><br><span class="line"><span class="keyword">let</span> message;</span><br><span class="line"><span class="keyword">let</span> isLoggedIn = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">if</span>(isLoggedin) &#123;</span><br><span class="line">  message = <span class="string">&#x27;歡迎回來！&#x27;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  message = <span class="string">&#x27;請先登入&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(message);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 三元運算子</span></span><br><span class="line"><span class="keyword">let</span> isLoggedIn = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">let</span> message = isLoggedIn ? <span class="string">&#x27;歡迎回來！&#x27;</span> : <span class="string">&#x27;請先登入&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(message);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>邏輯運算子 AND <code>&amp;&amp;</code></strong></p>
+<p>若要陣列有資料才執行程式，就可以用 <code>list.length</code> 取得陣列長度，再搭配邏輯運算子 <code>&amp;&amp;</code>，如果陣列中沒有資料，長度就會是被視為假值的 0，這時候就不會觸發 <code>&amp;&amp;</code> 後的 <code>console.log</code> 執行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list1 = [];</span><br><span class="line">list1.<span class="property">length</span> &amp;&amp; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;有資料！&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> list2 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">list2.<span class="property">length</span> &amp;&amp; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;有資料！&#x27;</span>);  <span class="comment">// &#x27;有資料！&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>邏輯運算子 OR <code>||</code></strong></p>
+<p>若函式沒有帶參數，則參數值為 undefined，這可能會影響函式內程式碼的運作，而透過搭配邏輯運算子 <code>||</code>，可以將被視為假值的 undefined 賦予一個預設值，避免錯誤</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> newNumber = num || <span class="number">100</span>;  <span class="comment">// 預設值 100</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(newNumber);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>();  <span class="comment">// 100</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="補充「AND-」和「OR-」"><a href="#補充「AND-」和「OR-」" class="headerlink" title="補充「AND &amp;&amp;」和「OR ||」"></a>補充「AND <code>&amp;&amp;</code>」和「OR <code>||</code>」</h3><p>經過上方的範例可以發現運算子「AND <code>&amp;&amp;</code>」和「OR <code>||</code>」，雖然字面意思是「且」跟「或」，感覺好像應該要回傳 <code>true</code> 或 <code>false</code> 這樣的布林值</p>
+<p>但在 JavaScript 中它們回傳的值<strong>不一定是布林值</strong>，而是<strong>兩個運算元中的其中一個</strong></p>
+<p>這兩個邏輯運算子都會<strong>從左至右</strong>檢查運算元的值，並將每個運算元<strong>先轉為對應的布林值（truthy &#x2F; falsy）進行邏輯判斷</strong>，再決定要回傳哪個原始值：</p>
+<ul>
+<li><p><strong><code>&amp;&amp;</code>（AND 運算子）</strong><br>  如果第一個運算元為 falsy，代表結果已經是 <code>false</code>，所以會<strong>直接回傳第一個值</strong>，不再判斷後面；否則會繼續判斷第二個值，並<strong>回傳第二個值</strong></p>
+</li>
+<li><p><strong><code>||</code>（OR 運算子）</strong><br>  如果第一個運算元為 truthy，代表結果已經是 <code>true</code>，所以會<strong>直接回傳第一個值</strong>，不再判斷後面；否則會繼續判斷第二個值，並<strong>回傳第二個值</strong></p>
+</li>
+</ul>
+<p>而這樣的機制稱為<strong>短路求值（Short-circuit evaluation）</strong>，正因為有這樣的機制，我們才能更簡潔地設定預設值、執行條件判斷的程式碼或避免錯誤</p>
+<h2 id="不是！你不是假值嗎？"><a href="#不是！你不是假值嗎？" class="headerlink" title="不是！你不是假值嗎？"></a>不是！你不是假值嗎？</h2><p>前面有提到真值很多，所以只要<strong>記假值就好，除假值之外其他都是真值</strong>，但就是會遇到那種讓人誤會滿滿的值，開始看以下範例前，建議再好好看一下<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy">假值的表格</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Boolean</span>([]));  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Boolean</span>(&#123;&#125;));  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Boolean</span>(<span class="string">&#x27;0&#x27;</span>));  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Boolean</span>(<span class="string">&#x27; &#x27;</span>));  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Boolean</span>(<span class="keyword">new</span> <span class="title class_">Number</span>(<span class="number">0</span>)));  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Boolean</span>(<span class="keyword">new</span> <span class="title class_">Boolean</span>(<span class="literal">false</span>)));  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>沒錯，以上結果都是 true，它們都是真值 <del>( 真到讓你懷疑人生 )</del>，空陣列跟空物件仔細看表格就會發現它們不是假值，而字串除了空字串是假值之外，字串內有任何值 ( 包含空白字元 ) 就是真值，再來最後兩個用 new 運算子搭配包裹物件建立的原始型別值，會變成物件，所以很遺憾它們也是真值</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>本篇文章介紹了嚴格相等、寬鬆相等，以及寬鬆相等比較時型別的轉換規則，最後也補充了真值與假值在實戰上的應用方式，型別轉換在 JavaScript 這門語言算是很重要的概念，理解轉換的規則在開發也能避開錯誤，希望大家看完三篇與型別相關的文章可以功力大增</p>
+<p>那我們下篇文章見囉 ~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/amy6072698/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
+              <a href="/amy10blog/tags/JavaScript/" rel="tag"><i class="fa fa-wand-sparkles"></i> JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/05/23/20250523-js-learning5/" rel="prev" title="JavaScript 修練 (5) | 型別的顯性與隱性轉換">
+                  <i class="fa fa-angle-left"></i> JavaScript 修練 (5) | 型別的顯性與隱性轉換
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-hat-wizard"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">轉載文章時請附上作者名 (Amy咂摳) 及原文連結，永遠感謝你</span>
+  </div>
+  <script color="211,202,236" opacity="0.8" zIndex="-1" count="33" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"amy6072698","repo":"amy10blog","client_id":"Ov23lihGMNKD37j8MGqG","client_secret":"bf537fcc7ae373e1434f2096214e7530b6df543a","admin_user":"amy6072698","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"31eaea1efe702cbaf680b0550ab04a4a"}</script>
+<script src="/amy10blog/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

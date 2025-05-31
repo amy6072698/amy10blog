@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#535C91" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/amy10blog/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/amy10blog/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/amy10blog/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/amy10blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/amy10blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/silver/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"amy6072698.github.io","root":"/amy10blog/","images":"/amy10blog/images","scheme":"Gemini","darkmode":true,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"atom-one-dark","dark":"atom-one-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#E5C3A6","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"找到 ${hits} 個搜索結果（用時 ${time} 毫秒）","hits":"找到 ${hits} 個搜索結果"},"path":"/amy10blog/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/amy10blog/js/config.js" defer></script>
+
+    <meta name="description" content="本篇將介紹型別的顯性轉換及隱性轉換，各種轉換型別的方式及規則">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 修練 (5) | 型別的顯性與隱性轉換">
+<meta property="og:url" content="http://amy6072698.github.io/amy10blog/2025/05/23/20250523-js-learning5/index.html">
+<meta property="og:site_name" content="Amy咂摳修練手冊">
+<meta property="og:description" content="本篇將介紹型別的顯性轉換及隱性轉換，各種轉換型別的方式及規則">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694wyDF1QieeD.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694a9TZ5OWMMV.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/201726941CLAE98h50.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/201726941wY49nk6GP.png">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/201726943I4XYC51yn.png">
+<meta property="article:published_time" content="2025-05-23T12:30:13.000Z">
+<meta property="article:modified_time" content="2025-05-31T12:55:22.537Z">
+<meta property="article:author" content="Amy咂摳">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20250531/20172694wyDF1QieeD.png">
+
+
+<link rel="canonical" href="http://amy6072698.github.io/amy10blog/2025/05/23/20250523-js-learning5/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://amy6072698.github.io/amy10blog/2025/05/23/20250523-js-learning5/","path":"2025/05/23/20250523-js-learning5/","title":"JavaScript 修練 (5) | 型別的顯性與隱性轉換"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript 修練 (5) | 型別的顯性與隱性轉換 | Amy咂摳修練手冊</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/utils.js" defer></script><script src="/amy10blog/js/motion.js" defer></script><script src="/amy10blog/js/sidebar.js" defer></script><script src="/amy10blog/js/next-boot.js" defer></script><script src="/amy10blog/js/bookmark.js" defer></script><script src="/amy10blog/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/amy10blog/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/amy10blog/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/amy10blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/amy10blog/atom.xml" title="Amy咂摳修練手冊" type="application/atom+xml">
+<link rel="alternate" href="/amy10blog/rss2.xml" title="Amy咂摳修練手冊" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+  <div class="headband"></div>
+
+  <main class="main">
+    
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/amy10blog/" class="brand" rel="start">
+        <img class="custom-logo-image" src="/amy10blog/images/logo.svg" alt="Amy咂摳修練手冊">
+      <i class="logo-line"></i>
+      <p class="site-title">Amy咂摳修練手冊</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">歡迎進入網頁的奇幻世界</p>
+    
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/amy10blog/" rel="section"><i class="fa fa-place-of-worship fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/amy10blog/about/" rel="section"><i class="fa fa-book-open-reader fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/amy10blog/tags/" rel="section"><i class="fa fa-wand-sparkles fa-fw"></i>標籤</a></li><li class="menu-item menu-item-categories"><a href="/amy10blog/categories/" rel="section"><i class="fa fa-scroll fa-fw"></i>分類</a></li><li class="menu-item menu-item-archives"><a href="/amy10blog/archives/" rel="section"><i class="fa fa-box-open fa-fw"></i>歸檔</a></li><li class="menu-item menu-item-rss"><a href="/amy10blog/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%89%E5%88%B0%E4%BD%A0%E6%9C%83%E6%9A%88%E7%9A%84%E5%8B%95%E6%85%8B%E5%9E%8B%E5%88%A5"><span class="nav-number">1.</span> <span class="nav-text">轉到你會暈的動態型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%AF%E6%80%A7%E8%BD%89%E6%8F%9B"><span class="nav-number">2.</span> <span class="nav-text">顯性轉換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5%E5%8C%85%E8%A3%B9%E7%89%A9%E4%BB%B6%E5%8F%8A%E5%8E%9F%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">原始型別包裹物件及原型方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%9E%8B%E5%88%A5%E5%8C%85%E8%A3%B9%E7%89%A9%E4%BB%B6"><span class="nav-number">2.1.1.</span> <span class="nav-text">原始型別包裹物件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.2.</span> <span class="nav-text">原型方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E8%B2%A0%E9%81%8B%E7%AE%97%E5%AD%90"><span class="nav-number">2.2.</span> <span class="nav-text">正負運算子 +  -</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%8F%E8%BC%AF%E9%81%8B%E7%AE%97%E5%AD%90-NOT"><span class="nav-number">2.3.</span> <span class="nav-text">邏輯運算子 NOT !</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%B1%E6%80%A7%E8%BD%89%E6%8F%9B"><span class="nav-number">3.</span> <span class="nav-text">隱性轉換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E9%81%8B%E7%AE%97%E5%AD%90%E7%9A%84"><span class="nav-number">3.1.</span> <span class="nav-text">二元運算子的 +</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AD%97%E4%B8%B2%E9%81%8B%E7%AE%97%E5%AD%90%E7%9A%84"><span class="nav-number">3.1.1.</span> <span class="nav-text">1. 字串運算子的 +</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%AE%97%E8%A1%93%E9%81%8B%E7%AE%97%E5%AD%90%E7%9A%84"><span class="nav-number">3.1.2.</span> <span class="nav-text">2. 算術運算子的 +</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BigInt-%E5%92%8C-Symbol-%E5%9E%8B%E5%88%A5"><span class="nav-number">3.1.3.</span> <span class="nav-text">BigInt 和 Symbol 型別</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E8%A1%93%E9%81%8B%E7%AE%97%E5%AD%90-%E3%80%81-%E3%80%81"><span class="nav-number">3.2.</span> <span class="nav-text">算術運算子 -、*、&#x2F;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%9E%8B%E5%88%A5%E8%BD%89%E7%82%BA%E6%95%B8%E5%80%BC%E5%9E%8B%E5%88%A5"><span class="nav-number">3.2.1.</span> <span class="nav-text">物件型別轉為數值型別</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81"><span class="nav-number">3.2.2.</span> <span class="nav-text">例外狀況</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Amy咂摳"
+      src="/amy10blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Amy咂摳</p>
+  <div class="site-description" itemprop="description">分享前端開發相關的文章</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/amy10blog/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/amy10blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/amy10blog/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://discordapp.com/users/1172554977592475708" title="Discord → http:&#x2F;&#x2F;discordapp.com&#x2F;users&#x2F;1172554977592475708" rel="noopener me" target="_blank"><i class="fab fa-discord fa-fw"></i>Discord</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ithelp.ithome.com.tw/users/20172694/articles" title="iT邦幫忙 → https:&#x2F;&#x2F;ithelp.ithome.com.tw&#x2F;users&#x2F;20172694&#x2F;articles" rel="noopener me" target="_blank"><i class="fa fa-comment fa-fw"></i>iT邦幫忙</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://amy6072698.github.io/amy10blog/2025/05/23/20250523-js-learning5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/amy10blog/images/avatar.jpg">
+      <meta itemprop="name" content="Amy咂摳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy咂摳修練手冊">
+      <meta itemprop="description" content="分享前端開發相關的文章">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript 修練 (5) | 型別的顯性與隱性轉換 | Amy咂摳修練手冊">
+      <meta itemprop="description" content="本篇將介紹型別的顯性轉換及隱性轉換，各種轉換型別的方式及規則">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript 修練 (5) | 型別的顯性與隱性轉換
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2025-05-23 20:30:13" itemprop="dateCreated datePublished" datetime="2025-05-23T20:30:13+08:00">2025-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2025-05-31 20:55:22" itemprop="dateModified" datetime="2025-05-31T20:55:22+08:00">2025-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/amy10blog/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="轉到你會暈的動態型別"><a href="#轉到你會暈的動態型別" class="headerlink" title="轉到你會暈的動態型別"></a>轉到你會暈的動態型別</h2><p>前篇提到 JavaScript 的型別不是固定不變的，所以我們可以把字串型別的值賦予在一個變數上，然後重新賦予該變數一個數值型別的值，覆蓋原本的型別，程式在運作時，型別會自動轉換，這也代表我們可以<strong>以不同的型別使用同一個變數</strong>，而這就稱為「動態型別」</p>
+<p>那麼有靜態型別嗎？有的，像 Java 這種編譯式語言，會先經過編譯後才會執行，在<strong>編譯期間會執行型別檢查，確保型別不會在執行時變更</strong>，增加程式運作的穩定性，這類就稱為「<strong>靜態型別</strong>」</p>
+<p>而 JavaScript 屬於直譯式語言，原始碼是由直譯器生成代碼並執行，過程中不會檢查型別，且會在<strong>執行過程中動態變更資料型別</strong>，因此稱為「<strong>動態型別</strong>」</p>
+<p>前篇也有提到 <strong>JavaScript 的變數沒有型別，值才有</strong>，因此變數隨著值的變更，也會同時變更型別，而除了直接重新賦予值之外，也可透過一些方式讓型別轉換</p>
+<p>而轉換方式的類型又分為「<strong>顯性轉換</strong>」( Explicit Conversion ) 和「<strong>隱性轉換</strong>」( Implicit Conversion )，這兩者看名字可以知道顯性是使用較明確的方式進行型別轉換，而隱性則是使用其他較不明顯的方式進行轉換，有些隱性轉換手法雖然不明顯無法直接看出轉換原因但是卻很簡短，所以對 JS 較熟練的開發者，也可能因此使用較隱性的方式轉換型別</p>
+<p>只是 JavaScript 規範中，並沒明確描述顯性及隱性的定義，所以何謂顯性、何謂隱性各開發者主觀的認定可能會略有不同，不過大致會以普遍的認知來區別兩者差異，接下來就以「顯性轉換」和「隱性轉換」，來分別介紹 JavaScript 有哪些轉換手法吧 ~</p>
+<h2 id="顯性轉換"><a href="#顯性轉換" class="headerlink" title="顯性轉換"></a>顯性轉換</h2><h3 id="原始型別包裹物件及原型方法"><a href="#原始型別包裹物件及原型方法" class="headerlink" title="原始型別包裹物件及原型方法"></a>原始型別包裹物件及原型方法</h3><h4 id="原始型別包裹物件"><a href="#原始型別包裹物件" class="headerlink" title="原始型別包裹物件"></a>原始型別包裹物件</h4><p>前篇文章提到原始型別包裹物件本身，也可以做為型別轉換的方法使用，其中除了沒有原始型別包裹物件的 null、undefined 之外，Number、String、Boolean、BigInt、Symbol 皆可作為轉換型別使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> produceId = <span class="string">&#x27;111&#x27;</span>;  <span class="comment">// produceId 為字串型別</span></span><br><span class="line"><span class="keyword">let</span> price = <span class="number">100</span>;  <span class="comment">// price 為數值型別</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 將 produceId 轉為數值型別</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>(produceId));  <span class="comment">// 111</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="title class_">Number</span>(produceId));  <span class="comment">// number</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 將 price 轉為其他型別</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">String</span>(price));  <span class="comment">// &#x27;100&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="title class_">String</span>(price));  <span class="comment">// string</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Boolean</span>(price));  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="title class_">Boolean</span>(price));  <span class="comment">// boolean</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">BigInt</span>(price));  <span class="comment">// 100n</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="title class_">BigInt</span>(price));  <span class="comment">// bigint</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Symbol</span>(price));  <span class="comment">// Symbol(100)</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="title class_">Symbol</span>(price));  <span class="comment">// symbol</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="原型方法"><a href="#原型方法" class="headerlink" title="原型方法"></a>原型方法</h4><p>前篇也有提到使用 console.dir 印出原始型別包裹物件後，可以在 prototype 這個物件中查看可以使用的方法，而這些原型方法中也有可以轉換型別的方法，如下圖在 Number 包裹物件中展開 prototype 可以找到 <code>toString()</code> 方法</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694wyDF1QieeD.png" alt="Number 中的 toString 方法"></p>
+<p> <code>toString()</code> 方法可以將不同型別的值轉為字串型別</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Number 裡面的 prototype 有 toString 這個方法</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(<span class="title class_">Number</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> price = <span class="number">100</span>;  <span class="comment">// price 為數值型別</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(price.<span class="title function_">toString</span>());  <span class="comment">// &#x27;100&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> price.<span class="title function_">toString</span>());  <span class="comment">// string</span></span><br></pre></td></tr></table></figure>
+
+<p>但是 null、undefined 這兩個型別，因為沒有原始型別包裹物件，無法使用 <code>toString()</code> 方法轉型為字串型別，所以 <code>String()</code> 相對於未知型別轉換是較穩定的，<code>toString()</code> 遇到特定型別可能會出現錯誤訊息 ( 如下 )</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// undefined 沒有 toString 方法可用，所以會跳出錯誤</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span>.<span class="title function_">toString</span>());   <span class="comment">// VM1630:1 Uncaught TypeError: Cannot read properties of undefined (reading &#x27;toString&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String() 方法可以將 undefined 轉為字串型別，不會跳錯</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">String</span>(<span class="literal">undefined</span>));  <span class="comment">// &#x27;undefined&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>📎<strong>補充數值型別轉換</strong></p>
+<p>除了使用 Number 包裹物件之外，還可以用 <code>parseInt()</code> 方法將不同型別的值轉為數值型別，只是兩者轉換上有一些差異，如果要將混有數字跟其他字元的字串轉為數值，<code>Number()</code> 會轉為 NaN ( Not a Number ) 的數值型別結果，但是 <code>parseInt()</code> 則可以將其中的數字轉換為數值型別，範例如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>(<span class="string">&#x27;100元&#x27;</span>));  <span class="comment">// NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>.<span class="built_in">parseInt</span>(<span class="string">&#x27;100元&#x27;</span>));  <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+
+<p>在全域 window 物件中也有 parseInt 方法，且跟 Number 下的 parseInt 方法一樣，所以省略 parseInt 前面的 Number 也可以運作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">parseInt</span> === <span class="title class_">Number</span>.<span class="property">parseInt</span>);  <span class="comment">// true，兩者相同</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="built_in">parseInt</span>(<span class="string">&#x27;100元&#x27;</span>));  <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+
+<p>Number 下的 parseInt 方法</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/20172694a9TZ5OWMMV.png" alt="Number 下的 parseInt 方法"></p>
+<p><code>parseInt()</code> 方法是將數值轉為整數，有小數點會直接被去除，所以如果數值有包含小數點，請改用 <code>parseFloat()</code> 進行轉換</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;20.6元&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="built_in">parseInt</span>(str));  <span class="comment">// 20</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="built_in">parseFloat</span>(str));  <span class="comment">// 20.6</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="正負運算子"><a href="#正負運算子" class="headerlink" title="正負運算子 +  -"></a>正負運算子 <code>+</code>  <code>-</code></h3><p>這裡的 <code>+</code>、<code>-</code> 是一元運算子，不是計算左右兩個運算元的二元運算子，更像是數學上用於表示正負值的用法，而不是用於計算結果</p>
+<p>在想轉換的值前方加上 <code>+</code> 或 <code>-</code>，可以將值轉換為數值型別，只是如果字串中含有非數字的字元，就會轉為 NaN，所以相對來說使用 <code>parseInt()</code> 是更穩定的轉數值方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">typeof</span>(+<span class="string">&#x27;1&#x27;</span>));  <span class="comment">// number</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="literal">true</span>);  <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="string">&#x27;50元&#x27;</span>);  <span class="comment">// NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-<span class="string">&#x27;50元&#x27;</span>);  <span class="comment">// NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">typeof</span>(+<span class="string">&#x27;50元&#x27;</span>));  <span class="comment">// number，NaN 也是 number 型別</span></span><br></pre></td></tr></table></figure>
+
+<p>📎<strong>注意</strong>：以上轉換數值型別的方式，指的是一元運算子的 <code>+</code> 跟 <code>-</code>，以下範例第一行的 <code>+</code> 是二元運算子 ( 這裡的運作之後會提到 )</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 二元運算子</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="string">&#x27;1&#x27;</span>);  <span class="comment">// &#x27;11&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">typeof</span>(<span class="number">1</span> + <span class="string">&#x27;1&#x27;</span>));  <span class="comment">// string</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 要正確轉為數值計算，需要在要轉換的字串前補上 +</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + +<span class="string">&#x27;1&#x27;</span>);  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="邏輯運算子-NOT"><a href="#邏輯運算子-NOT" class="headerlink" title="邏輯運算子 NOT !"></a>邏輯運算子 NOT <code>!</code></h3><p>要將不同型別轉換為布林值，可以使用前面提到的包裹物件 <code>Boolean()</code> 來進行轉換，它可以將「真值」轉為 true，「假值」轉為 false ( 什麼是真值、假值後面會提到 )</p>
+<p>但也可以使用更簡單的方式進行轉換，那就是使用邏輯運算子 Not <code>!</code>，<code>!</code> 運算子會將值轉為相反的布林值，也就是原本是真值會轉換成 false，原本是假值會轉換成 true</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(!<span class="literal">true</span>);  <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(!<span class="literal">false</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(!<span class="number">0</span>);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>那麼聰明的你一定想到了，如果在前面再加上一個 <code>!</code>，<code>!!</code> <del>雙重驚嘆</del> 是不是就可以讓不同型別的值轉換成原本的布林值了呢？沒錯，所以有時候在實戰上會使用兩個 Not <code>!!</code>，來將值轉換成布林值，示範如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(!!<span class="string">&#x27;1&#x27;</span>);  <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Boolean</span>(<span class="string">&#x27;1&#x27;</span>));  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="隱性轉換"><a href="#隱性轉換" class="headerlink" title="隱性轉換"></a>隱性轉換</h2><h3 id="二元運算子的"><a href="#二元運算子的" class="headerlink" title="二元運算子的 +"></a>二元運算子的 <code>+</code></h3><p>在顯性轉換時有提到，<code>+</code> 作為一元運算子 ( 正負運算子 ) 使用時，會將運算元轉換為數值型別，而這裡要講的是二元運算子的 <code>+</code>，有兩種用途：</p>
+<p>一種是作為「算術運算子」，用來計算數值 ( 算術運算子不只有 <code>+</code>，後面還會介紹其他 算術運算子)；另一種是作為「字串運算子」，用來連接字串，可以用以下三個規則判斷 <code>+</code> 是屬於哪種用途：</p>
+<ul>
+<li>規則一：前後運算元如果其中之一為「字串」型別，<code>+</code> 視為字串運算子</li>
+<li>規則二：前後運算元如果其中之一為「物件」型別，<code>+</code> 視為字串運算子</li>
+<li>規則三：上述情況以外，<code>+</code> 視為算術運算子</li>
+</ul>
+<p>簡單總結就是「<strong>當前後運算元，其一為字串或物件型別時，<code>+</code> 為字串運算子</strong>」</p>
+<hr>
+<h4 id="1-字串運算子的"><a href="#1-字串運算子的" class="headerlink" title="1. 字串運算子的 +"></a>1. 字串運算子的 <code>+</code></h4><p>當符合規則一、二，<code>+</code> 被視為字串運算子時，會先將前後運算元轉型為字串，再將兩個字串連接起來，示範如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 符合規則一：運算元其一為字串型別</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="string">&#x27;1&#x27;</span>);  <span class="comment">// &#x27;11&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合規則二：運算元其一為物件型別</span></span><br><span class="line"><span class="comment">// [] 轉字串為空字串 &#x27;&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + []);  <span class="comment">// &#x27;1&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + &#123;&#125;);  <span class="comment">// &#x27;1[object Object]&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;);  <span class="comment">// &#x27;1function()&#123;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>📎<strong>補充物件型別轉字串</strong>：物件型別中陣列、物件、函式套用 <code>toString()</code> 轉為字串型別的結果如下方範例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// [1, 2] 套用 toString() 轉字串結果為 &#x27;1,2&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + [<span class="number">1</span>, <span class="number">2</span>]);  <span class="comment">// &#x27;11,2&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 任何物件套用 toString() 轉字串結果都是 &#x27;[object Object]&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;);  <span class="comment">// &#x27;1[object Object]&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// function()&#123;return 1;&#125; 套用 toString() 轉字串結果為函式本身 &#x27;1function()&#123;return 1;&#125;&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;);  <span class="comment">// &#x27;1function()&#123;return 1;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="2-算術運算子的"><a href="#2-算術運算子的" class="headerlink" title="2. 算術運算子的 +"></a>2. 算術運算子的 <code>+</code></h4><p>當不符合規則一、二，也就是前後運算元為非字串的原始型別時，<code>+</code> 為算術運算子，這時會套用 <code>Number()</code> 將前後運算元轉為數值型別，再進行計算相加 ( 如下範例 )</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前後為數值計算相加結果為 3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="number">2</span>);  <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 布林值 true 轉為數值是 1，false 則為 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="literal">true</span>);  <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">false</span> + <span class="number">2</span>);  <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// undefined 轉為數值是 NaN，NaN 跟任何數值計算都是 NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="literal">undefined</span>);  <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// null 轉為數值是 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="literal">null</span>);  <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">null</span> + <span class="literal">null</span>);  <span class="comment">// 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">null</span> + <span class="literal">undefined</span>);  <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="BigInt-和-Symbol-型別"><a href="#BigInt-和-Symbol-型別" class="headerlink" title="BigInt 和 Symbol 型別"></a>BigInt 和 Symbol 型別</h4><p>然後你應該會發現上面算術運算子範例，少了原始型別的 BigInt 和 Symbol，沒錯，因為它們比較特殊，會出現例外狀況所以要另外說</p>
+<ul>
+<li><p><strong>BigInt 型別</strong></p>
+<p>當 <code>+</code> 為字串運算子時，BigInt 一樣會轉成字串再連接</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 符合規則一：運算元其一為字串型別</span></span><br><span class="line"><span class="comment">// 1n 轉為字串是 &#x27;1&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1n</span> + <span class="string">&#x27;1&#x27;</span>);  <span class="comment">// &#x27;11&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合規則二：運算元其一為物件型別</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1n</span> + []);  <span class="comment">// &#x27;1&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1n</span> + &#123;&#125;);  <span class="comment">// &#x27;1[object Object]&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1n</span> + <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;);  <span class="comment">// &#x27;1function()&#123;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>但是當遇到算術運算子時 ( <code>+</code> 以外的算術運算子也是 )，BigInt 不會隱性轉換為數值型別，而是會跳出 TypeError 錯誤，提示 BigInt 無法和其他型別混合使用，需要另外用顯性轉換方式轉型</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/201726941CLAE98h50.png" alt="BigInt 無法和其他型別做計算"></p>
+</li>
+<li><p><strong>Symbol 型別</strong></p>
+<p>Symbol 型別則是無論 <code>+</code> 是不是算術運算子，都不能用這種方式隱性轉型，值得一提的是，<code>+</code> 是字串運算子和 <code>+</code> 是算術運算子，跳出的 TypeError 錯誤提示會不太一樣</p>
+<p>當 <code>+</code> 為字串運算子時，會出現無法轉為字串型別的錯誤提示；<code>+</code> 為算術運算子時，則會出現無法轉為數值型別的錯誤提示，而這剛好可以驗證 + 的用途</p>
+<p>如下圖黃框處錯誤提示是無法轉為 number，可以驗證 <code>+</code> 為算術運算子，紅框處錯誤提示是無法轉為 string，可以驗證 <code>+</code> 是字串運算子</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/201726941wY49nk6GP.png" alt="Symbol 型別驗證 + 的用途"></p>
+<p>📎補充：Symbol 型別可以轉型成字串、布林，但是不能轉成數值型別</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20250531/201726943I4XYC51yn.png" alt="Symbol 型別不能轉為數值型別"></p>
+</li>
+</ul>
+<hr>
+<h3 id="算術運算子-、-、"><a href="#算術運算子-、-、" class="headerlink" title="算術運算子 -、*、/"></a>算術運算子 <code>-</code>、<code>*</code>、<code>/</code></h3><p>講完比較特殊的 <code>+</code> 之後，前面也有說到算術運算子其實不只有 <code>+</code>，還有 <code>-</code>、<code>*</code>、<code>/</code>，用起來就和數學四則運算一樣，可以做加減乘除計算</p>
+<p>算術運算子會將前後運算元套用 <code>Number()</code> 轉型為數值型別，再做計算</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">100</span> - <span class="number">50</span>);  <span class="comment">// 50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 空字串轉數值為 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">100</span> - <span class="string">&#x27;&#x27;</span>);  <span class="comment">// 100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">100</span> - <span class="string">&#x27;50&#x27;</span>);  <span class="comment">// 50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 布林值 true 轉為數值是 1，false 則為 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">100</span> - <span class="literal">true</span>);  <span class="comment">// 99</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">false</span> - <span class="number">50</span>);  <span class="comment">// -50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// undefined 轉為數值是 NaN，NaN 跟任何數值計算都是 NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">100</span> - <span class="literal">undefined</span>);  <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// null 轉為數值是 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">50</span> - <span class="literal">null</span>);  <span class="comment">// 50</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">null</span> - <span class="literal">null</span>);  <span class="comment">// 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">null</span> - <span class="literal">undefined</span>);  <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// *、/ 也一樣會轉型為數值型別，再做計算</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;100&#x27;</span> * <span class="literal">null</span>);  <span class="comment">// 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">50</span> / <span class="literal">true</span>);  <span class="comment">// 50</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><code>+</code> 必須不是字串運算子</strong>，才會套用 <code>Number()</code> 將運算元轉為數值型別後計算</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="string">&#x27;1&#x27;</span>);  <span class="comment">// &#x27;11&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">typeof</span>(<span class="number">1</span> + <span class="string">&#x27;1&#x27;</span>));  <span class="comment">// string</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> - <span class="string">&#x27;1&#x27;</span>);  <span class="comment">// 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">typeof</span>(<span class="number">1</span> - <span class="string">&#x27;1&#x27;</span>));  <span class="comment">// number</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="物件型別轉為數值型別"><a href="#物件型別轉為數值型別" class="headerlink" title="物件型別轉為數值型別"></a>物件型別轉為數值型別</h4><p>物件型別轉型為數值型別的過程，會先用 <code>toString()</code> 轉型為字串，再用 <code>Number()</code> 轉型為數值，如果字串中有非數字字元就會是 NaN，而 NaN 跟任何數值計算都是 NaN</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 陣列 [100, 1] 轉為字串是 &#x27;100,1&#x27;，轉成數值是 NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="number">100</span>, <span class="number">1</span>].<span class="title function_">toString</span>());  <span class="comment">// &#x27;100,1&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>([<span class="number">100</span>, <span class="number">1</span>].<span class="title function_">toString</span>()));  <span class="comment">// NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="number">100</span>, <span class="number">1</span>] * <span class="number">100</span>);  <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 陣列 [100] 轉為字串是 &#x27;100&#x27;，轉成數值是 100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="number">100</span>].<span class="title function_">toString</span>());  <span class="comment">// &#x27;100&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>([<span class="number">100</span>].<span class="title function_">toString</span>()));  <span class="comment">// 100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([<span class="number">100</span>] * <span class="number">100</span>);  <span class="comment">// 10000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 任何物件轉為字串都是 &#x27;[object Object]&#x27;，轉成數值是 NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(&#123;&#125; * <span class="number">100</span>);  <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 以下函式為字串是 &#x27;function fn()&#123;return 1&#125;&#x27;，轉成數值是 NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>)&#123;<span class="keyword">return</span> <span class="number">1</span>&#125; * <span class="number">100</span>);  <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="例外狀況"><a href="#例外狀況" class="headerlink" title="例外狀況"></a>例外狀況</h4><p>這邊例外狀況前面有稍微提到，就是 BigInt 和 Symbol 這兩個型別，BigInt 型別不能和其他型別混合計算，若 BigInt 型別要與數值型別計算，要先把 BigInt 轉成數值型別再計算，才不會跳錯，而 Symbol 型別則是無法用這種方式隱性轉型再計算</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BigInt 型別不能和其他型別計算，僅能與 BigInt 型別計算</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1n</span> * <span class="number">100</span>);  <span class="comment">// Uncaught TypeError: Cannot mix BigInt and other types, use explicit conversions</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1n</span> * <span class="number">100n</span>);  <span class="comment">// 100n</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 若要與數值型別計算，BigInt 要先顯性轉型成數值再計算</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((<span class="title class_">Number</span>(<span class="number">1n</span>)) * <span class="number">100</span>);  <span class="comment">// 100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Symbol 型別無法用這種方式隱性轉型再計算</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">100</span> * <span class="title class_">Symbol</span>(<span class="number">1</span>));  <span class="comment">// Uncaught TypeError: Cannot convert a Symbol value to a number</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>本篇文章介紹了 JavaScript 在型別轉換分成顯性及隱性轉換，也分別針對兩種轉換介紹了各種轉換型別的方式及規則，希望下次在遇到型別轉換時，大家都能更了解背後的規則</p>
+<p>那我們就下篇文章見囉 ~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <script type="text/javascript">
+    document.write(
+      "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/amy6072698/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+  </script>
+</div>
+          <div class="post-tags">
+              <a href="/amy10blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-wand-sparkles"></i> 前端</a>
+              <a href="/amy10blog/tags/JavaScript/" rel="tag"><i class="fa fa-wand-sparkles"></i> JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/05/22/20250522-js-learning4/" rel="prev" title="JavaScript 修練 (4) | 型別判斷與原始型別包裹物件">
+                  <i class="fa fa-angle-left"></i> JavaScript 修練 (4) | 型別判斷與原始型別包裹物件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/amy10blog/2025/05/24/20250524-js-learning6/" rel="next" title="JavaScript 修練 (6) | 比較時的型別轉換與真值假值">
+                  JavaScript 修練 (6) | 比較時的型別轉換與真值假值 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-solid fa-hat-wizard"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">轉載文章時請附上作者名 (Amy咂摳) 及原文連結，永遠感謝你</span>
+  </div>
+  <script color="211,202,236" opacity="0.8" zIndex="-1" count="33" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"amy6072698","repo":"amy10blog","client_id":"Ov23lihGMNKD37j8MGqG","client_secret":"bf537fcc7ae373e1434f2096214e7530b6df543a","admin_user":"amy6072698","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"bd651c4bbdbb39d6de962080f829a17a"}</script>
+<script src="/amy10blog/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>
