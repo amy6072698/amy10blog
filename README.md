@@ -21,7 +21,7 @@
 
 ### 👀 專案展示
 
-![首頁]()
+![首頁](https://github.com/amy6072698/amy10blog/blob/dev/themes/next/source/images/preveiw.png?raw=true)
 
 ---
 
